@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pro1</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title><%= yield(:title) %></title>
+    
+    <!--CSRF攻撃を防ぐためのRailsのメソッド-->
+    <%= csrf_meta_tags %>  
+    
+    <!--スタイルシートをページ内で展開する-->
+    <%= stylesheet_link_tag    'application', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
+    <!--Javascriptをページ内で展開する-->
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+ 
+    <!--IEのバージョンが9未満の場合にのみHTML5 shimを読み込む-->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <body>
