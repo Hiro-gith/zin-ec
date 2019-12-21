@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+  
+  <!--javascriptでHello World!を出力-->
+  <script>
+    console.log('Hello World!');
+  </script>
+  
+  <!--別ファイルのasset/javascripts/hello.jsを読み込む-->
+  <%= javascript_include_tag "hello" %>
+  
+  <%= javascript_include_tag "calc" %>
+  
+  <!--別ファイルのイメージのasset/javascripts/holder.jsを読み込む-->
+  <img data-src="holder.js/200x100" alt="image"/>
+  
+  </body>
+</html>

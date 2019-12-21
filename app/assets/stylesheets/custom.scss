@@ -1,0 +1,287 @@
+@import "bootstrap";
+
+// CSSのリセット始まり
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+// html, body, div, span, object, iframe,
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// abbr, address, cite, code,
+// del, dfn, em, img, ins, kbd, q, samp,
+// small, strong, sub, sup, var,
+// b, i,
+// dl, dt, dd, ol, ul, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, canvas, details, figcaption, figure,
+// footer, header, hgroup, menu, nav, section, summary,
+// time, mark, audio, video {
+//     margin:0;
+//     padding:0;
+//     border:0;
+//     outline:0;
+//     font-size:100%;
+//     vertical-align:baseline;
+//     background:transparent;
+// }
+
+// body {
+//     line-height:1;
+// }
+
+// article,aside,details,figcaption,figure,
+// footer,header,hgroup,menu,nav,section {
+// 	display:block;
+// }
+
+// nav ul {
+//     list-style:none;
+// }
+
+// blockquote, q {
+//     quotes:none;
+// }
+
+// blockquote:before, blockquote:after,
+// q:before, q:after {
+//     content:'';
+//     content:none;
+// }
+
+// a {
+//     margin:0;
+//     padding:0;
+//     font-size:100%;
+//     vertical-align:baseline;
+//     background:transparent;
+// }
+
+// /* change colours to suit your needs */
+// ins {
+//     background-color:#ff9;
+//     color:#000;
+//     text-decoration:none;
+// }
+
+// /* change colours to suit your needs */
+// mark {
+//     background-color:#ff9;
+//     color:#000;
+//     font-style:italic;
+//     font-weight:bold;
+// }
+
+// del {
+//     text-decoration: line-through;
+// }
+
+// abbr[title], dfn[title] {
+//     border-bottom:1px dotted;
+//     cursor:help;
+// }
+
+// table {
+//     border-collapse:collapse;
+//     border-spacing:0;
+// }
+
+// /* change border colour to suit your needs */
+// hr {
+//     display:block;
+//     height:1px;
+//     border:0;
+//     border-top:1px solid #cccccc;
+//     margin:1em 0;
+//     padding:0;
+// }
+
+// input, select {
+//     vertical-align:middle;
+// }
+//CSSリセット修了
+
+
+@charset "utf-8";
+
+/*homeのCSS始まり*/
+body{
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ",sans-serif;
+}
+
+// 一番上の線
+header{
+  border-top: 8px solid #614226;
+}
+
+// タイトル
+header h1{
+  font-size: 2.0em;
+  margin: 40px 0 30px 0;
+  text-align: center;
+}
+
+//ナビバーの枠（全体）
+header nav ul{
+  width: 940px;
+  margin: 0 auto 0 auto;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+//ナビバーの枠（個々）
+header nav ul li{
+  float: left;
+  width: 155px;
+  margin-right: 2px;
+  text-align: center;
+}
+
+//最後の要素
+header nav ul li:last-child{
+  margin-right : 0;
+}
+
+//ナビゲーションのフロートの解除
+.clearfix:after{
+  content: '';
+  display: block;
+  clear:both;
+}
+
+//ナビゲーション内の文字
+header nav ul li a{
+  display: block;  //リンクの範囲を親要素と同じにするため（文字だけにしない）
+  padding: 10px 0;
+  text-decoration: none;  //リンクはデフォルトで下線がついてしまうので下線を消す
+  color: #fff;
+  background-color: #614226;
+}
+
+header nav ul li a:hover,
+header nav ul li a:active,
+header nav ul li.current a{
+  background-color: #000;
+}
+
+main{
+  width: 940px;
+  margin: 0 auto;
+}
+
+main h2{
+  font-size: 1.5em;
+  position: relative;
+  margin-bottom: 50px;
+  text-align: center;    
+}
+
+//カフェの画像
+#main_image{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#main_content{
+  float: left;
+  width: 600px;
+}
+
+#sidebar{
+  float: right;
+  width: 300px;
+}
+
+//bodyのh2(お知らせ、キャンペーン情報)
+#home h2{
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 30px;
+  padding: 5px 10px;
+  text-align: left;
+  border-bottom: 1px solid #614226;
+  border-left: 10px solid #614226;
+}
+
+//お知らせの中身（全体）
+#info dl{
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+//お知らせの日付
+#info dt{
+  float: left;  //日付と内容が横並びになる
+  width: 8em;  //日付と内容の間にスペースが入る
+}
+
+//お知らせの日付と内容の行間
+#info dt,
+#info dd{
+  line-height: 1.5;
+}
+
+//キャンペーン情報の中身
+#campain li{
+  line-height: 1.5;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+//バナー
+#sidebar ul{
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar ul li{
+  margin-bottom: 20px;
+  list-style-type: none;
+}
+
+//ホーム・商品情報など
+footer{
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  background-color: #614226
+}
+
+footer ul{
+  margin-bottom: 20px;
+}
+
+footer ul li{
+  displey: inline;
+  list-style-type: none;
+}
+
+footer ul li a{
+  color: #fff;
+}
+
+footer ul li a:link{
+  text-decoration: none;
+}
+
+footer ul li a:hover,
+footer ul li a:active{
+  text-decoration: underline;
+}
+
+/*homeのCSS終わり*/
+
+/*galleryのCSS始まり*/
+.catgallery img{
+  width: 100%;
+}
+
+.body_gallery{
+  padding-top: 5rem;
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ",san-serif;
+}
+/*galleryのCSS終わり*/
