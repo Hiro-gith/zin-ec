@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+   <%= render 'arazin-head' %>
+  </head>
+  <body class="body-arazin">
+    
+    <!--ナビバー-->
+    <%= render 'arazin-navbar' %>
+  
+    <div class="top-menu">
+      <main class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h1 class="arazin-title">Arazin</h1>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Text input with dropdown button">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div role="separator" class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!--fontawesomeを利用するための読み込み-->
+    <script src="https://kit.fontawesome.com/31168af8af.js"></script>
+  </body>
+    
+</html>
