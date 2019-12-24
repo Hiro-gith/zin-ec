@@ -299,8 +299,8 @@ footer ul li a:active{
 // ナビバーのリストの間隔調整
 .navbar-nav li {
   // block幅
-  width: 220px;
-  margin-right:2px;
+  // width: 200px;
+  // margin-right:2px;
   
   text-align: center;
   
@@ -341,18 +341,26 @@ footer ul li a:active{
 
 /*□ナビバー終了*/
 
-.top-menu{
-  // margin-top:50px;
-}
+/*■トップメニュー開始*/
 
 .arazin-title{
+  // float:left;
+}
+
+// .col-md-2 .arazin-title {
+//   margin:0px 0px;
+// }
+
+.arazin-title h1{
   font-weight :bold;
   color:#00f; 
   font-style : italic;
   text-decoration: underline #00f;
 }
 
-// .arazin-title{
-//   float:left;
-// }
+.arazin-serch{
+  padding:5px 5px;
+}
+
+/*□トップメニュー終わり*/
 /*arazinのCSS終わり*/
