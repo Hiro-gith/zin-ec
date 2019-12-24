@@ -285,3 +285,74 @@ footer ul li a:active{
   font-family:"Hiragino Kaku Gothic ProN","メイリオ",san-serif;
 }
 /*galleryのCSS終わり*/
+
+
+/*arazinのCSS始まり*/
+
+/*■ナビバー開始*/
+
+// ナビバー全体
+.arazin-navbar{
+  margin-bottom:50px;
+}
+
+// ナビバーのリストの間隔調整
+.navbar-nav li {
+  // block幅
+  width: 220px;
+  margin-right:2px;
+  
+  text-align: center;
+  
+}
+
+// ナビバーのリストの間隔調整
+.navbar-nav li a{
+  display: block;
+  font-weight :bold;
+  // 文字の色を白に指定
+  color: #fff;
+}
+
+// スーパーDeal
+.nav-item1 a{
+  border-bottom: 5px solid #00f;
+}
+
+// ランキング
+.nav-item2 a{
+  border-bottom: 5px solid #0f0;
+}
+
+// カード
+.nav-item3 a{
+  border-bottom: 5px solid #f77;
+}
+
+// ヘルプ
+.nav-item4 a{
+  border-bottom: 5px solid #fa7;
+}
+
+// 出店
+.nav-item5 a{
+  border-bottom: 5px solid #3cf;
+}
+
+/*□ナビバー終了*/
+
+.top-menu{
+  // margin-top:50px;
+}
+
+.arazin-title{
+  font-weight :bold;
+  color:#00f; 
+  font-style : italic;
+  text-decoration: underline #00f;
+}
+
+// .arazin-title{
+//   float:left;
+// }
+/*arazinのCSS終わり*/

@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
   
   def javascript
   end
+  
+  def arazin
+  end
 end
