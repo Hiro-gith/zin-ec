@@ -296,10 +296,14 @@ footer ul li a:active{
   margin-bottom:50px;
 }
 
+.navbar-nav .col-lg-4{
+  padding-right:5px;
+}
+
 // ナビバーのリストの間隔調整
 .navbar-nav li {
   // block幅
-  // width: 200px;
+  width: 125px;
   // margin-right:2px;
   
   text-align: center;
@@ -361,6 +365,42 @@ footer ul li a:active{
 .arazin-serch{
   padding:5px 5px;
 }
+
+// 検索フォーム
+.arazin-serch .form-control{
+  border:3px;
+  border:solid #00F;
+  // 角を角にする
+  border-radius: 0;
+}
+
+// 検索フォームの詳細ボタン
+.arazin-serch .btn{
+  border:solid #00F;
+  border-left-width:1px;
+  border-left-color:#BAD3FF;
+  border-radius: 0;
+}
+
+//検索フォームの虫眼鏡アイコン（全体）
+.arazin-serch-icon{
+  // display:block;
+  // position:relative;
+  width:45px;
+  background-color:#00F;
+  border-color:#00F;
+  color:#FFF;
+  
+  // アイコンの大きさ調整
+  font-size: 1.5em;
+  
+  // アイコンの太さ調整
+  -webkit-text-stroke:2px #00F;
+  
+  //アイコンの位置調整
+  padding-top:4px;
+}
+
 
 /*□トップメニュー終わり*/
 /*arazinのCSS終わり*/
