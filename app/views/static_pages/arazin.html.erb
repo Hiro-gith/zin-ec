@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
   <head>
    <%= render 'arazin-head' %>
   </head>
@@ -8,47 +6,31 @@
     <!--ナビバー-->
     <%= render 'arazin-navbar' %>
   
-    <div class="top-menu">
+    <!--トップメニュー-->
+    <%= render 'arazin-top-menu'%>
+    
+     <!--トップサブメニュー-->
+    <div class="arazin-top-sub">
       <main class="container">
         <div class="row">
-          
-          <div class=""col-lg-4 col-sm-6 mb-3"">
-            <div class="arazin-title">
-              <h1>Arazin</h1>
-            </div>
-          </div>
-  
-          
-          <div class=""col-lg-4 col-sm-6 mb-3"">
-            <div class="arazin-serch">
-              <div class="input-group">
-                
-                <!--placeholderで最初の文字を出力　-->
-                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="キーワードから探す" >
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">詳細検索</button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div role="separator" class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                  </div>
-                  <button type="submit" class="arazin-serch-icon">
-                    <i class="fas fa-search renzu"></i>
-                  </button>
-
-                  
-                  
-                  
-                </div>
-              </div>
-            </div>
+          <div class="col-lg-7 col-sm-7">
+            <p class="greeding1">ようこそアラジンへ</p>
+            <p class="greeding2">会員登録でアラジンマジックポイントが貯まる</p>
           </div>
           
+          <div class="col-lg-5 col-sm-5">
+            <a href="#" class="arazin-sighin">
+              <p><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
+            </a>
+            <a href="#" class ="arazin-login">
+              <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログイン</button>
+            </a>
+          </div>
         </div>
       </main>
     </div>
+    
+    
     <!--fontawesomeを利用するための読み込み-->
     <script src="https://kit.fontawesome.com/31168af8af.js"></script>
   </body>
