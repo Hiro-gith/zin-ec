@@ -347,23 +347,34 @@ footer ul li a:active{
 
 /*■トップメニュー開始*/
 
-.arazin-title{
-  // float:left;
+.arazin-top-menu{
+  border-bottom:0.5px solid #999;
+  padding-top:10px;
 }
-
-// .col-md-2 .arazin-title {
-//   margin:0px 0px;
-// }
-
+//タイトルロゴ　Arazin
 .arazin-title h1{
+  display:block;
+  // width:100%;
   font-weight :bold;
   color:#00f; 
   font-style : italic;
   text-decoration: underline #00f;
+  margin-right:0px;
+  padding-right:0px;
+  text-align:left;
+  padding-top:5px;
+}
+
+.top-col .col-lg-5 {
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-right:0px;
 }
 
 .arazin-serch{
-  padding:5px 5px;
+  padding:10px 0px;
+  width:auto;
+  text-align:center;
 }
 
 // 検索フォーム
@@ -380,27 +391,93 @@ footer ul li a:active{
   border-left-width:1px;
   border-left-color:#BAD3FF;
   border-radius: 0;
+  width:100px;
 }
 
 //検索フォームの虫眼鏡アイコン（全体）
 .arazin-serch-icon{
-  // display:block;
+  display:block;
   // position:relative;
   width:45px;
+  height:40px;
   background-color:#00F;
   border-color:#00F;
   color:#FFF;
   
   // アイコンの大きさ調整
-  font-size: 1.5em;
+  font-size: 1.7em;
   
   // アイコンの太さ調整
-  -webkit-text-stroke:2px #00F;
+  -webkit-text-stroke:3px #00F;
   
-  //アイコンの位置調整
-  padding-top:4px;
 }
 
+// アイコンの文字
+.arazin-top-menu p{
+  font-size:13px;
+}
 
+.arazin-cart,.arazin-info,.arazin-browsing-history,.arazin-favorite,.arazin-purchase-history{
+ display:block;
+  width:75px;
+  height:50px;
+  margin:10px 0px 0px 0px;
+  text-align:center;
+  // 横に並べる
+  float:left;
+}
+
+.icon-cart i,.icon-info i,.icon-browsing-history i,.icon-favorite i,.icon-purchase-history i{
+  // アイコンの大きさ調整
+  font-size: 1.7em;
+  color:#00F;
+  margin-right:5px;
+}
+
+// カーソルをあわせた時の下線を消す
+.arazin-top-menu a:hover { 
+  text-decoration: none; 
+}
+
+.arazin-top-menu a { 
+  border-right:0.5px solid #999;
+}
+
+//最後の要素だけ枠線を無しにする
+.arazin-top-menu a:last-child{
+  border:none;
+}
 /*□トップメニュー終わり*/
+
+/*■トップサブメニュー開始*/
+.greeding1,.greeding2,.arazin-sighin p{
+  margin-top:20px;
+}
+
+.arazin-login button{
+  margin-top:15px;
+}
+
+.arazin-top-sub a:last-child{
+  margin-top:0px;
+}
+.arazin-top-sub p{
+  float:left;
+}
+
+.greeding1{
+  margin-right:10px;
+  font-weight:bold;
+}
+
+.greeding2{
+  margin-right:30px;
+}
+
+.arazin-sighin{
+  margin-left:3px;
+}
+
+/*□トップサブメニュー終わり*/
+
 /*arazinのCSS終わり*/
