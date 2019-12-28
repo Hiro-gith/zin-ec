@@ -289,7 +289,7 @@ footer ul li a:active{
 
 /*arazinのCSS始まり*/
 
-/*■ナビバー開始*/
+/*■ナビバー開始                                                */
 
 // ナビバー全体
 .arazin-navbar{
@@ -343,9 +343,9 @@ footer ul li a:active{
   border-bottom: 5px solid #3cf;
 }
 
-/*□ナビバー終了*/
+/*□ナビバー終了                                           */
 
-/*■トップメニュー開始*/
+/*■トップメニュー開始                                      */
 
 .arazin-top-menu{
   border-bottom:0.5px solid #999;
@@ -446,21 +446,21 @@ footer ul li a:active{
 //最後の要素だけ枠線を無しにする
 .arazin-top-menu a:last-child{
   border:none;
+  
 }
-/*□トップメニュー終わり*/
+/*□トップメニュー終わり                                            */
 
-/*■トップサブメニュー開始*/
+/*■トップサブメニュー開始                                        */
 .greeding1,.greeding2,.arazin-sighin p{
   margin-top:20px;
+  margin-bottom:0px;
 }
 
+//ログインボタン
 .arazin-login button{
   margin-top:15px;
 }
 
-.arazin-top-sub a:last-child{
-  margin-top:0px;
-}
 .arazin-top-sub p{
   float:left;
 }
@@ -470,14 +470,96 @@ footer ul li a:active{
   font-weight:bold;
 }
 
-.greeding2{
-  margin-right:30px;
-}
-
+//会員登録
 .arazin-sighin{
-  margin-left:3px;
+  margin-right:20px;
 }
 
-/*□トップサブメニュー終わり*/
+//ログインボタンの中のアイコン
+.arazin-login i{
+  margin-right:3px;
+}
 
+/*□トップサブメニュー終わり                                 */
+
+/*■カルーセル開始                                            */
+.arazin-carousel{
+  margin-top:25px;
+}
+
+/*□カルーセル終わり*/
+
+/*■サイドメニュー1(画像と配達日)開始                                      */
+
+.arazin-side-menu1{
+  margin-top:40px;
+}
+
+.arazin-side-menu1 .side-image1{
+  margin-bottom:10px;
+}
+
+.arazin-side-menu1 .side-image2{
+  margin-bottom:15px;
+}
+
+.arazin-side-menu1 .araraku{
+  font-size:8px;
+  font-weight :bold;
+  margin-left:5px;
+  margin-bottom:0px;
+  
+  color:#000;
+}
+
+// 最短
+.arazin-side-menu1 .saitan{
+  font-size:8px;
+  margin:5px 0px 0px 3px;
+  // 縦書き
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+
+// 日付
+#view_today{
+  font-size:20px;
+}
+
+// 曜日
+#view_youbi{
+  font-size:10px;
+  margin:11px 0px 0px 0px;
+}
+
+.saitan,#view_today,#view_youbi{
+  float:left;
+}
+
+.haitatubi{
+  color:#00f;
+}
+
+.arazin-side-menu2{
+  margin:50px 0px 0px 0px;
+  border-top:0.5px solid #999;
+  padding-top:10px;
+}
+
+//ジャンル
+.arazin-side-menu2 .genre{
+  margin:0px 0px 0px 0px;
+  text-align:left;
+  font-weight:bold;
+  font-size:10px;
+  float:left;
+}
+
+.arazin-side-menu2 .itiran{
+  margin:0px 0px 0px 0px;
+  font-size:10px;
+  text-align:right;
+}
+
+/*□サイドメニュー1(画像と配達日)終わり*                          /
 /*arazinのCSS終わり*/
