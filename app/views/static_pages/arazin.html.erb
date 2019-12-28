@@ -9,28 +9,42 @@
     <!--トップメニュー-->
     <%= render 'arazin-top-menu'%>
     
-     <!--トップサブメニュー-->
-    <div class="arazin-top-sub">
+    <!--トップサブメニュー-->
+    <%= render 'arazin-top-sub'%>
+    
+    <!--カルーセル-->
+    <%= render 'arazin-carousel'%>
+    
+    <!--サイドメニュー-->
+    <aside class="arazin-side-menu">
       <main class="container">
         <div class="row">
-          <div class="col-lg-7 col-sm-7">
-            <p class="greeding1">ようこそアラジンへ</p>
-            <p class="greeding2">会員登録でアラジンマジックポイントが貯まる</p>
-          </div>
-          
-          <div class="col-lg-5 col-sm-5">
-            <a href="#" class="arazin-sighin">
-              <p><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
-            </a>
-            <a href="#" class ="arazin-login">
-              <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログイン</button>
-            </a>
+          <div class="col-lg-4 col-sm-4">
+            
+            <!--サイドメニュー1(画像と配達日)-->
+            <%= render 'arazin-side-menu1'%>
+            
+            <!--サイドメニュー2(ジャンル)開始-->
+            <div class="arazin-side-menu2">
+              <div class="genre-menu">
+                <p class="genre">ジャンル</p>
+                  <a href="#">
+                    <p class="itiran">一覧</p>
+                  </a>
+              </div>
+              
+              <div class="genre-contents">
+                <p>家電</p>
+                <p>PC・スマホ</p>
+                <p>食品</p>
+              </div>
+              
+            </div>
           </div>
         </div>
       </main>
-    </div>
-    
-    
+    </aside>
+     
     <!--fontawesomeを利用するための読み込み-->
     <script src="https://kit.fontawesome.com/31168af8af.js"></script>
   </body>
