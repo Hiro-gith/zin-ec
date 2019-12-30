@@ -8,9 +8,10 @@
           </div>
           
           <div class="col-lg-5 col-sm-5">
-            <a href="#" class="arazin-sighin">
-              <p><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
-            </a>
+            <%= link_to(signup_path)  do %>
+             <p class="arazin-sighup"><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
+            <% end %>
+            
             <a href="#" class ="arazin-login">
               <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログイン</button>
             </a>
