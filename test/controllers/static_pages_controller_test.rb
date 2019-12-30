@@ -1,9 +1,51 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  test "should get home" do
-    get static_pages_home_url
+  
+  def setup
+    @base_title ="Arazin"
+  end
+  
+  # Home
+  test "should get arazin_home" do
+    get root_path
     assert_response :success
+    assert_select "title","Home | #{@base_title}"
+  end
+  
+  # magicdeal
+  test "should get magicdeal" do
+    get magicdeal_path
+    assert_response :success
+    assert_select "title","Magicdeal | #{@base_title}"
+  end
+  
+  # ranking
+  test "should get ranking" do
+    get ranking_path
+    assert_response :success
+    assert_select "title","Ranking | #{@base_title}"
+  end
+  
+  # card
+  test "should get card" do
+    get card_path
+    assert_response :success
+    assert_select "title","Card | #{@base_title}"
+  end
+  
+  # Help
+  test "should get help" do
+    get help_path
+    assert_response :success
+    assert_select "title","Help | #{@base_title}"
+  end
+  
+  # ec
+  test "should get ec" do
+    get ec_path
+    assert_response :success
+    assert_select "title","EC | #{@base_title}"
   end
 
 end
