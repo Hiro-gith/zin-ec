@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title><%= yield(:title) %></title>
+    <!--full_titleタイトルヘルパーを使用(app/helpers/application_helper.rb)-->
+    <title><%= full_title(yield(:title)) %></title>
     
     <!--CSRF攻撃を防ぐためのRailsのメソッド-->
     <%= csrf_meta_tags %>  
