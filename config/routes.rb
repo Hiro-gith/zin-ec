@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
   
   get '/signup',to: 'users#new'
+  post '/signup',  to: 'users#create'
+  
+  # UsersリソースをRESTfulにする
+  resources :users  
   
   
   # 他のポートフォリオ
