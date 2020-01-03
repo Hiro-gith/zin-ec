@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # static
   root 'static_pages#arazin'
   get '/magicdeal',to:'static_pages#magicdeal'
   get '/ranking',to:'static_pages#ranking'
@@ -7,8 +8,14 @@ Rails.application.routes.draw do
   get '/help',to:'static_pages#help'
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
   
+  # users
   get '/signup',to: 'users#new'
   post '/signup',  to: 'users#create'
+  
+  # sessions
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
   
   # UsersリソースをRESTfulにする
   resources :users  
