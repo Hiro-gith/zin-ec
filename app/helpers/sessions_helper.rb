@@ -5,12 +5,29 @@ module SessionsHelper
     session[:user_id] = user.id
   end
   
+  # 記憶トークンから記憶ダイジェストにしデータベースへ保存
+  # 永続的クッキーにユーザーidと記憶トークンを保存
+  def remember(user)
+    user.remember
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent[:remember_token] = user.remember_token
+  end
+  
   # 現在ログイン中のユーザーを返す (いる場合)
   def current_user
-    if session[:user_id]
+    # 代入後user_idがtrueなら（session[:user_id]があれば）
+    if (user_id = session[:user_id])
       # @current_userがnilなら代入する
       # インスタンス変数に保存することで、データベースへの問い合わせを1回にする
       @current_user ||= User.find_by(id: session[:user_id])
+      
+    # 代入後user_idがtrueなら（cookies.signed[:user_id]があれば）  
+    elsif (user_id = cookies.signed[:user_id])
+      user = User.find_by(id: user_id)
+      if user && user.authenticated?(cookies[:remember_token])
+        log_in user
+        @current_user = user
+      end
     end
   end
   

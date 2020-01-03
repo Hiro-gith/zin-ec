@@ -10,6 +10,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # ログインする
       log_in user
+      
+      # 記憶トークンから記憶ダイジェストにしデータベースへ保存
+      # 永続的クッキーにユーザーidと記憶トークンを保存
+      remember user
+      
       # ユーザーログイン後にルートにリダイレクトする
       redirect_to root_path
     else
