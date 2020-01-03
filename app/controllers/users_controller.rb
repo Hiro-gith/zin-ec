@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  # /signup
   def new
     @user = User.new
   end
@@ -14,8 +15,12 @@ class UsersController < ApplicationController
     # Strong Parametersを使ってデータを受け取る
     @user = User.new(user_params)
     if @user.save
+      # log_inメソッドで一時cookiesにuser.idを暗号化して保存する
+      log_in @user
+      
       # フラッシュメッセージ
       flash[:success] = "Welcome to the Sample App!"
+      
       # ルートへリダイレクト(後で、成功画面を作成して、リダイレクト先を変える)
       redirect_to root_path
     else

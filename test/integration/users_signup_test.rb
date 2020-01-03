@@ -36,6 +36,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     
     # フラッシュメッセージが空ではないか
     assert_not flash.empty?
-  
+    
+    # ログインしているか
+    assert is_logged_in?
   end
 end

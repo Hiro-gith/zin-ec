@@ -1,0 +1,6 @@
+michael:
+  name: Michael Example
+  email: michael@example.com
+  
+  # 全員passwordpassにする必要がある
+  password_digest: <%= User.digest('passwordpass') %>

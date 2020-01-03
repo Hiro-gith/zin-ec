@@ -15,4 +15,13 @@ class User < ApplicationRecord
   has_secure_password
   # パスワードが空白、8文字以下でfalse
   validates :password, presence: true, length: { minimum: 9 }
+  
+   # 渡された文字列のハッシュ値を返す
+  def User.digest(string)
+    # テスト中のコストは最小(本番はあげる必要がある)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    # ハッシュ化
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
