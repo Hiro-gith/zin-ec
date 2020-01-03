@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # 仮想のremember_token属性を作成する(データベースにはないがuser.remember_tokenが使える)
+  attr_accessor :remember_token
+  
   # save前にメールアドレスを小文字にして保存する
   before_save { email.downcase! }
   # 名前が空白、51文字以上(twitterに準拠)でfalse
@@ -23,5 +26,23 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     # ハッシュ化
     BCrypt::Password.create(string, cost: cost)
+  end
+  
+  # ランダムなトークンを返す(記憶トークンに使う)
+  def User.new_token
+    # 64種類の文字からランダムに22個選ばれる
+    SecureRandom.urlsafe_base64
+  end
+  
+  # 記憶トークンを作成し、ハッシュ化したものを記憶ダイジェストにする。
+  # その後記憶ダイジェストをデータベースへ保存する
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+  
+  # 渡されたトークンがダイジェストと一致したらtrueを返す(has_secure_passwordのと名前は同じだが別物)
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 end
