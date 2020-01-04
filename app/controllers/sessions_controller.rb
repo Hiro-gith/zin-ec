@@ -4,16 +4,18 @@ class SessionsController < ApplicationController
   end
   
   # login_pathへpost
+  # @userにしておくと、仮想なremember_tokenを、テストでassigns(:user).remember_tokenとしてアクセスできる
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
+    @user = User.find_by(email: params[:session][:email].downcase)
     # 有効なユーザーでかつ正しいパスワードか
-    if user && user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password])
       # ログインする
-      log_in user
+      log_in @user
       
-      # 記憶トークンから記憶ダイジェストにしデータベースへ保存
-      # 永続的クッキーにユーザーidと記憶トークンを保存
-      remember user
+      # チェックボックスにチェックが入っていればremember(@user)、入っていなければforget(@user)
+      # remember(user)は記憶トークンから記憶ダイジェストにしデータベースへ保存
+      # さらに永続的クッキーにユーザーidと記憶トークンを保存
+      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       
       # ユーザーログイン後にルートにリダイレクトする
       redirect_to root_path
@@ -27,9 +29,10 @@ class SessionsController < ApplicationController
   end
 
 
-  # logoutへdestroy
+  # logout_pathへdestroy
   def destroy
-    log_out
+    # 別のウインドウでログアウトする可能性を考慮（2回ログアウト）
+    log_out if logged_in?
     redirect_to root_url
   end
 end
