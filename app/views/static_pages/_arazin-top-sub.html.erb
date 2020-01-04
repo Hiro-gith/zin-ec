@@ -8,6 +8,7 @@
           </div>
           
           <div class="col-lg-5 col-sm-5">
+            <!--current_userがnilではないとき-->
             <% if logged_in? %>
               <%= link_to (logout_path), :method => :delete do %>
                 <div class ="arazin-login">

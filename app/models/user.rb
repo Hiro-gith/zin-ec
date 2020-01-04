@@ -43,6 +43,12 @@ class User < ApplicationRecord
   
   # 渡されたトークンがダイジェストと一致したらtrueを返す(has_secure_passwordのと名前は同じだが別物)
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+  
+  # データベースの記憶ダイジェストを消す
+  def forget
+    update_attribute(:remember_digest, nil)
   end
 end
