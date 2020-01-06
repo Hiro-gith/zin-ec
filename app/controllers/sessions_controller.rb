@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
       # さらに永続的クッキーにユーザーidと記憶トークンを保存
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       
-      # ユーザーログイン後にルートにリダイレクトする
-      redirect_to root_path
+      # 記憶したURL (もしくはルートパス) にリダイレクト
+      redirect_back_or root_path
     else
       # flash.nowとすると、別のリクエストが来たときに消える
       flash.now[:danger] = 'Invalid email/password combination'

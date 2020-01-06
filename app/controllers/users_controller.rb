@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
+  # 事前にログイン済みユーザーかどうか確認
+  before_action :logged_in_user, only: [:index, :edit, :update]
   
+  # 事前に正しいユーザーかどうか確認
+  before_action :correct_user,   only: [:edit, :update]
+  
+  # ユーザー一覧を表示する
+  def index
+    # すべてのユーザーをよびだす
+    # ページネーションが使えるようにする
+    @users = User.paginate(page: params[:page])
+  end
+
   # 特定のユーザーを表示する　/users/:id  user_path(user)
   def show
     @user = User.find(params[:id])
@@ -26,6 +38,20 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end 
+  
+  # 会員ページへのアクセス
+  def edit
+  end
+  
+  # 会員ページの編集フォームを送信
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
   
   # 外部から操作できない
@@ -35,5 +61,25 @@ class UsersController < ApplicationController
       # :user属性を必須とし、その上で各属性を許可する
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
+    end
+    
+    # beforeアクション
+
+    # ログイン済みユーザーかどうか確認
+    # ログインしていなかったらログイン画面へリダイレクト
+    def logged_in_user
+      unless logged_in?
+        # session[:forwarding_url]にアクセスしようとしたURLを覚えておく
+        store_location
+        
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    # 正しいユーザーかどうか確認
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end

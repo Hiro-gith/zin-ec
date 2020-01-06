@@ -1,7 +1,7 @@
 module UsersHelper
 
   # 引数で与えられたユーザーのGravatar画像を返す
-  # キーワード引数でsizeを80にする
+  # キーワード引数でデフォルトのsizeを80にする
   def gravatar_for(user, size: 80)
     # Digestライブラリのhexdigestメソッドを使って、MD5のハッシュ化をする
     # ハッシュ化前にメールアドレスを小文字にする
