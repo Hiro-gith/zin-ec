@@ -16,8 +16,8 @@ class User < ApplicationRecord
   
   # セキュアなパスワードにするためのメソッド
   has_secure_password
-  # パスワードが空白、8文字以下でfalse
-  validates :password, presence: true, length: { minimum: 9 }
+  # パスワードが空白、8文字以下でfalse 変更時はnilでも可。新規登録時はhas_secure_passwordによりnilはエラーになる
+  validates :password, presence: true, length: { minimum: 9 }, allow_nil: true
   
    # 渡された文字列のハッシュ値を返す
   def User.digest(string)

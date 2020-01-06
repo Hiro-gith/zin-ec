@@ -4,3 +4,8 @@ michael:
   
   # 全員passwordpassにする必要がある
   password_digest: <%= User.digest('passwordpass') %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('passwordpass') %>

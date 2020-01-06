@@ -1,3 +1,4 @@
+<!--プロフィール（会員情報）-->
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
@@ -5,6 +6,7 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+        <%= link_to "Settings", edit_user_path(current_user) %>
       </h1>
     </section>
   </aside>

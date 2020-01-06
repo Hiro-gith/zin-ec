@@ -10,6 +10,8 @@
           <div class="col-lg-5 col-sm-5">
             <!--current_userがnilではないとき-->
             <% if logged_in? %>
+              <%= link_to "ユーザー一覧", users_path %>
+              <%= link_to "会員情報", current_user %>
               <%= link_to (logout_path), :method => :delete do %>
                 <div class ="arazin-login">
                   <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログアウト</button>
