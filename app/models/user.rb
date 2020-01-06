@@ -19,6 +19,11 @@ class User < ApplicationRecord
   # パスワードが空白、8文字以下でfalse 変更時はnilでも可。新規登録時はhas_secure_passwordによりnilはエラーになる
   validates :password, presence: true, length: { minimum: 9 }, allow_nil: true
   
+  # kaminariのページネーション設定
+  default_scope -> { order(created_at: :desc) }
+  # 1ページに表示させる数
+  paginates_per 30
+  
    # 渡された文字列のハッシュ値を返す
   def User.digest(string)
     # テスト中のコストは最小(本番はあげる必要がある)

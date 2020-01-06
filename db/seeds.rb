@@ -1,8 +1,18 @@
 # データベース上にサンプルユーザーを作成する
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobarfoo",
-             password_confirmation: "foobarfoo")
+
+# 管理者ユーザー
+User.create!(name:  "admin User",
+             email: "admin@arazin.org",
+             password:              "arazinzinA",
+             password_confirmation: "arazinzinA",
+             admin: true)
+
+# 一般ユーザー             
+User.create!(name:  "general User",
+             email: "general@arazin.org",
+             password:              "arazinzinG",
+             password_confirmation: "arazinzinG",
+             admin: true)
 
 99.times do |n|
   name  = Faker::Name.name

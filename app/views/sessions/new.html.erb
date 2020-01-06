@@ -1,3 +1,4 @@
+<!--ログイン画面-->
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
@@ -9,9 +10,13 @@
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+      <p>管理者：admin@arazin.org</p>
+      <p>一般ユーザー：general@arazin.org</p>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
+      <p>管理者：arazinzinA</p>
+      <p>一般ユーザー：arazinzinG</p>
       
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
