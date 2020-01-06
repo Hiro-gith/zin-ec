@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   
   # 事前に正しいユーザーかどうか確認
   before_action :correct_user,   only: [:edit, :update]
   
+  # 事前に管理者かどうか確認
+  before_action :admin_user,     only: :destroy
+  
   # ユーザー一覧を表示する
   def index
     # すべてのユーザーをよびだす
-    # ページネーションが使えるようにする
-    @users = User.paginate(page: params[:page])
+    # paginateのkaminariに渡せる形で渡す
+    @users = User.page params[:page]
   end
 
   # 特定のユーザーを表示する　/users/:id  user_path(user)
@@ -54,6 +57,13 @@ class UsersController < ApplicationController
     end
   end
   
+  # 管理者権限がある場合、indexページからユーザーを削除する
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
+  end
+  
   # 外部から操作できない
   private
 
@@ -81,5 +91,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    # 管理者かどうか確認
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
