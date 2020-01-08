@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   # 特定のユーザーを表示する　/users/:id  user_path(user)
   def show
     @user = User.find(params[:id])
+    @items = @user.items.page params[:page]
   end
   
   # /signup

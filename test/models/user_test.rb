@@ -84,4 +84,13 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?('')
   end
+  
+  # ユーザーが削除されたら、itemsも消される
+  test "associated items should be destroyed" do
+    @user.save
+    @user.items.create!(name:"aa",category:"bb",content: "Lorem ipsum", price:0,user_id: @user.id)
+    assert_difference 'Item.count', -1 do
+      @user.destroy
+    end
+  end
 end

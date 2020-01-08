@@ -1,19 +1,42 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+orenge:
+  name: orenge
   category: MyString
-  content: MyText
+  content: orenge
   price: 1
   score: 1
   posts: 1
-  user: one
+  user: orenge
+  created_at: <%= 10.minutes.ago %>
+  
+tau_manifesto:
+  name: tau_manifesto
+  category: MyString
+  content: tau_manifesto
+  price: 1
+  score: 1
+  posts: 1
+  user: tau_manifesto
+  created_at: <%= 3.years.ago %>
+  
+cat_video:
+  name: cat_video
+  category: MyString
+  content: cat_video
+  price: 1
+  score: 1
+  posts: 1
+  user: cat_video
+  created_at: <%= 2.hours.ago %>
 
-two:
-  name: MyString
+
+most_recent:
+  name: most_recent
   category: MyString
-  content: MyText
+  content: most_recent
   price: 1
   score: 1
   posts: 1
-  user: two
+  user: most_recent
+  created_at: <%= Time.zone.now %>

@@ -1,10 +1,15 @@
 class User < ApplicationRecord
+  # itemsと紐付ける、ユーザーと一緒に破棄される
+  has_many :items, dependent: :destroy
+  
   # 仮想のremember_token属性を作成する(データベースにはないがuser.remember_tokenが使える)
   attr_accessor :remember_token
   
   # save前にメールアドレスを小文字にして保存する
   before_save { email.downcase! }
   # 名前が空白、51文字以上(twitterに準拠)でfalse
+  
+  has_many :items, dependent: :destroy
   validates :name,  presence: true, length: { maximum: 50 }
   
   # メールアドレスが空白、257文字以上(RFC 5321に準拠)でfalse
