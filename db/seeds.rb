@@ -13,6 +13,13 @@ User.create!(name:  "general User",
              password:              "arazinzinG",
              password_confirmation: "arazinzinG",
              admin: true)
+            
+general_user = User.find(name:"general User")
+50.times do
+  name = Faker::Lorem.sentence(5)
+  content = Faker::Lorem.sentence(7)
+  general_user.items.create!(name: name,category:"bb",content: content,price:0)
+end
 
 99.times do |n|
   name  = Faker::Name.name
