@@ -1,35 +1,33 @@
 <!--トップサブメニュー-->
-    <div class="arazin-top-sub">
-      <!--<main class="container">-->
-        <div class="row">
-          <div class="col-lg-7 col-sm-7">
-            <p class="greeding1">ようこそアラジンへ</p>
-            <p class="greeding2">会員登録でアラジンマジックポイントが貯まる</p>
-          </div>
-          
-          <div class="col-lg-5 col-sm-5">
-            <!--current_userがnilではないとき-->
-            <% if logged_in? %>
-              <%= link_to "ユーザー一覧", users_path %>
-              <%= link_to "会員情報", current_user %>
-              <%= link_to (logout_path), :method => :delete do %>
-                <div class ="arazin-login">
-                  <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログアウト</button>
-                </div>
-              <% end %>
-            <% else %>
-              <%= link_to(signup_path)  do %>
-               <p class="arazin-sighup"><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
-              <% end %>
-              
-              <%= link_to (login_path) do %>
-                <div class ="arazin-login">
-                  <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログイン</button>
-                </div>
-              <% end %>
-              
-            <% end %>
-          </div>
-        </div>
-      <!--</main>-->
+<div class="arazin-top-sub">
+  <div class="row">
+    <div class="col-lg-7 col-sm-12">
+      <p class="greeding1">ようこそアラジンへ</p>
+      <p class="greeding2">会員登録でアラジンマジックポイントが貯まる</p>
     </div>
+    
+    <div class="col-lg-5 col-sm-12">
+      <!--current_userがnilではないとき-->
+      <% if logged_in? %>
+        <%= link_to "ユーザー一覧", users_path %>
+        <%= link_to "会員情報", current_user %>
+        <%= link_to (logout_path), :method => :delete do %>
+          <div class ="arazin-login">
+            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログアウト</button>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to(signup_path)  do %>
+         <p class="arazin-sighup"><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
+        <% end %>
+        
+        <%= link_to (login_path) do %>
+          <div class ="arazin-login">
+            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログイン</button>
+          </div>
+        <% end %>
+        
+      <% end %>
+    </div>
+  </div>
+</div>

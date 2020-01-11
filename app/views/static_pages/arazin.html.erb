@@ -1,10 +1,5 @@
 <% provide(:title, "Home") %>
 
-  <!--<head>-->
-   <%= render 'arazin-head' %>
-  <!--</head>-->
-  <!--<body class="body-arazin">-->
-    
     <!--ナビバー-->
     <%= render 'arazin-navbar' %>
   
@@ -17,38 +12,32 @@
     <!--カルーセル-->
     <%= render 'arazin-carousel'%>
     
-    <!--サイドメニュー-->
-    <aside class="arazin-side-menu">
-      <main class="container">
+    <div class="arazin-main">
+      
         <div class="row">
-          <div class="col-lg-4 col-sm-4">
-            
-            <!--サイドメニュー1(画像と配達日)-->
-            <%= render 'arazin-side-menu1'%>
-            
-            <!--サイドメニュー2(ジャンル)開始-->
-            <div class="arazin-side-menu2">
-              <div class="genre-menu">
-                <p class="genre">ジャンル</p>
-                  <a href="#">
-                    <p class="itiran">一覧</p>
-                  </a>
+          <div class="col-lg-2 col-md-3 d-none d-sm-block">
+            <aside class="side">
+               <!--サイドメニュー-->
+              <%= render 'arazin-side-menu'%>
+            </aside>
+          </div>
+          
+          <div class="col-lg-10 col-md-9 col-sm-12">
+            <main class="main">
+              <div class="slick1">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
               </div>
-              
-              <div class="genre-contents">
-                <p>家電</p>
-                <p>PC・スマホ</p>
-                <p>食品</p>
-              </div>
-              
-            </div>
+            </main>
           </div>
         </div>
-      </main>
-    </aside>
-     
-    <!--fontawesomeを利用するための読み込み-->
-    <script src="https://kit.fontawesome.com/31168af8af.js"></script>
-  <!--</body>-->
-    
-</html>
+      
+    </div>
