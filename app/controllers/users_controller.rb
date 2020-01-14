@@ -8,20 +8,24 @@ class UsersController < ApplicationController
   # 事前に管理者かどうか確認
   before_action :admin_user,     only: :destroy
   
-  # ユーザー一覧を表示する
+  # ユーザー一覧を表示する /users
   def index
     # すべてのユーザーをよびだす
     # paginateのkaminariに渡せる形で渡す
-    @users = User.page params[:page]
+    @users = User.page(params[:page])
+    # @users = User.paginate(page: params[:page])
   end
 
-  # 特定のユーザーを表示する　/users/:id  user_path(user)
+  # 会員ページ　/users/:id  user_path(user)
   def show
     @user = User.find(params[:id])
-    @items = @user.items.page params[:page]
+    @items = @user.items.page(params[:page])
+    # @items = @user.items.paginate(page: params[:page])
+    # @items= Item.all
+    
   end
   
-  # /signup
+  # 新規会員登録　/signup　
   def new
     @user = User.new
   end
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
     end
   end 
   
-  # 会員ページへのアクセス
+  # 会員編集ページへのアクセス
   def edit
   end
   
@@ -52,6 +56,8 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
+      
+      # ユーザーshowページへリダイレクト
       redirect_to @user
     else
       render 'edit'
@@ -75,24 +81,6 @@ class UsersController < ApplicationController
     end
     
     # beforeアクション
-
-    # ログイン済みユーザーかどうか確認
-    # ログインしていなかったらログイン画面へリダイレクト
-    def logged_in_user
-      unless logged_in?
-        # session[:forwarding_url]にアクセスしようとしたURLを覚えておく
-        store_location
-        
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
-    
-    # 正しいユーザーかどうか確認
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
     
     # 管理者かどうか確認
     def admin_user

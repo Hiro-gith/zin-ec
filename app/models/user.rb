@@ -22,12 +22,19 @@ class User < ApplicationRecord
   # セキュアなパスワードにするためのメソッド
   has_secure_password
   # パスワードが空白、8文字以下でfalse 変更時はnilでも可。新規登録時はhas_secure_passwordによりnilはエラーになる
-  validates :password, presence: true, length: { minimum: 9 }, allow_nil: true
+  validates :password, presence: true, allow_nil: true
+  
+  #パスワードの長さは8〜128文字,大文字と小文字と数字と特殊文字をそれぞれ1文字以上
+  validate :password_complexity
+  def password_complexity
+    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,128}$/
+    errors.add :password, "パスワードの強度が不足しています。パスワードの長さは8文字以上、大文字と小文字と数字と特殊文字をそれぞれ1文字以上含める必要があります。"
+  end
   
   # kaminariのページネーション設定
   default_scope -> { order(created_at: :desc) }
   # 1ページに表示させる数
-  paginates_per 30
+  # paginates_per 30
   
    # 渡された文字列のハッシュ値を返す
   def User.digest(string)

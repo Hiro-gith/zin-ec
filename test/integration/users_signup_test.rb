@@ -25,8 +25,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', 1 do
       post users_path, params: { user: { name:  "Example User",
                                          email: "user@example.com",
-                                         password:              "passwordpass",
-                                         password_confirmation: "passwordpass" } }
+                                         password:              "2passwordPass$",
+                                         password_confirmation: "2passwordPass$" } }
     end
     # POSTリクエストを送信した結果を見て、指定されたリダイレクト先に移動する
     follow_redirect!

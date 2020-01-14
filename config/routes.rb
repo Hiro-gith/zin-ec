@@ -17,8 +17,15 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
+  # items
+  get '/itemcreate',to: 'items#new'
+  post '/itemcreate',  to: 'items#create'
+  
   # UsersリソースをRESTfulにする
   resources :users  
+  
+  # ItemsリソースをRESTfulにする
+  resources :items
   
   
   # 他のポートフォリオ
