@@ -7,6 +7,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
         <%= link_to "Settings", edit_user_path(current_user) %>
+         <%= link_to "商品新規登録",itemcreate_path%>
       </h1>
     </section>
   </aside>
@@ -16,9 +17,8 @@
       <!--アイテム数-->
       <h3>アイテム (<%= @user.items.count %>)</h3>
       <ol class="items">
-        <%= render @itemss %>
+        <%= render "items/items" %>
       </ol>
-      <div class="paginate"><%= paginate @users %></div>
     <% end %>
   </div>
 </div>

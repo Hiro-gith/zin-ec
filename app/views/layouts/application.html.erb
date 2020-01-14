@@ -13,12 +13,16 @@
     <!--Javascriptをページ内で展開する-->
     <%= javascript_include_tag 'application',
                                'data-turbolinks-track': 'reload' %>
+                               
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
  
     <!--IEのバージョンが9未満の場合にのみHTML5 shimを読み込む-->
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
     <![endif]-->
+    <%= render 'static_pages/arazin-head'%>
   </head>
 
   <body>
@@ -33,4 +37,6 @@
       <!--<%= debug(params) if Rails.env.development? %>-->
     </div>
   </body>
+  <!--fontawesomeを利用するための読み込み-->
+    <script src="https://kit.fontawesome.com/31168af8af.js"></script>
 </html>

@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "slick-theme"; 
+@import "slick";
 
 // CSSのリセット始まり
 /*
@@ -296,8 +298,8 @@ footer ul li a:active{
   margin-bottom:50px;
 }
 
-.navbar-nav .col-lg-4{
-  padding-right:5px;
+.navbar-nav{
+  padding-left:75px;
 }
 
 // ナビバーのリストの間隔調整
@@ -320,6 +322,7 @@ footer ul li a:active{
 
 // スーパーDeal
 .nav-item1 a{
+  
   border-bottom: 5px solid #00f;
 }
 
@@ -351,10 +354,10 @@ footer ul li a:active{
   border-bottom:0.5px solid #999;
   padding-top:10px;
 }
+
 //タイトルロゴ　Arazin
 .arazin-title h1{
   display:block;
-  // width:100%;
   font-weight :bold;
   color:#00f; 
   font-style : italic;
@@ -482,18 +485,15 @@ footer ul li a:active{
 
 /*□トップサブメニュー終わり                                 */
 
-/*■カルーセル開始                                            */
+/*■メインカルーセル開始                                            */
 .arazin-carousel{
-  margin-top:25px;
+  margin-top:20px;
+  margin-bottom:40px;
 }
 
 /*□カルーセル終わり*/
 
-/*■サイドメニュー1(画像と配達日)開始                                      */
-
-.arazin-side-menu1{
-  margin-top:40px;
-}
+/*■サイドメニュー開始                                      */
 
 .arazin-side-menu1 .side-image1{
   margin-bottom:10px;
@@ -540,10 +540,12 @@ footer ul li a:active{
   color:#00f;
 }
 
+// サイドメニュー2(ジャンル)
 .arazin-side-menu2{
-  margin:50px 0px 0px 0px;
+  margin:40px 0px 0px 0px;
   border-top:0.5px solid #999;
   padding-top:10px;
+  width:150px;
 }
 
 //ジャンル
@@ -551,17 +553,47 @@ footer ul li a:active{
   margin:0px 0px 0px 0px;
   text-align:left;
   font-weight:bold;
-  font-size:10px;
+  font-size:15px;
   float:left;
 }
 
+
+
 .arazin-side-menu2 .itiran{
-  margin:0px 0px 0px 0px;
+  margin:3px 0px 0px 0px;
   font-size:10px;
+  float:right;
   text-align:right;
 }
 
-/*□サイドメニュー1(画像と配達日)終わり                          */
+// floatの解除
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.genre-contens p{
+  text-align:left;
+  font-size:10px;
+  margin:5px 0px 3px 0px;
+}
+
+.genre-contens i{
+  margin-right:5px
+}
+
+
+/*□サイドメニュー終わり                          */
+
+/*■slicカルーセル開始                                            */
+.slick1 { padding: 0 30px;}
+.slick1 img { 
+  width: 50%;
+  margin: 0 5px;
+}
+
+/*□slicカルーセル終わり                          */
 
 /*■その他(rails tutorial)開始                                            */
 // デバッグ用雛形
@@ -670,6 +702,53 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid gray;
+  }
+}
+
+/* items */
+
+.items {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
 /*□その他終わり                                    */

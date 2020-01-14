@@ -10,9 +10,10 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   # 管理者としてindexへアクセス、ユーザーを削除
   test "index as admin including pagination and delete links" do
     log_in_as(@admin)
+    assert is_logged_in?
     get users_path
     assert_template 'users/index'
-    assert_select 'nav.pagination'
+    assert_select 'div.pagination'
     first_page_of_users = User.page(1)
     first_page_of_users.each do |user|
       assert_select 'a[href=?]', user_path(user), text: user.name

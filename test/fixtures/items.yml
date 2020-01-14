@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-orenge:
-  name: orenge
+orange:
+  name: orange
   category: MyString
-  content: orenge
+  content: orange
   price: 1
   score: 1
   posts: 1
-  user: orenge
   created_at: <%= 10.minutes.ago %>
+  user: michael
   
 tau_manifesto:
   name: tau_manifesto
@@ -17,8 +17,8 @@ tau_manifesto:
   price: 1
   score: 1
   posts: 1
-  user: tau_manifesto
   created_at: <%= 3.years.ago %>
+  user: michael
   
 cat_video:
   name: cat_video
@@ -27,7 +27,7 @@ cat_video:
   price: 1
   score: 1
   posts: 1
-  user: cat_video
+  user: michael
   created_at: <%= 2.hours.ago %>
 
 
@@ -38,5 +38,5 @@ most_recent:
   price: 1
   score: 1
   posts: 1
-  user: most_recent
   created_at: <%= Time.zone.now %>
+  user: michael

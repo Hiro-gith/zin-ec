@@ -1,22 +1,22 @@
 <!--ログイン画面-->
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
 
-<div class="row">
+
+<div class="row justify-content-center">
   <div class="col-md-6 col-md-offset-3">
-    
+    <h1>Log in</h1>
     <!--sessionリソースのlogin_pathへpost-->
     <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
+      <p>メールアドレス</p>
       <%= f.email_field :email, class: 'form-control' %>
       <p>管理者：admin@arazin.org</p>
       <p>一般ユーザー：general@arazin.org</p>
 
-      <%= f.label :password %>
+      <p>パスワード</p>
       <%= f.password_field :password, class: 'form-control' %>
-      <p>管理者：arazinzinA</p>
-      <p>一般ユーザー：arazinzinG</p>
+      <p>管理者：1arazinzinA$</p>
+      <p>一般ユーザー：2arazinzinG$</p>
       
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
