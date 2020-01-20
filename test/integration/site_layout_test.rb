@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
   
-  # root
+  # rootへアクセス
   test "layout links" do
     get root_path
     assert_template 'static_pages/arazin'
@@ -13,4 +13,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path
     assert_select "a[href=?]", ec_path
   end
+  
+  test "layout links " do
 end

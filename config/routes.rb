@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # static
   root 'static_pages#arazin'
+  # root 'items#index'
   get '/magicdeal',to:'static_pages#magicdeal'
   get '/ranking',to:'static_pages#ranking'
   get '/card',to:'static_pages#card'
@@ -17,16 +18,18 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  # items
-  get '/itemcreate',to: 'items#new'
-  post '/itemcreate',  to: 'items#create'
   
+   get '/items',to:'items#index'
   # UsersリソースをRESTfulにする
-  resources :users  
-  
-  # ItemsリソースをRESTfulにする
-  resources :items
-  
+  # Userリソースとuserのidの下にitemリソースを作成する　/user/1/item/
+  resources :users do
+    member do
+      resource :items,except: [:index]
+      # get :itemindex,:itemshow,:itemnew,:itemdestroy,:itemupdate
+      # post :itemcreate
+    end
+  end
+ 
   
   # 他のポートフォリオ
   get '/cafe',to:'static_pages#cafe'

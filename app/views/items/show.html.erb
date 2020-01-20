@@ -1,0 +1,12 @@
+<% provide(:title, 'Item show') %>
+
+<div class="col-md-8">
+  <!--アイテムがあれば-->
+  <% if @user.items.any? %>
+    <!--アイテム数-->
+    <h3>アイテム (<%= @user.items.count %>)</h3>
+    <ol class="items">
+      <%= render "items/items" %>
+    </ol>
+  <% end %>
+</div>
