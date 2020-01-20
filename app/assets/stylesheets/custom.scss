@@ -468,6 +468,15 @@ footer ul li a:active{
   float:left;
 }
 
+.login{
+  margin-top:20px;
+  margin-bottom:0px;
+}
+
+.user-info,.arazin-logout{
+  margin-left:10px;
+}
+
 .greeding1{
   margin-right:10px;
   font-weight:bold;
@@ -587,9 +596,14 @@ footer ul li a:active{
 /*□サイドメニュー終わり                          */
 
 /*■slicカルーセル開始                                            */
-.slick1 { padding: 0 30px;}
-.slick1 img { 
+.slick1,.slick2{ padding: 0 30px;}
+.slick1 img{ 
   width: 50%;
+  margin: 0 5px;
+}
+
+.slick2-image1{
+  width: 10%;
   margin: 0 5px;
 }
 

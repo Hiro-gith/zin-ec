@@ -12,7 +12,7 @@ User.create!(name:  "general User",
              email: "general@arazin.org",
              password:              "2arazinzinG$",
              password_confirmation: "2arazinzinG$",
-             admin: true)
+             admin: false)
             
 general_user = User.find_by(name:"general User")
 55.times do

@@ -9,12 +9,25 @@
     <div class="col-lg-5 col-sm-12">
       <!--current_userがnilではないとき-->
       <% if logged_in? %>
-        <%= link_to "ユーザー一覧", users_path %>
-        <%= link_to "会員情報", current_user %>
-        <%= link_to (logout_path), :method => :delete do %>
-          <div class ="arazin-login">
-            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログアウト</button>
+        <% if current_user.admin?%>
+          <div class="login">
+            <%= link_to "ユーザー一覧", users_path,class:"user-index" %>
+            <%= link_to "管理者情報", current_user,class:"user-info" %>
+            <%= link_to (logout_path), :method => :delete do %>
+              <span class ="arazin-logout">
+                <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログアウト</button>
+              </span>
+            <% end %>
           </div>
+        <% else %>
+          <div class="login">
+            <%= link_to "会員情報", current_user,class:"user-info" %>
+            <%= link_to (logout_path), :method => :delete do %>
+              <span class ="arazin-logout">
+                <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-sign-in-alt"></i>ログアウト</button>
+              </span>
+            <% end %>
+          </div>  
         <% end %>
       <% else %>
         <%= link_to(signup_path)  do %>

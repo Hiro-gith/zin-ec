@@ -71,14 +71,44 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
+  # 商品新規登録画面 itemnew_user_path(@user.id)
+  # def itemnew
+  #   # 入力フォームの送り先を@itemとし、定義する
+  #   @item = current_user.items.build if logged_in?
+  #   render 'items/new'
+  # end
+  
+  # 商品新規登録入力フォームからのpost itemcreate_user_path(@user.id)
+  # def itemcreate
+  #   @item = current_user.items.build(item_params)
+  #   if @item.save
+  #     flash[:success] = "商品が登録されました！"
+      
+  #     # ユーザーshowページへリダイレクト(保留)
+  #     redirect_to current_user
+  #   else
+  #     # 再度表示
+  #     render 'items/new'
+  #   end
+  # end
+  
+  # def itemindex
+  # end
+  
   # 外部から操作できない
   private
 
+    # ユーザー新規作成・編集時に許可するパラメータ
     def user_params
       # :user属性を必須とし、その上で各属性を許可する
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+    
+    # 商品登録・編集時に許可するパラメータ
+    # def item_params
+    #   params.require(:item).permit(:name, :category, :content, :price)
+    # end
     
     # beforeアクション
     
