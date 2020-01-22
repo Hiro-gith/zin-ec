@@ -13,6 +13,4 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path
     assert_select "a[href=?]", ec_path
   end
-  
-  test "layout links " do
 end

@@ -6,8 +6,12 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
-        <%= link_to "Settings", edit_user_path(current_user) %>
-        <%= link_to "商品新規登録",new_items_path %>
+        
+        
+        <% if current_user?(@user) %>
+          <%= link_to "Settings", edit_user_path(current_user) %>
+          <%= link_to "商品新規登録",new_item_path %>
+        <% end %>
 
       </h1>
     </section>
