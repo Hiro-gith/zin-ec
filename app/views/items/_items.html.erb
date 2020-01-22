@@ -1,10 +1,15 @@
 <div class="pagination"><%= paginate @items %></div>
 <% @items.each do |item| %>
-<li id="item-<%= item.id %>">
-  <span class="item_name"><%= link_to item.name, item.name %></span>
-  <span class="item_price"><%=item.price %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(item.created_at) %> ago.
-  </span>
-  <% end %>
-</li>
+  <li id="item-<%= item.id %>">
+    <%= image_tag item.picture.url if item.picture? %>
+    <span class="item_name"><%= link_to item.name, item.name %></span>
+    <span class="item_price"><%=item.price %>円</span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(item.created_at) %> ago.
+      <% if current_user?(item.user) %>
+      <%= link_to "delete",item, method: :delete,
+                                       data: { confirm: "削除してもよろしいですか？" } %>
+      <% end %>
+    </span>
+  </li>
+<% end %>

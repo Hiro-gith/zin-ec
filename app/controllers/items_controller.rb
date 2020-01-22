@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user,except: [:index, :show]
+  before_action :logged_in_user
   
-  # 事前に正しいユーザーかどうか確認
-  before_action :correct_user,except: [:index, :show]
+  # 他のユーザーの操作を受け付けない
+  # newとcreateはビュー側で表示させない
+  before_action :correct_user_item,except: [:new,:create]
   
   # 商品新規登録　itemcreate_pathへget
   def new
@@ -11,10 +12,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.build if logged_in?
   end
   
-  def show
-    @user = User.find(params[:id])
-    @items = @user.items.page(params[:page])
-  end
+ 
   
   # 商品の新規登録 @itemへpostしたとき
   def create
@@ -37,6 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
+    flash[:success] = "商品が削除されました"
+    
+    # 一つ前のURLを返す
+    redirect_to request.referrer || root_url
   end
   
   def index
@@ -45,7 +48,19 @@ class ItemsController < ApplicationController
     @Items = @q.result(distinct: true)
   end
   
-  def item_params
-      params.require(:item).permit(:name, :category, :content,:price)
-  end
+   def show
+    @user = User.find(params[:id])
+    @items = @user.items.page(params[:page])
+   end
+  
+  # 外部から操作できない
+  private
+    def item_params
+        params.require(:item).permit(:name, :category, :content,:price,:picture)
+    end
+    
+    def correct_user_item
+      @item = current_user.items.find_by(id: params[:id])
+      redirect_to root_url if @item.nil?
+    end
 end

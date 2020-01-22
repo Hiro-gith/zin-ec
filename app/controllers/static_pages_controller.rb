@@ -2,7 +2,6 @@ class StaticPagesController < ApplicationController
   
   # ルート
   def arazin
-    
   end
   
   def magicdeal

@@ -6,7 +6,7 @@
     <!--アイテム数-->
     <h3>アイテム (<%= @user.items.count %>)</h3>
     <ol class="items">
-      <%= render "items/items" %>
+      <%= render @items %>
     </ol>
   <% end %>
 </div>

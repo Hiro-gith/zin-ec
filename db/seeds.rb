@@ -16,9 +16,9 @@ User.create!(name:  "general User",
             
 general_user = User.find_by(name:"general User")
 55.times do
-  name = Faker::Name.name
+  name = Faker::Food.fruits
   content = Faker::Lorem.sentence(7)
-  price=Faker::Number.between(50, 200)
+  price=Faker::Number.between(from: 50, to: 200)
   general_user.items.create!(name: name,category:"bb",content: content,price: price)
 end
 
