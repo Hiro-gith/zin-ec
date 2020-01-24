@@ -9,8 +9,13 @@
         
         
         <% if current_user?(@user) %>
-          <%= link_to "Settings", edit_user_path(current_user) %>
-          <%= link_to "商品新規登録",new_item_path %>
+          <div>
+            <%= link_to "Settings", edit_user_path(current_user) %>
+          </div>
+          <div>
+            <%= link_to "商品新規登録",new_item_path %>
+          </div>
+          
         <% end %>
 
       </h1>

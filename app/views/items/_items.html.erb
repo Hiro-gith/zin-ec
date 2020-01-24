@@ -1,7 +1,7 @@
 <div class="pagination"><%= paginate @items %></div>
 <% @items.each do |item| %>
   <li id="item-<%= item.id %>">
-    <%= image_tag item.picture.url if item.picture? %>
+    <%= image_tag item.picture.url,class:"item_index_image"%>
     <span class="item_name"><%= link_to item.name, item.name %></span>
     <span class="item_price"><%=item.price %>円</span>
     <span class="timestamp">

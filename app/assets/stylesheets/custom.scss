@@ -505,9 +505,15 @@ footer ul li a:active{
 /*■サイドメニュー開始                                      */
 
 .arazin-side-menu1 .side-image1{
-  margin-bottom:10px;
+  
+  
 }
 
+.side_image1{
+  width:150px;
+  height:100px;
+  margin-bottom:10px;
+}
 .arazin-side-menu1 .side-image2{
   margin-bottom:15px;
 }
@@ -597,8 +603,9 @@ footer ul li a:active{
 
 /*■slicカルーセル開始                                            */
 .slick1,.slick2{ padding: 0 30px;}
-.slick1 img{ 
-  width: 50%;
+.slick1-image1{ 
+  width:100px;
+  height:100px;
   margin: 0 5px;
 }
 
@@ -764,6 +771,11 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.item_index_image{
+  width:100px;
+  height:100px;
 }
 /*□その他終わり                                    */
 /*arazinのCSS終わり                                              */
