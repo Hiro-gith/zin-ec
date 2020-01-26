@@ -1,15 +1,32 @@
-<div class="pagination"><%= paginate @items %></div>
+<span class="item-pagination"><%= paginate @items %></span>
+<span class="sort"><%= sort_link(@q, :price, "価格順") %></span>
 <% @items.each do |item| %>
-  <li id="item-<%= item.id %>">
-    <%= image_tag item.picture.url,class:"item_index_image"%>
-    <span class="item_name"><%= link_to item.name, item.name %></span>
-    <span class="item_price"><%=item.price %>円</span>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(item.created_at) %> ago.
-      <% if current_user?(item.user) %>
-      <%= link_to "delete",item, method: :delete,
-                                       data: { confirm: "削除してもよろしいですか？" } %>
-      <% end %>
-    </span>
-  </li>
+  <div class="item_index ">
+    <li id="item-<%= item.id %>">
+      <div class="row">
+        <div class="col-md-2">
+          <%= image_tag item.picture.url,class:"item_index_image"%>
+        </div>
+        <div class="col-md-7">
+          <div class="item_index_content">
+            <div class="item_name"><%= link_to item.name, item %></div>
+            <div class="item_content"><%=item.content %></div>
+            <div class="item_user"><%= link_to item.user.name, item.user %></div>
+            
+            <% if current_user?(item.user) %>
+            <%= link_to "delete",item, method: :delete,
+                                             data: { confirm: "削除してもよろしいですか？" } %>
+          
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="item_price"><%=item.price %>円</div>
+        </div>
+  
+    
+      </div>
+    </li>
+  </div>
+
 <% end %>
