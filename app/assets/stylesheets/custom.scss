@@ -366,6 +366,7 @@ footer ul li a:active{
   padding-right:0px;
   text-align:left;
   padding-top:5px;
+  // font-size:1em;
 }
 
 .top-col .col-lg-5 {
@@ -374,44 +375,56 @@ footer ul li a:active{
   margin-right:0px;
 }
 
+// 検索フォーム
 .arazin-serch{
-  padding:10px 0px;
-  width:auto;
-  text-align:center;
+  padding:18px 0px;
+  // width:auto;
+  text-align:left;
+  // // height:10px;
+  // border:3px;
+  // border:solid #00F;
 }
 
 // 検索フォーム
-.arazin-serch .form-control{
+input.serch-form { 
+  width:90%; 
   border:3px;
   border:solid #00F;
-  // 角を角にする
-  border-radius: 0;
 }
+
+
+
+// .arazin-serch .form-control{
+//   border:3px;
+//   border:solid #00F;
+//   // 角を角にする
+//   border-radius: 0;
+// }
 
 // 検索フォームの詳細ボタン
-.arazin-serch .btn{
-  border:solid #00F;
-  border-left-width:1px;
-  border-left-color:#BAD3FF;
-  border-radius: 0;
-  width:100px;
-}
+// .arazin-serch-icon{
+//   border:solid #00F;
+//   border-left-width:1px;
+//   border-left-color:#BAD3FF;
+//   border-radius: 0;
+//   width:100px;
+// }
 
-//検索フォームの虫眼鏡アイコン（全体）
+// 検索フォームの虫眼鏡アイコン（全体）
 .arazin-serch-icon{
-  display:block;
-  // position:relative;
-  width:45px;
-  height:40px;
+  // display:block;
+  // // position:relative;
+  // width:30px;
+  // height:30px;
   background-color:#00F;
   border-color:#00F;
   color:#FFF;
   
   // アイコンの大きさ調整
-  font-size: 1.7em;
+  // font-size: 1.2em;
   
-  // アイコンの太さ調整
-  -webkit-text-stroke:3px #00F;
+  // // アイコンの太さ調整
+  // -webkit-text-stroke:3px #00F;
   
 }
 
@@ -728,35 +741,37 @@ input {
 
 /* items */
 
+.item-pagination{
+  float:left;
+  padding-right:20px;
+}
+
+
+.item_index_image{
+  width:100px;
+  height:100px;
+  // float:left;
+}
+
+// floatの解除
+// .clearfix::after {
+//   content: "";
+//   display: block;
+//   clear: both;
+// }
+
+.item_index{
+  padding: 10px 0;
+  border-top: 1px solid #e8e8e8;
+}
+
+.item_index_content{
+  // float:right;
+}
+
 .items {
   list-style: none;
   padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .timestamp {
-    color: gray-light;
-    display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
 }
 
 aside {
@@ -773,9 +788,6 @@ span.picture {
   }
 }
 
-.item_index_image{
-  width:100px;
-  height:100px;
-}
+
 /*□その他終わり                                    */
 /*arazinのCSS終わり                                              */

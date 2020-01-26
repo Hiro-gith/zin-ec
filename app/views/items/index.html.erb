@@ -1,6 +1,20 @@
-<%= search_form_for @q do |f| %>
-  <%= f.label :name, "Keyword" %>
-  <%= f.search_field :name_cont %>
+<!--アイテム検索画面-->
+<% provide(:title, 'item-search') %>
+<%= render 'static_pages/arazin-top-menu'%>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <%= render 'static_pages/arazin-side-menu'%>
+    </section>
+  </aside>
+  
+  <div class="col-md-9">
+    <ol class="items">
+      <%= render "items/items" %>
+    </ol>
+  </div>
+  
+</div>
 
-  <%= f.submit "検索" %>
-<% end %>
+
+

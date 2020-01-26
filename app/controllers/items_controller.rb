@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user
+  before_action :logged_in_user,except: [:index,:show]
   
   # 他のユーザーの操作を受け付けない
   # newとcreateはビュー側で表示させない
-  before_action :correct_user_item,except: [:new,:create]
+  before_action :correct_user_item,except: [:new,:create,:index,:show]
   
   # 商品新規登録　itemcreate_pathへget
   def new
@@ -42,15 +42,15 @@ class ItemsController < ApplicationController
     redirect_to request.referrer || root_url
   end
   
+  # 検索された商品
   def index
-    # render 'static_pages/arazin'
-    @q = Item.ransack(params[:q])
-    @Items = @q.result(distinct: true)
+    # @q = Item.ransack(params[:q])
+    # @Items = @q.result(distinct: true)
   end
   
+  # 商品紹介ページ
    def show
-    @user = User.find(params[:id])
-    @items = @user.items.page(params[:page])
+    @item = Item.find(params[:id])
    end
   
   # 外部から操作できない
