@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   # newとcreateはビュー側で表示させない
   before_action :correct_user_item,except: [:new,:create,:index,:show]
   
-  # 商品新規登録　itemcreate_pathへget
+  # 商品新規登録　
   def new
     # 入力フォームの送り先を@itemとし、定義する
     @item = current_user.items.build if logged_in?

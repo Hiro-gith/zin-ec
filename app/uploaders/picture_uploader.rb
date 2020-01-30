@@ -1,7 +1,7 @@
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   # 画像の最大サイズを指定する
-  process resize_to_limit: [400, 400]
+  process resize_to_limit: [450, 450]
 
   # 本番環境ではfog、それ以外の環境ではローカルに画像を保存する
   if Rails.env.production?
@@ -23,7 +23,7 @@ class PictureUploader < CarrierWave::Uploader::Base
    #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
      "default.jpg" # 書き加える
    #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  end # コメントアウトを外す
+  end 
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
