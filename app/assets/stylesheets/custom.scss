@@ -629,7 +629,7 @@ input.serch-form {
 
 /*□slicカルーセル終わり                          */
 
-/*■その他(rails tutorial)開始                                            */
+
 // デバッグ用雛形
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -739,39 +739,27 @@ input {
   }
 }
 
-/* items */
+/* ■items index(_items)開始*******************/
 
 .item-pagination{
   float:left;
   padding-right:20px;
 }
 
+.items {
+  list-style: none;
+  padding: 0;
+}
 
 .item_index_image{
   width:100px;
   height:100px;
-  // float:left;
 }
 
-// floatの解除
-// .clearfix::after {
-//   content: "";
-//   display: block;
-//   clear: both;
-// }
 
 .item_index{
   padding: 10px 0;
   border-top: 1px solid #e8e8e8;
-}
-
-.item_index_content{
-  // float:right;
-}
-
-.items {
-  list-style: none;
-  padding: 0;
 }
 
 aside {
@@ -787,7 +775,40 @@ span.picture {
     border: 0;
   }
 }
+/* □items index(_items)終わり*******************/
+/* ■items/show開始******************************/
 
+// 画像部分
+.show_image{
+  margin:10px;
+  width:100%;
+}
 
-/*□その他終わり                                    */
+// 真ん中の部分（内容）
+.show_middle{
+  text-align:left;
+  margin:10px;
+}
+
+.show_name{
+  margin:0px;
+}
+
+.show_user{
+  font-size:12px;
+}
+
+.show_price{
+  color:#F00;
+}
+
+.show_right{
+  margin:10px;
+  border: solid #C0C0C0;
+  border-width:thin;
+  padding:10px;
+  
+}
+/* □items/show終わり*******************/
+
 /*arazinのCSS終わり                                              */

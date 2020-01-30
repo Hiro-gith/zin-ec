@@ -22,12 +22,6 @@ general_user = User.find_by(name:"general User")
   general_user.items.create!(name: name,category:"bb",content: content,price: price)
 end
 
-# users = User.order(:created_at).take(2)
-# 50.times do
-#   content = Faker::Lorem.sentence(5)
-#   users.each { |user| user.items.create!(name:"name",category:"bb",content: content,price:0) }
-# end
-
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
