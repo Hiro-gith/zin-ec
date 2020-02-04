@@ -18,7 +18,13 @@
     <div class="col-md-3">
       <div class="show_right"> 
         <p class="show_price">¥<%=@item.price%></p>
-        <p class="show_haitatubi">通常配送を利用した場合、最短で2/9~17のお届け予定です</p>
+        <p class="show_haitatubi">通常配送を利用した場合、最短で</p>
+        <div id="view_haitatu"></div>
+        <p>のお届け予定です</p>
         <p class="show_haitatu_info">通常6～10日以内に発送します</p>
       </div>
+      
+      <script>
+        document.getElementById("view_haitatu").innerHTML = getToday();
+      </script>
     </div>
