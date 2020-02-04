@@ -158,7 +158,7 @@ header nav ul li:last-child{
 //ナビゲーション内の文字
 header nav ul li a{
   display: block;  //リンクの範囲を親要素と同じにするため（文字だけにしない）
-  padding: 10px 0;
+  padding: 10px 0px;
   text-decoration: none;  //リンクはデフォルトで下線がついてしまうので下線を消す
   color: #fff;
   background-color: #614226;
@@ -236,8 +236,8 @@ main h2{
 
 //バナー
 #sidebar ul{
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 #sidebar ul li{
@@ -653,11 +653,11 @@ aside {
     margin-top: 20px;
   }
   section {
-    padding: 10px 0;
+    padding: 10px 0px;
     margin-top: 20px;
     &:first-child {
-      border: 0;
-      padding-top: 0;
+      border: 0px;
+      padding-top: 0px;
     }
     span {
       display: block;
