@@ -811,4 +811,72 @@ span.picture {
 }
 /* □items/show終わり*******************/
 
+/* ■cart_show開始***********************/
+
+.cart-top{
+  margin-top:5px;
+  border-bottom:solid #00F;
+  margin-bottom:10px;
+}
+.cart-process {
+  margin-top:12px;
+}
+
+.cart-process p{
+  float:left;
+  padding:2px;
+}
+
+.cart-bar{
+  margin-top:4px;
+  color:#ADD8E6;
+}
+.cart-cart,.cart-login,.cart-pay,.cart-confirm{
+  border: solid #ADD8E6;
+}
+
+.cart-cart{
+  background-color:#ADD8E6;
+  color:#FFF;
+}
+
+.cart-comment{
+  border-bottom:solid #39F;
+  margin-bottom: 20px;
+}
+.cart-user{
+  text-align:center;
+}
+.cart_image{
+  width:30%;
+  float:left;
+  margin: 0px 10px 0px 10px;
+}
+
+.cart-button button{
+  margin-bottom:10px;
+  padding-top:10px;
+  width:100%;
+  text-align:center;
+}
+
+.cart-payment i{
+  float:left;
+  margin:3px 0px 0px 20px;
+}
+
+.cart-pointget{
+  text-align:right;
+  color:#ADD8E6;
+}
+
+.cart-sum{
+  float:left;
+}
+
+.cart-right-price{
+  text-align:right;
+  color:#F00;
+}
+/* □cart_show終わり*******************/
 /*arazinのCSS終わり                                              */

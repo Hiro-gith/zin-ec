@@ -25,18 +25,12 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   
-  # get '/items',to:'items#index'
-  # UsersリソースをRESTfulにする
-  # Userリソースとuserのidの下にitemリソースを作成する　/user/1/item/
-  # resources :users do
-    # member do
-      # resource :items,except: [:index,:delete]
-      # get :itemindex,:itemshow,:itemnew,:itemdestroy,:itemupdate
-      # post :itemcreate
-    # end
-  # end
- 
+  resources :carts, only: [:show]
   
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
+
   # 他のポートフォリオ
   get '/cafe',to:'static_pages#cafe'
   get '/javascript',to: 'static_pages#javascript'
