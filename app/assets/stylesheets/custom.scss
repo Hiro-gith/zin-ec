@@ -841,11 +841,19 @@ span.picture {
 }
 
 .cart-comment{
-  border-bottom:solid #39F;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
+
+.cart-content{
+  height:305px;
+  border-top:solid #39F;
+  
+  padding-top:10px;
+}
+
 .cart-user{
   text-align:center;
+  // border-right:solid #39F;
 }
 .cart_image{
   width:30%;
@@ -853,6 +861,29 @@ span.picture {
   margin: 0px 10px 0px 10px;
 }
 
+.cart-middle-price{
+  color:#F00;
+  float:left;
+  margin-right:10px;
+}
+
+.cart-quantity{
+  width:10%;
+}
+
+.form-quantity btn{
+  width:10%;
+}
+
+.btn-quantity{
+  width:30%;
+  background-color:#0099FF;
+}
+
+.cart-middle-souryou{
+  float:left;
+  margin-right:150px;
+}
 .cart-button button{
   margin-bottom:10px;
   padding-top:10px;
@@ -865,18 +896,46 @@ span.picture {
   margin:3px 0px 0px 20px;
 }
 
+.cart-right-price{
+  text-align:right;
+  color:#F00;
+  font-weight:bold;
+}
+
+.cart-point{
+  background-color:#FFFFCC;
+}
+
+.cart-point-plan{
+  margin:0px;
+}
+
 .cart-pointget{
   text-align:right;
-  color:#ADD8E6;
+  color:#F00;
+  margin:0px;
+  font-weight:bold;
 }
 
 .cart-sum{
   float:left;
 }
 
-.cart-right-price{
+.cart-point-en{
   text-align:right;
   color:#F00;
+  margin:0px;
+  font-size:10px;
 }
+
+.cart-point-comment1{
+  margin:0px 0px 5px 0px;
+}
+
+.cart-point-comment2,.cart-point-comment3{
+  font-size:10px;
+  margin:0px;
+}
+
 /* □cart_show終わり*******************/
 /*arazinのCSS終わり                                              */
