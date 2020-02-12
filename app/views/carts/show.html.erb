@@ -25,39 +25,63 @@
   <h5>買い物かごの商品</h2>
 </div>
 
-<% @citems.each do |citem| %>
-  <div class="row cart-content">
-    <div class="col-lg-2 col-sm-4">
-      <div class="cart-left">
-        <p class="cart-user"><%=citem.item.user.name%></p>
-      </div>
-    </div>
-    
-    <div class="col-lg-6 col-sm-8">
-      <div class="cart-middle">
-        <%= image_tag citem.item.picture.url,class:"cart_image"%>
-        <p><%=citem.item.name%></p>
-        <p><%=citem.item.price%>円</p>
-        <p class="cart-middle-price">通常6～10日以内に発送予定</p>
-      </div>
-  </div>
-  
-  <div class="col-lg-3 col-sm-8 ml-auto mr-auto">
-    <div class="cart-right">
-      
-      <a href="#" class="cart-payment">
-      <div class="cart-button" >
-          <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>ご購入手続き</button>
+<ol>
+  <% @citems.each do |citem| %>
+    <div class="row cart-content">
+      <div class="col-lg-2 col-sm-4">
+        <div class="cart-left">
+          <p class="cart-user"><%=citem.item.user.name%></p>
         </div>
-      </a>
-    
-    <p class="cart-sum">小計</p>
-    <p class="cart-right-price"><%=citem.item.price%>円</p>
-    
-    <div class="">
-      <p>獲得予定ポイント</p>
-      <p class="cart-pointget"><%=(citem.item.price)/100%>ポイント</p>
+      </div>
+      
+      <div class="col-lg-6 col-sm-8">
+        <div class="cart-middle">
+          <%= image_tag citem.item.picture.url,class:"cart_image"%>
+          <p><%=citem.item.name%></p>
+          <div class="cart-middle-charge">
+            <p class="cart-middle-price"><%=citem.item.price%>円</p>
+            <p class="cart-middle-souryou">送料別</p>
+          </div>
+          <div class="cart-middle-quantity">
+            <%= form_with(url:update_item_path, method: :post, class: "form-quantity",remote: true) do |f| %>
+            
+              <%= f.hidden_field :item_id, { value: citem.item_id} %>
+
+              <%= f.label :quantity,'数量' %>
+              
+              <!--selectのクラス指定は{}をはさむ必要がある-->
+              <%= f.select :quantity ,[1,2,3,4,5,6,7,8,9,10],{},class: "cart-quantity"%>
+              <%= f.submit "個数を変更する", class: "btn-quantity" %>
+            
+            <% end %>
+          </div>
+          <div>
+            <p class>通常6～10日以内に発送予定</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-sm-8 ml-auto mr-auto">
+        <div class="cart-right">
+          <a href="#" class="cart-payment">
+            <div class="cart-button" >
+                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>ご購入手続き</button>
+            </div>
+          </a>
+        
+          <p class="cart-sum">小計</p>
+          <p id="cart-right-price"><%=(citem.item.price)*(citem.quantity)%>円</p>
+        
+          <div class="cart-point">
+            <p class="cart-point-plan">獲得予定ポイント</p>
+            <p class="cart-pointget"><%=(citem.item.price)*(citem.quantity)/100%>ポイント</p>
+            <p class="cart-point-en">(円相当)</p>
+            <p class="cart-point-comment1">次ページで会員登録（無料）をした場合、このポイントを獲得できます</p>
+            <p class="cart-point-comment2"><i class="fas fa-exclamation-circle"></i>一部の倍率・ポイントが反映されていない場合があります</p>
+            <p class="cart-point-comment3"><i class="fas fa-exclamation-circle"></i>獲得上限にご注意ください。実際の獲得ポイントと異なる場合があります</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  
-<%end%>
+  <%end%>
+</ol>

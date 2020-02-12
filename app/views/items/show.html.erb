@@ -25,7 +25,6 @@
         
         <%= form_with(url:add_item_path, method: :post, local: true) do |f| %>
           <%= f.hidden_field :item_id, { value: @item.id} %>
-          
           <%= f.label :quantity,'数量' %>
           <%= f.select :quantity ,[1,2,3]%>
           <%= f.submit "カートに入れる", class: "btn btn-primary" %>
