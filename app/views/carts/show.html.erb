@@ -14,7 +14,7 @@
       <p class="cart-bar">ー</p>
       <p class="cart-login">ログイン</p>
       <p class="cart-bar">ー</p>
-      <p class="cart-pay">お支払いと配送方法</p>
+      <p class="cart-pay">お支払い方法</p>
       <p class="cart-bar">ー</p>
       <p class="cart-confirm">注文確認</p>
     </div>
@@ -63,12 +63,13 @@
       
       <div class="col-lg-3 col-sm-8 ml-auto mr-auto">
         <div class="cart-right">
-          <a href="#" class="cart-payment">
-            <div class="cart-button" >
-                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>ご購入手続き</button>
+
+          <%= link_to (cart_login_path) do %>
+            <div class ="cart-payment">
+              <button type="button" class="btn btn-primary btn-sm">ご購入手続き</button>
             </div>
-          </a>
-        
+          <% end %>
+          
           <p class="cart-sum">小計</p>
           <p id="cart-right-price"><%=(citem.item.price)*(citem.quantity)%>円</p>
         

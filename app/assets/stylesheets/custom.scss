@@ -712,6 +712,27 @@ input {
   color: black;
 }
 
+.login-form{
+  border: 1px solid gray;
+  padding:20px;
+}
+
+.login-mail,.login-password{
+  margin-bottom:0px;
+  font-weight:bold;
+}
+
+.login-admin{
+  margin-bottom:0px;
+}
+
+.kaiinn-login{
+  font-weight:bold;
+  padding-left:3px;
+  border-left:5px solid blue;
+  
+}
+
 // ログイン画面のチェックボックス
 .checkbox {
   margin-top: -10px;
@@ -842,11 +863,12 @@ span.picture {
 
 .cart-comment{
   margin-bottom: 10px;
+  border-bottom:solid #39F;
 }
 
 .cart-content{
   height:305px;
-  border-top:solid #39F;
+  border-bottom:solid #39F;
   
   padding-top:10px;
 }
@@ -871,29 +893,21 @@ span.picture {
   width:10%;
 }
 
-.form-quantity btn{
-  width:10%;
-}
-
 .btn-quantity{
   width:30%;
-  background-color:#0099FF;
+  background-color:#06F;
+  color:#FFF;
 }
 
 .cart-middle-souryou{
   float:left;
   margin-right:150px;
 }
-.cart-button button{
+.cart-payment button{
   margin-bottom:10px;
   padding-top:10px;
   width:100%;
   text-align:center;
-}
-
-.cart-payment i{
-  float:left;
-  margin:3px 0px 0px 20px;
 }
 
 .cart-right-price{

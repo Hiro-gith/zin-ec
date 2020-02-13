@@ -1,17 +1,16 @@
 <!--ログイン画面-->
-<% provide(:title, "Log in") %>
+<% provide(:title, "Cart_Log in") %>
 
 
 <div class="row justify-content-center">
   <div class="col-md-6 col-md-offset-3">
     <div class="login-form">
-      <h1>会員ログイン</h1>
-      <!--sessionリソースのlogin_pathへpost-->
-      <%= form_for(:session, url: login_path) do |f| %>
+      <p class="kaiinn-login">会員ログイン</p>
+      <%= form_for(:session, url: cart_login_path) do |f| %>
   
         <p class="login-mail">メールアドレス</p>
         <%= f.email_field :email, class: 'form-control' %>
-        <p>管理者：admin@arazin.org</p>
+        <p class="login-admin">管理者：admin@arazin.org</p>
         <p>一般ユーザー：general@arazin.org</p>
   
         <p class="login-password">パスワード</p>

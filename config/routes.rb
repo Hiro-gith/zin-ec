@@ -25,11 +25,17 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   
+  
+  # カート
   resources :carts, only: [:show]
   
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+  post '/add_item', to:'carts#add_item'
+  post '/update_item', to: 'carts#update_item'
+  delete '/delete_item', to: 'carts#delete_item'
+  
+  get '/cart_login',to:'carts#cart_login'
+  post '/cart_login', to:'carts#login_create'
+  
 
   # 他のポートフォリオ
   get '/cafe',to:'static_pages#cafe'
