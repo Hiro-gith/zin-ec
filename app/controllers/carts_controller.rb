@@ -3,9 +3,10 @@ class CartsController < ApplicationController
 
   def show
     @citems = current_cart.citems
+
   end
 
-  # item/showから、「カートに入れる」を押した時のアクション
+  # 商品一覧画面から、「カートに入れる」を押した時のアクション
   def add_item
     if @citem.blank?
       @citem = current_cart.citems.build(item_id: params[:item_id])
@@ -14,12 +15,7 @@ class CartsController < ApplicationController
     @citem.quantity += params[:quantity].to_i
     @citem.save
     redirect_to current_cart
-    
-    # Ajaxの送信に対応する
-    # respond_to do |format|
-    # format.html { redirect_to current_cart }
-    # format.js
-# end
+      # redirect_to 'show'
   end
   
   # カート詳細画面から、「更新」を押した時のアクション
