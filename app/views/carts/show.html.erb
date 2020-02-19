@@ -43,7 +43,7 @@
             <p class="cart-middle-souryou">送料別</p>
           </div>
           <div class="cart-middle-quantity">
-            <%= form_with(url:update_item_path, method: :post, class: "form-quantity",remote: true) do |f| %>
+            <%= form_with(url:update_item_path, method: :post, class: "form-quantity",local: true) do |f| %>
             
               <%= f.hidden_field :item_id, { value: citem.item_id} %>
 
