@@ -29,13 +29,18 @@ Rails.application.routes.draw do
   # カート
   resources :carts, only: [:show]
   
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+  post '/add_item', to:'carts#add_item'
+  post '/update_item', to: 'carts#update_item'
+  delete '/delete_item', to: 'carts#delete_item'
   
-  get '/cart_login',to:'carts#cart_login'
-  post '/cart_login', to:'carts#login_create'
+  post '/cart_login', to:'carts#cart_login'
+  get '/cart_login', to:'carts#cart_login'
   
+  # get '/cart_login',to:'carts#cart_login'
+  post '/cart_login_create', to:'carts#cart_login_create'
+  
+  get '/pay_view',to:'carts#pay_view'
+  post '/pay_view', to:'carts#pay'
 
   # 他のポートフォリオ
   get '/cafe',to:'static_pages#cafe'

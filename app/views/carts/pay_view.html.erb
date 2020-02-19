@@ -1,0 +1,23 @@
+<% provide(:title, "Cart_pay") %>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="login-form">
+
+        <p>購入画面 </p>
+        <p>商品名　<%=@citem.item.name%></p>
+        <p>金額　<%=@citem.item.price%></p>
+        <p>個数</p>
+        <%= form_with local: true, url: pay_view_path do |form| %>
+          金額：<%= form.text_field :amount %>
+          <script
+            type="text/javascript"
+            src="https://checkout.pay.jp"
+            class="payjp-button"
+            data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
+          </script>
+        <% end %>
+
+    </div>
+  </div>
+</div>

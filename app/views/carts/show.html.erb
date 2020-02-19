@@ -64,10 +64,9 @@
       <div class="col-lg-3 col-sm-8 ml-auto mr-auto">
         <div class="cart-right">
 
-          <%= link_to (cart_login_path) do %>
-            <div class ="cart-payment">
-              <button type="button" class="btn btn-primary btn-sm">ご購入手続き</button>
-            </div>
+          <%= form_with(url:cart_login_path, method: :post, class: "form-cart-login",local: true) do |f| %>
+            <%= f.hidden_field :item_id, { value: citem.item_id} %>
+            <%= f.submit "ご購入手続き", class: "btn-pay" %>
           <% end %>
           
           <p class="cart-sum">小計</p>

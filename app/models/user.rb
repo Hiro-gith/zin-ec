@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # items,cartsと紐付ける、ユーザーと一緒に破棄される
   has_many :items, dependent: :destroy
+  has_many :ucarts, dependent: :destroy
   
   # 仮想のremember_token属性を作成する(データベースにはないがuser.remember_tokenが使える)
   attr_accessor :remember_token
