@@ -1,32 +1,51 @@
 <!--ログイン画面-->
 <% provide(:title, "Cart_Log in") %>
 
-
-<div class="row justify-content-center">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="login-form">
-      <p class="kaiinn-login">会員ログイン</p>
-      <%= form_for(:session, url: cart_login_create_path) do |f| %>
-  
-        <p class="login-mail">メールアドレス</p>
-        <%= f.email_field :email, class: 'form-control' %>
-        <p class="login-admin">管理者：admin@arazin.org</p>
-        <p>一般ユーザー：general@arazin.org</p>
-  
-        <p class="login-password">パスワード</p>
-        <%= f.password_field :password, class: 'form-control' %>
-        <p class="login-admin">管理者：1arazinzinA$</p>
-        <p>一般ユーザー：2arazinzinG$</p>
-        
-        <%= f.label :remember_me, class: "checkbox inline" do %>
-          <%= f.check_box :remember_me %>
-          <span>Remember me on this computer</span>
-        <% end %>
-  
-        <%= f.submit "ログイン", class: "btn btn-primary" %>
-      <% end %>
-  
-      <p>まだ会員登録されていない方　 <%= link_to "新規登録（無料）", signup_path %></p>
+<div class="row cart-top">
+  <div class="col-lg-1 col-sm-2">
+    <div class="arazin-title">
+      <h1><%= link_to "Zin", root_path %></h1>
     </div>
+  </div>
+  
+  <!--カラムのセンター寄せ-->
+  <div class="col-lg-6 col-sm-9 ml-auto mr-auto ">
+    <div class="cart-process">
+      <p class="cart-cart">買い物かご</p>
+      <p class="cart-bar">ー</p>
+      <p class="cart-login-current">ログイン</p>
+      <p class="cart-bar">ー</p>
+      <p class="cart-pay">お支払い方法</p>
+      <p class="cart-bar">ー</p>
+      <p class="cart-confirm">注文確認</p>
+    </div>
+  </div>
+</div>
+  
+
+<div class="col-md-6 ml-auto mr-auto">
+  <div class="login-form">
+    <p class="kaiinn-login">会員ログイン</p>
+    <%= form_for(:session, url: cart_login_create_path) do |f| %>
+
+      <p class="login-mail">メールアドレス</p>
+      <%= f.email_field :email, class: 'form-control' %>
+      <p class="login-admin">管理者：admin@arazin.org</p>
+      <p>一般ユーザー：general@arazin.org</p>
+
+      <p class="login-password">パスワード</p>
+      <%= f.password_field :password, class: 'form-control' %>
+      <p class="login-admin">管理者：1arazinzinA$</p>
+      <p>一般ユーザー：2arazinzinG$</p>
+      
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>まだ会員登録されていない方　 <%= link_to "新規登録（無料）", signup_path %></p>
   </div>
 </div>
