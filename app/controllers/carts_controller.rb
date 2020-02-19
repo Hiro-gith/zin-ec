@@ -62,7 +62,6 @@ class CartsController < ApplicationController
     else
       # flash.nowとすると、別のリクエストが来たときに消える
       flash.now[:danger] = 'Invalid email/password combination'
-      
       # ログインフォームを再表示
       render 'cart_login'
     end

@@ -289,7 +289,7 @@ footer ul li a:active{
 /*galleryのCSS終わり*/
 
 
-/*arazinのCSS始まり*/
+/*zinのCSS始まり*/
 
 /*■ナビバー開始                                                */
 
@@ -726,7 +726,7 @@ input {
   margin-bottom:0px;
 }
 
-.kaiinn-login{
+.kaiinn-login,.pay-view{
   font-weight:bold;
   padding-left:3px;
   border-left:5px solid blue;
@@ -839,7 +839,7 @@ span.picture {
   border-bottom:solid #00F;
   margin-bottom:10px;
 }
-.cart-process {
+.cart-process,.cart-process-login {
   margin-top:12px;
 }
 
@@ -856,11 +856,23 @@ span.picture {
   border: solid #ADD8E6;
 }
 
-.cart-cart{
+.cart-cart-current{
+  border: solid #ADD8E6;
   background-color:#ADD8E6;
   color:#FFF;
 }
 
+.cart-login-current{
+  border: solid #ADD8E6;
+  background-color:#ADD8E6;
+  color:#FFF;
+}
+
+.cart-pay-current{
+  border: solid #ADD8E6;
+  background-color:#ADD8E6;
+  color:#FFF;
+}
 .cart-comment{
   margin-bottom: 10px;
   border-bottom:solid #39F;
@@ -952,4 +964,9 @@ span.picture {
 }
 
 /* □cart_show終わり*******************/
-/*arazinのCSS終わり                                              */
+/* ■pay_view開始***********************/
+.pay-image{
+  width:80%;
+}
+/* □pay_view終わり*******************/
+/*zinのCSS終わり                                              */
