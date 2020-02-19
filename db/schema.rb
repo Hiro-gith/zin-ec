@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200209043810) do
+ActiveRecord::Schema.define(version: 20200219022903) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20200209043810) do
     t.string "picture"
     t.index ["user_id", "created_at"], name: "index_items_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "ucarts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_ucarts_on_cart_id"
+    t.index ["user_id"], name: "index_ucarts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
