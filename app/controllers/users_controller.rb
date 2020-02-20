@@ -37,9 +37,6 @@ class UsersController < ApplicationController
       # フラッシュメッセージ
       flash[:success] = "Welcome to the Sample App!"
       
-      # カートを作成する
-      @user.carts.create
-      
       # ルートへリダイレクト(後で、成功画面を作成して、リダイレクト先を変える)
       redirect_to root_path
     else

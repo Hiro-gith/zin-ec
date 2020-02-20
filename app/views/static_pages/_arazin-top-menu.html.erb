@@ -17,12 +17,11 @@
         <!--トップアイコン-->
         <div class="col-lg-5 col-sm-12 mb-3">
           <!--買い物かご-->
-          <a href="#" class="arazin-cart">
-            <div class="icon-cart">
-              <i class="fas fa-shopping-cart"></i>
-              <p>買い物かご</p>
-            </div>
-          </a>
+          <%= link_to(current_cart,class: 'arazin-cart') do %>
+            <span class ="icon-cart">
+             <i class="fas fa-shopping-cart"></i> <p>買い物かご</p>
+            </span>
+          <% end %>
           
           <!--お知らせ-->
           <a href="#" class="arazin-info">
