@@ -890,8 +890,7 @@ span.picture {
   // border-right:solid #39F;
 }
 .cart_image{
-  width:30%;
-  float:left;
+  width:100%;
   margin: 0px 10px 0px 10px;
 }
 
@@ -902,24 +901,26 @@ span.picture {
 }
 
 .cart-quantity{
-  width:10%;
+  width:20%;
 }
 
 .btn-quantity{
-  width:30%;
-  background-color:#06F;
+  width:50%;
+  background-color:#3399FF;
   color:#FFF;
 }
 
+.btn-delete{
+  background-color:#66CC99;
+  color:#FFF;
+}
 .cart-middle-souryou{
   float:left;
-  margin-right:150px;
+  margin-right:0px;
 }
-.cart-payment button{
-  margin-bottom:10px;
-  padding-top:10px;
-  width:100%;
-  text-align:center;
+.btn-pay{
+  background-color:#06F;
+  color:#FFF;
 }
 
 .cart-right-price{

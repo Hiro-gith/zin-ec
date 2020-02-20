@@ -30,7 +30,7 @@
     <div class="row cart-content">
       <div class="col-lg-2 col-sm-4">
         <div class="cart-left">
-          <p class="cart-user"><%=citem.item.user.name%></p>
+          <p><%= link_to citem.item.user.name, citem.item.user %></p>
         </div>
       </div>
       
@@ -44,19 +44,41 @@
           </div>
           <div class="cart-middle-quantity">
             <%= form_with(url:update_item_path, method: :post, class: "form-quantity",local: true) do |f| %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= image_tag citem.item.picture.url,class:"cart_image"%>
+            </div>
             
-              <%= f.hidden_field :item_id, { value: citem.item_id} %>
-
-              <%= f.label :quantity,'数量' %>
+            <div class="col-md-6">
+              <p><%= link_to citem.item.name, citem.item %></p>
+              <div class="cart-middle-charge">
+                <p class="cart-middle-price"><%=citem.item.price%>円</p>
+                <p class="cart-middle-souryou　clearfix">送料別</p>
+              </div>
+              <div class="cart-middle-quantity">
+                <%= form_with(url:update_item_path, method: :post, class: "form-quantity",local: true) do |f| %>
+                
+                  <%= f.hidden_field :item_id, { value: citem.item_id} %>
+    
+                  <%= f.label :quantity,'数量' %>
+                  
+                  <!--selectのクラス指定は{}をはさむ必要がある-->
+                  <%= f.select :quantity ,[1,2,3,4,5,6,7,8,9,10],{},class: "cart-quantity"%>
+                  <%= f.submit "個数を変更する", class: "btn-quantity" %>
+                
+                <% end %>
+              </div>
               
-              <!--selectのクラス指定は{}をはさむ必要がある-->
-              <%= f.select :quantity ,[1,2,3,4,5,6,7,8,9,10],{},class: "cart-quantity"%>
-              <%= f.submit "個数を変更する", class: "btn-quantity" %>
+              <p class>通常6～10日以内に発送予定</p>
+              
+              <%= form_with(url:delete_item_path, method: :delete, class: "form-delete",local: true) do |f| %>
+                
+                  <%= f.hidden_field :item_id, { value: citem.item_id} %>
+                  <%= f.submit "カートから削除する", class: "btn-delete" %>
+                
+                <% end %>
+            </div>
             
-            <% end %>
-          </div>
-          <div>
-            <p class>通常6～10日以内に発送予定</p>
           </div>
         </div>
       </div>
@@ -64,7 +86,7 @@
       <div class="col-lg-3 col-sm-8 ml-auto mr-auto">
         <div class="cart-right">
 
-          <%= form_with(url:cart_login_path, method: :post, class: "form-cart-login",local: true) do |f| %>
+          <%= form_with(url:cart_login_path, method: :post, class: "cart-payment",local: true) do |f| %>
             <%= f.hidden_field :item_id, { value: citem.item_id} %>
             <%= f.submit "ご購入手続き", class: "btn-pay" %>
           <% end %>
