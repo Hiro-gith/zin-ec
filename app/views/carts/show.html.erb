@@ -36,14 +36,7 @@
       
       <div class="col-lg-6 col-sm-8">
         <div class="cart-middle">
-          <%= image_tag citem.item.picture.url,class:"cart_image"%>
-          <p><%=citem.item.name%></p>
-          <div class="cart-middle-charge">
-            <p class="cart-middle-price"><%=citem.item.price%>円</p>
-            <p class="cart-middle-souryou">送料別</p>
-          </div>
-          <div class="cart-middle-quantity">
-            <%= form_with(url:update_item_path, method: :post, class: "form-quantity",local: true) do |f| %>
+            
           <div class="row">
             <div class="col-md-6">
               <%= image_tag citem.item.picture.url,class:"cart_image"%>
@@ -53,7 +46,7 @@
               <p><%= link_to citem.item.name, citem.item %></p>
               <div class="cart-middle-charge">
                 <p class="cart-middle-price"><%=citem.item.price%>円</p>
-                <p class="cart-middle-souryou　clearfix">送料別</p>
+                <p class="cart-middle-souryou clearfix">送料別</p>
               </div>
               <div class="cart-middle-quantity">
                 <%= form_with(url:update_item_path, method: :post, class: "form-quantity",local: true) do |f| %>
@@ -76,10 +69,11 @@
                   <%= f.hidden_field :item_id, { value: citem.item_id} %>
                   <%= f.submit "カートから削除する", class: "btn-delete" %>
                 
-                <% end %>
+              <% end %>
             </div>
             
           </div>
+          
         </div>
       </div>
       
