@@ -28,19 +28,19 @@
     <p class="kaiinn-login">会員ログイン</p>
     <%= form_for(:session, url: cart_login_create_path) do |f| %>
 
-      <p class="login-mail">メールアドレス</p>
+      <p class="login-label">メールアドレス</p>
       <%= f.email_field :email, class: 'form-control' %>
       <p class="login-admin">管理者：admin@arazin.org</p>
       <p>一般ユーザー：general@arazin.org</p>
 
-      <p class="login-password">パスワード</p>
+      <p class="login-label">パスワード</p>
       <%= f.password_field :password, class: 'form-control' %>
       <p class="login-admin">管理者：1arazinzinA$</p>
       <p>一般ユーザー：2arazinzinG$</p>
       
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <span>Remember me </span>
       <% end %>
 
       <%= f.submit "ログイン", class: "btn btn-primary" %>

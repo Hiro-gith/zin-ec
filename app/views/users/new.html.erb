@@ -1,30 +1,28 @@
 <% provide(:title, 'Sign up') %>
 
-<div class="row justify-content-center">
-  <div class="col-md-6 ">
-    <div class="singup">
-      <h2>会員登録</h2>
-      <!--/signup に対して送信する-->
-      <%= form_for(@user, url: signup_path) do |f| %>
-        <!--エラーメッセージ-->
-        <%= render 'shared/error_messages', object: f.object %>
-        
-        <p>ユーザーネーム</p>
-        <%= f.text_field :name, class: 'form-control' %>
-  
-        <p>メールアドレス</p>
-        <%= f.email_field :email, class: 'form-control' %>
-  
-        <p>パスワード</p>
-        <p><8文字以上、大文字と小文字と数字と特殊文字をそれぞれ1文字以上></p>
-        <%= f.password_field :password, class: 'form-control' %>
-  
-        <p>パスワード確認用</p>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+<div class="col-md-6 ml-auto mr-auto">
+  <div class="sigh-up-form">
+    <p class="kaiinn-sigh-up">会員登録</p>
+    <!--/signup に対して送信する-->
+    <%= form_for(@user, url: signup_path) do |f| %>
+      <!--エラーメッセージ-->
+      <%= render 'shared/error_messages', object: f.object %>
+      
+      <p class="sigh-up-label">ユーザーネーム</p>
+      <%= f.text_field :name, class: 'form-control' %>
 
-        <%= f.submit "登録", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <p class="sigh-up-label">メールアドレス</p>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <p class="sigh-up-label">パスワード</p>
+      <p><8文字以上、大文字と小文字,数字と特殊文字をそれぞれ1文字以上></p>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <p class="sigh-up-label">パスワード確認用</p>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "登録", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
