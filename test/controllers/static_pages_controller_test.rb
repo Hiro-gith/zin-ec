@@ -3,7 +3,7 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   
   def setup
-    @base_title ="Arazin"
+    @base_title ="Zin"
   end
   
   # Home

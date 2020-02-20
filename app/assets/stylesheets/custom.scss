@@ -158,7 +158,7 @@ header nav ul li:last-child{
 //ナビゲーション内の文字
 header nav ul li a{
   display: block;  //リンクの範囲を親要素と同じにするため（文字だけにしない）
-  padding: 10px 0px;
+  padding: 10px 0;
   text-decoration: none;  //リンクはデフォルトで下線がついてしまうので下線を消す
   color: #fff;
   background-color: #614226;
@@ -236,8 +236,8 @@ main h2{
 
 //バナー
 #sidebar ul{
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 #sidebar ul li{
@@ -653,11 +653,11 @@ aside {
     margin-top: 20px;
   }
   section {
-    padding: 10px 0px;
+    padding: 10px 0;
     margin-top: 20px;
     &:first-child {
-      border: 0px;
-      padding-top: 0px;
+      border: 0;
+      padding-top: 0;
     }
     span {
       display: block;
@@ -712,12 +712,13 @@ input {
   color: black;
 }
 
-.login-form{
+.login-form,.sigh-up-form{
   border: 1px solid gray;
   padding:20px;
+  margin-top:20px;
 }
 
-.login-mail,.login-password{
+.login-label,.sigh-up-label {
   margin-bottom:0px;
   font-weight:bold;
 }
@@ -726,7 +727,7 @@ input {
   margin-bottom:0px;
 }
 
-.kaiinn-login,.pay-view{
+.kaiinn-login,.pay-view,.kaiinn-sigh-up{
   font-weight:bold;
   padding-left:3px;
   border-left:5px solid blue;
@@ -970,4 +971,5 @@ span.picture {
   width:80%;
 }
 /* □pay_view終わり*******************/
+
 /*zinのCSS終わり                                              */
