@@ -6,7 +6,7 @@
     <div class="alert alert-danger">
       
       <!--pluralizeは引数が複数ならsをつけるメソッド　5errors-->
-      The form contains <%= pluralize(object.errors.count, "error") %>.
+      このフォームには <%= pluralize(object.errors.count, "error") %>があります
     </div>
     <ul>
     <% object.errors.full_messages.each do |msg| %>

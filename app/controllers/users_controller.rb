@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   # 会員ページ　/users/:id  user_path(user)
   def show
     @user = User.find(params[:id])
+    @items = @user.items.page (params[:page])
+    
+    # redirect_to root_url and return unless @user.activated 
     
   end
   
@@ -51,7 +54,7 @@ class UsersController < ApplicationController
   # 会員ページの編集フォームを送信
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "編集内容を保存しました"
       
       # ユーザーshowページへリダイレクト
       redirect_to @user

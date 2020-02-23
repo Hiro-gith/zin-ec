@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 
   # static
   root 'static_pages#arazin'
-  # root 'items#index'
-  # root '/',to:'items#index'
-  # get '/items',to:'items#index'
-  # delete '/items',to:'items#destroy'
   
   get '/magicdeal',to:'static_pages#magicdeal'
   get '/ranking',to:'static_pages#ranking'
   get '/card',to:'static_pages#card'
   get '/help',to:'static_pages#help'
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
+  
+  get '/item_home_electric',to:'items#item_home_electric'
+  get '/item_vehicle',to:'items#item_vehicle'
+  get '/item_food',to:'items#item_food'
   
   # users
   get '/signup',to: 'users#new'

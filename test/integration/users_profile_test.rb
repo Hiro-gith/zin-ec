@@ -18,7 +18,6 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     
     assert_select 'span.item-pagination'
 
-    
     @user.items.page(1).each do |item|
       assert_match item.content, response.body
     end

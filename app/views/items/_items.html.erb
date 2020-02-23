@@ -1,5 +1,4 @@
 <span class="item-pagination"><%= paginate @items %></span>
-<span class="sort"><%= sort_link(@q, :price, "価格順") %></span>
 <% @items.each do |item| %>
   <div class="item_index ">
     <li id="item-<%= item.id %>">
@@ -14,8 +13,15 @@
             <div class="item_user"><%= link_to item.user.name, item.user %></div>
             
             <% if current_user?(item.user) %>
-            <%= link_to "delete",item, method: :delete,
-                                             data: { confirm: "削除してもよろしいですか？" } %>
+              <%= form_with(url:edit_item_path, method: :get, class: "item-edit-form",local: true) do |f| %>
+                  <%= f.hidden_field :item_id, { value: item.id} %>
+                  <%= f.submit "商品を編集", class: "btn-item-edit" %>
+              <% end %>
+              
+              <%= form_with(url:item_path, method: :delete, class: "item-delete-form",local: true,data: { confirm: "削除してもよろしいですか？" }) do |f| %>
+                    <%= f.hidden_field :item_id, { value: item.id} %>
+                    <%= f.submit "商品を削除", class: "btn-item-delete" %>
+              <% end %>
           
             <% end %>
           </div>
