@@ -42,6 +42,6 @@ class ApplicationController < ActionController::Base
     
     # 検索用ストロングパラメータ
     def search_params
-      params.require(:q).permit(:name_or_content_cont)
+      params.require(:q).permit(:name_or_content_cont,:category)
     end
 end
