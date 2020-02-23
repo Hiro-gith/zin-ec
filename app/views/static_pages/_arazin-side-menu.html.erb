@@ -29,7 +29,7 @@
   </div>
   
   <div class="genre-contens">
-    <%= link_to (item_home_electric_path) do %>
+    <%= link_to item_home_electric_path do %>
       <p><i class="fas fa-desktop"></i>家電</p>
     <% end %>
     <%= link_to (item_vehicle_path) do %>
@@ -38,5 +38,6 @@
     <%= link_to (item_food_path) do %>
       <p><i class="fas fa-utensils"></i>食品</p>
     <% end %>
+    <%= link_to '家電',{:controller=>"items",:action=>"item_home_electric",:q=>{:category_eq=>'食品'}}%>
   </div>
 </div>
