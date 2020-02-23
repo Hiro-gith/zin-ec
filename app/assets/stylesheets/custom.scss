@@ -467,10 +467,11 @@ input.serch-form {
 /*□トップメニュー終わり                                            */
 
 /*■トップサブメニュー開始                                        */
-.greeding1,.greeding2,.arazin-sighup{
+.greeding1,.greeding2,.arazin-sighup,.greeding-name{
   margin-top:20px;
   margin-bottom:0px;
 }
+
 
 //ログインボタン
 .arazin-login button{
@@ -522,7 +523,7 @@ input.serch-form {
   
 }
 
-.side_image1{
+.side_image1, .side_image2{
   width:150px;
   height:100px;
   margin-bottom:10px;
@@ -603,7 +604,7 @@ input.serch-form {
 
 .genre-contens p{
   text-align:left;
-  font-size:10px;
+  font-size:15px;
   margin:5px 0px 3px 0px;
 }
 
@@ -683,6 +684,10 @@ aside {
   margin-top: 15px;
 }
 
+.user-put-up{
+  margin-top:20px;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -723,6 +728,9 @@ input {
   font-weight:bold;
 }
 
+.sigh-up-password{
+  font-size:15px;
+}
 .login-admin{
   margin-bottom:0px;
 }
@@ -764,7 +772,7 @@ input {
 /* ■items index(_items)開始*******************/
 
 .item-pagination{
-  float:left;
+  // float:left;
   padding-right:20px;
 }
 
@@ -777,6 +785,19 @@ input {
   width:100px;
   height:100px;
 }
+
+.btn-item-edit{
+  width:150px;
+  background-color:#ADFF2F;
+  float:left;
+  margin-right:20px;
+}
+.btn-item-delete{
+  width:150px;
+  background-color:#F4A460;
+  
+}
+
 
 
 .item_index{

@@ -1,18 +1,16 @@
 class ItemsController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user,except: [:index,:show]
+  before_action :logged_in_user,except: [:index,:show,:item_home_electric,:item_vehicle,:item_food]
   
   # 他のユーザーの操作を受け付けない
   # newとcreateはビュー側で表示させない
-  before_action :correct_user_item,except: [:new,:create,:index,:show]
+  before_action :correct_user_item,except: [:new,:create,:index,:show,:destroy,:item_home_electric,:item_vehicle,:item_food]
   
   # 商品新規登録　
   def new
     # 入力フォームの送り先を@itemとし、定義する
     @item = current_user.items.build if logged_in?
   end
-  
- 
   
   # 商品の新規登録 @itemへpostしたとき
   def create
@@ -29,17 +27,26 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    @item = current_user.items.find_by(id: params[:item_id])
   end
   
   def update
+    if @item.update_attributes(item_params)
+      flash[:success] = "編集内容を保存しました"
+      
+      # ユーザーshowページへリダイレクト
+      redirect_to current_user
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @item = current_user.items.find_by(id: params[:item_id])
     @item.destroy
     flash[:success] = "商品が削除されました"
     
-    # 一つ前のURLを返す
-    redirect_to request.referrer || root_url
+    redirect_to current_user
   end
   
   # 検索された商品
@@ -52,9 +59,21 @@ class ItemsController < ApplicationController
    def show
     @item = Item.find(params[:id])
    end
+   
+   def item_home_electric
+   end
+   
+   def item_vehicle
+    
+   end
+   
+   def item_food
+    
+   end
   
   # 外部から操作できない
   private
+  
     def item_params
         params.require(:item).permit(:name, :category, :content,:price,:picture)
     end

@@ -2,8 +2,12 @@
 <div class="arazin-top-sub">
   <div class="row">
     <div class="col-lg-7 col-sm-12">
-      <p class="greeding1">ようこそアラジンへ</p>
-      <p class="greeding2">会員登録でアラジンマジックポイントが貯まる</p>
+      <% if logged_in? %>
+        <p class="greeding-name"><%=current_user.name%>さん　いらっしゃいませ</p>
+      <% else %>
+        <p class="greeding1">ようこそジンへ</p>
+        <p class="greeding2">会員登録でジンマジックポイントが貯まる</p>
+      <% end %>
     </div>
     
     <div class="col-lg-5 col-sm-12">
@@ -31,7 +35,7 @@
         <% end %>
       <% else %>
         <%= link_to(signup_path)  do %>
-         <p class="arazin-sighup"><i class="fas fa-user"></i>アラジン会員登録（無料）</p>
+         <p class="arazin-sighup"><i class="fas fa-user"></i>ジン会員登録（無料）</p>
         <% end %>
         
         <%= link_to (login_path) do %>

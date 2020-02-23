@@ -27,7 +27,7 @@ cat_video:
   price: 1
   score: 1
   posts: 1
-  user: michael
+  user: archer
   created_at: <%= 2.hours.ago %>
 
 

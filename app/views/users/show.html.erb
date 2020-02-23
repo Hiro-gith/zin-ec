@@ -10,10 +10,10 @@
         
         <% if current_user?(@user) %>
           <div>
-            <%= link_to "Settings", edit_user_path(current_user) %>
+            <%= link_to "ユーザー設定の変更", edit_user_path(current_user) %>
           </div>
           <div>
-            <%= link_to "商品新規登録",new_item_path %>
+            <%= link_to "商品出品登録",new_item_path %>
           </div>
           
         <% end %>
@@ -22,13 +22,15 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <!--アイテムがあれば-->
-    <% if @user.items.any? %>
-      <!--アイテム数-->
-      <h3>アイテム (<%= @user.items.count %>)</h3>
-      <ol class="items">
-        <%= render "items/items" %>
-      </ol>
-    <% end %>
+    <div class="user-put-up">
+      <!--アイテムがあれば-->
+      <% if @user.items.any?%>
+        <!--アイテム数-->
+        <h3>出品している商品 (<%= @user.items.count %>)</h3>
+        <ol class="items">
+          <%= render "items/items" %>
+        </ol>
+      <% end %>
+    </div>
   </div>
 </div>

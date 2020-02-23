@@ -4,8 +4,10 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   
   def setup
     @item = items(:orange)
+    @other_user = users(:archer)
   end
 
+  
   # ログイン無しでitemをクリエイトしたとき
   test "should redirect create when not logged in" do
     assert_no_difference 'Item.count' do
