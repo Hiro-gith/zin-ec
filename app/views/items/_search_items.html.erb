@@ -1,6 +1,7 @@
 <ol class="items">
-  <span class="item-pagination"><%= paginate @items %></span>
-  <span class="sort"><%= sort_link(@q, :price, "価格順") %></span>
+  <span class="search-count">該当件数<%= @items.total_count %>件</span>
+  <span class="search-pagination"><%= paginate @items %></span>
+  <p class="search-sort"><%= sort_link(@q, :price, "価格順") %></p>
   <% @items.each do |item| %>
     <div class="item_index ">
       <li id="item-<%= item.id %>">

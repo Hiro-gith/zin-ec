@@ -1,5 +1,6 @@
 <!--プロフィール（会員情報）-->
 <% provide(:title, @user.name) %>
+<%= render 'static_pages/arazin-top-menu'%>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -26,7 +27,7 @@
       <!--アイテムがあれば-->
       <% if @user.items.any?%>
         <!--アイテム数-->
-        <h3>出品している商品 (<%= @user.items.count %>)</h3>
+        <p class="put-up-count">出品している商品 (<%= @user.items.count %>)</p>
         <ol class="items">
           <%= render "items/items" %>
         </ol>

@@ -688,6 +688,10 @@ aside {
   margin-top:20px;
 }
 
+.put-up-count{
+  font-size:20px;
+  margin-bottom:0px;
+}
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -717,25 +721,30 @@ input {
   color: black;
 }
 
-.login-form,.sigh-up-form{
+.login-form,.sigh-up-form,.item-create-form,.user-edit-form{
   border: 1px solid gray;
   padding:20px;
   margin-top:20px;
 }
 
-.login-label,.sigh-up-label {
+.user-edit-form{
+  padding-bottom:80px;
+}
+.login-label,.sigh-up-label,.item-create-label {
   margin-bottom:0px;
   font-weight:bold;
 }
 
 .sigh-up-password{
   font-size:15px;
+  margin-bottom:0px;
 }
 .login-admin{
   margin-bottom:0px;
 }
 
-.kaiinn-login,.pay-view,.kaiinn-sigh-up{
+.kaiinn-login,.pay-view,.kaiinn-sigh-up, .item-create,{
+  font-size:25px;
   font-weight:bold;
   padding-left:3px;
   border-left:5px solid blue;
@@ -771,9 +780,13 @@ input {
 
 /* ■items index(_items)開始*******************/
 
-.item-pagination{
-  // float:left;
+.search-count{
+  float:left;
   padding-right:20px;
+}
+.search-sort{
+  text-align:right;
+  margin:0px;
 }
 
 .items {
