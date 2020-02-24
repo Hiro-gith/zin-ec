@@ -9,10 +9,6 @@ Rails.application.routes.draw do
   get '/help',to:'static_pages#help'
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
   
-  get '/item_home_electric',to:'items#item_home_electric'
-  get '/item_vehicle',to:'items#item_vehicle'
-  get '/item_food',to:'items#item_food'
-  
   # users
   get '/signup',to: 'users#new'
   post '/signup',  to: 'users#create'

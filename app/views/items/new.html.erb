@@ -2,26 +2,26 @@
 
 <div class="row justify-content-center">
   <div class="col-md-6 ">
-    <div class="itemcreate">
-      <h2>商品登録</h2>
+    <div class="item-create-form">
+      <p class="item-create">商品登録</p>
       <!--/itemcreate に対してpostする createメソッドへ-->
       <%= form_for (@item) do |f| %>
         <!--エラーメッセージ-->
         <%= render 'shared/error_messages', object: f.object%>
         
-        <p>商品名</p>
+        <p class="item-create-label">商品名</p>
         <%= f.text_field :name, class: 'form-control' %>
   
-        <p>カテゴリ</p>
+        <p class="item-create-label">カテゴリ</p>
         <%= f.select :category, [ ["家電"], ["乗り物"], ["食品"] ] , prompt: "カテゴリを選択してください" %>
   
-        <p>価格</p>
+        <p class="item-create-label">価格</p>
         <%= f.number_field :price, class: 'form-control' %>
         
-        <p>内容</p>
+        <p class="item-create-label">内容</p>
         <%= f.text_field :content, class: 'form-control' %>
         
-        <p>画像</p>
+        <p class="item-create-label">画像</p>
         <p><ファイルサイズは5MB以内。ファイル形式はjpg・jpeg・gif・png・jfifのみ可能です></p>
          <span class="picture">
            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png,image/jfif' %>

@@ -25,19 +25,12 @@
 <!--サイドメニュー2(ジャンル)開始-->
 <div class="arazin-side-menu2 ">
   <div class="genre-menu clearfix">
-    <p class="genre">ジャンル</p>
+    <p class="genre">カテゴリー</p>
   </div>
   
   <div class="genre-contens">
-    <%= link_to item_home_electric_path do %>
-      <p><i class="fas fa-desktop"></i>家電</p>
-    <% end %>
-    <%= link_to (item_vehicle_path) do %>
-      <p><i class="fas fa-motorcycle"></i>乗り物</p>
-    <% end %>
-    <%= link_to (item_food_path) do %>
-      <p><i class="fas fa-utensils"></i>食品</p>
-    <% end %>
-    <%= link_to '家電',{:controller=>"items",:action=>"item_home_electric",:q=>{:category_eq=>'食品'}}%>
+    <p><%= link_to '家電',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'家電'}}%></p>
+    <p><%= link_to '乗り物',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'乗り物'}}%></p>
+    <p><%= link_to '食品',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'食品'}}%></p>
   </div>
 </div>
