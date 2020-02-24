@@ -30,15 +30,12 @@
                 <%= image_tag 'clearlance',class:"slick1-image1",alt: "advertisement"%>
                 <%= image_tag 'special_present',class:"slick1-image1",alt: "advertisement"%>
                 <%= image_tag 'winter_sale',class:"slick1-image1",alt: "advertisement"%>
-                <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
-                <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
-                <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
-                <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
-                <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
-                <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
+                <% 6.times do %>
+                  <img class="slick1-image1" src="https://placehold.it/300x250" alt="advertisement">
+                <% end %>
               </div>
               
-              <p class="super-deal">ジンスーパーDEAL</p>
+              <p class="slick-label">ジンスーパーDEAL</p>
               <div class="slick1">
                 <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
                 <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
@@ -52,18 +49,16 @@
                 <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
               </div>
               
-               <p class="checked-item">最近チェックした商品</p>
+               <p class="slick-label">新着商品</p>
                <div class="slick1">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
-                <img class="slick1-image1" src="https://placehold.it/314x314" alt="test">
+                  <% @items.first(10).each do |item| %>
+                    <%= link_to item ,class:"slick1-image1" do %>
+                      <%= image_tag (item.picture.url),class:"slick-image-newly"%>
+                      <p class="slick-name-newly"><%=item.name%></p>
+                      <p class="slick-price-newly"><%=item.price%>円</p>
+                    <% end %>
+                    
+                  <% end %>
               </div>
             </main>
           </div>

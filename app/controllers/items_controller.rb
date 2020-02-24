@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   before_action :logged_in_user,except: [:index,:show]
   
   # 他のユーザーの操作を受け付けない
-  # newとcreateはビュー側で表示させない
-  before_action :correct_user_item,except: [:new,:create,:index,:show,:destroy]
+  # newとcreate,editとdestroyはビュー側で表示させない
+  before_action :correct_user_item,except: [:new,:create,:index,:show,:edit,:destroy]
   
   # 商品新規登録　
   def new
@@ -27,26 +27,47 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    @item = current_user.items.find_by(id: params[:item_id])
+    if current_user.admin?
+      @item = Item.find_by(id: params[:item_id])
+    else
+      @item = current_user.items.find_by(id: params[:item_id])
+    end
   end
   
   def update
     if @item.update_attributes(item_params)
       flash[:success] = "編集内容を保存しました"
       
-      # ユーザーshowページへリダイレクト
-      redirect_to current_user
+      if current_user.admin?
+        flash.now[:success] = "編集内容を保存しました"
+        render 'items/index'
+      else
+        flash[:success] = "編集内容を保存しました"
+        redirect_to current_user
+      end
+      
     else
       render 'edit'
     end
   end
 
   def destroy
-    @item = current_user.items.find_by(id: params[:item_id])
+    if current_user.admin?
+      @item = Item.find_by(id: params[:item_id])
+    else
+      @item = current_user.items.find_by(id: params[:item_id])
+    end
+    
     @item.destroy
     flash[:success] = "商品が削除されました"
     
-    redirect_to current_user
+    if current_user.admin?
+      flash.now[:success] = "編集内容を保存しました"
+      render 'items/index'
+    else
+      flash[:success] = "編集内容を保存しました"
+      redirect_to current_user
+    end
   end
   
   # 検索された商品
@@ -67,8 +88,12 @@ class ItemsController < ApplicationController
         params.require(:item).permit(:name, :category, :content,:price,:picture)
     end
     
-    def correct_user_item
-      @item = current_user.items.find_by(id: params[:id])
-      redirect_to root_url if @item.nil?
+    def correct_user_item 
+      if current_user.admin?
+        @item = Item.find_by(id: params[:id])
+      else
+        @item = current_user.items.find_by(id: params[:id])
+      end
+        redirect_to root_url if @item.nil?
     end
 end

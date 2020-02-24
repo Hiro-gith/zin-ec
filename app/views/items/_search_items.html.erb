@@ -14,6 +14,18 @@
               <div class="item_name"><%= link_to item.name, item %></div>
               <div class="item_content"><%=item.content %></div>
               <div class="item_user"><%= link_to item.user.name, item.user %></div>
+              
+              <% if current_user.admin?%>
+                <%= form_with(url:edit_item_path(item), method: :get, class: "item-edit-form",local: true) do |f| %>
+                  <%= f.hidden_field :item_id, { value: item.id} %>
+                  <%= f.submit "商品を編集", class: "btn-item-edit" %>
+                <% end %>
+                
+                <%= form_with(url:item_path(item), method: :delete, class: "item-delete-form",local: true,data: { confirm: "削除してもよろしいですか？" }) do |f| %>
+                    <%= f.hidden_field :item_id, { value: item.id} %>
+                    <%= f.submit "商品を削除", class: "btn-item-delete" %>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="col-md-3">
