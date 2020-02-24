@@ -16,6 +16,7 @@
         <% if current_user.admin?%>
           <div class="login">
             <%= link_to "ユーザー一覧", users_path,class:"user-index" %>
+            <%= link_to "商品一覧", items_path,class:"item-index" %>
             <%= link_to "管理者情報", current_user,class:"user-info" %>
             <%= link_to (logout_path), :method => :delete do %>
               <span class ="arazin-logout">
