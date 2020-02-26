@@ -2,9 +2,11 @@ class StaticPagesController < ApplicationController
   
   # ルート
   def arazin
+    @items = Item.all
   end
   
   def magicdeal
+    @items = Item.all
   end
   
   def ranking

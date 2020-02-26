@@ -15,6 +15,7 @@
               <div class="item_content"><%=item.content %></div>
               <div class="item_user"><%= link_to item.user.name, item.user %></div>
               
+              
               <% if current_user.admin?%>
                 <%= form_with(url:edit_item_path(item), method: :get, class: "item-edit-form",local: true) do |f| %>
                   <%= f.hidden_field :item_id, { value: item.id} %>
