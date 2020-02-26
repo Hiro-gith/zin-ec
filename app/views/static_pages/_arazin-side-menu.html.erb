@@ -33,4 +33,13 @@
     <p><%= link_to '乗り物',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'乗り物'}}%></p>
     <p><%= link_to '食品',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'食品'}}%></p>
   </div>
+  
+  <div class="genre-menu clearfix">
+    <p class="genre">マジックDEAL</p>
+  </div>
+  
+  <div class="genre-contens">
+    <p><%= link_to '40%ポイントバック',{:controller=>"items",:action=>"index",:q=>{:spoint_eq=>'40'}}%></p>
+    <p><%= link_to '30%ポイントバック',{:controller=>"items",:action=>"index",:q=>{:spoint_eq=>'30'}}%></p>
+  </div>
 </div>

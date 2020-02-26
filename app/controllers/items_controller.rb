@@ -36,7 +36,6 @@ class ItemsController < ApplicationController
   
   def update
     if @item.update_attributes(item_params)
-      flash[:success] = "編集内容を保存しました"
       
       if current_user.admin?
         flash.now[:success] = "編集内容を保存しました"
@@ -59,13 +58,12 @@ class ItemsController < ApplicationController
     end
     
     @item.destroy
-    flash[:success] = "商品が削除されました"
     
     if current_user.admin?
-      flash.now[:success] = "編集内容を保存しました"
+      flash.now[:success] = "商品が削除されました"
       render 'items/index'
     else
-      flash[:success] = "編集内容を保存しました"
+      flash[:success] = "商品が削除されました"
       redirect_to current_user
     end
   end
@@ -85,7 +83,7 @@ class ItemsController < ApplicationController
   private
   
     def item_params
-        params.require(:item).permit(:name, :category, :content,:price,:picture)
+        params.require(:item).permit(:name, :category, :content,:price,:picture,:spoint)
     end
     
     def correct_user_item 

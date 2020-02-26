@@ -605,6 +605,9 @@ input.serch-form {
   display: block;
   clear: both;
 }
+.genre-contens{
+  margin-bottom:10px;
+}
 
 .genre-contens p{
   text-align:left;
@@ -638,18 +641,22 @@ input.serch-form {
   margin: 0 5px;
 }
 
-.slick-image-newly{
+.slick-image{
   width:165px;
   height:165px;
   margin: 0 5px;
 }
 
-.slick-name-newly{
+.slick-spoint{
+  margin:0px 0px 0px 5px;
+  color:#F00;
+}
+.slick-name{
   margin:0px 0px 0px 5px;
   color:#000;
 }
 
-.slick-price-newly{
+.slick-price{
   text-align:right;
   font-size:15px;
   color:#F00;
@@ -1031,5 +1038,24 @@ span.picture {
   width:80%;
 }
 /* □pay_view終わり*******************/
+/* ■magicdeal開始***********************/
+.magic-image{
+  width:100%;
+}
 
+.magic-point-comment{
+  margin:10px 0px 0px 5px;
+  font-size:20px;
+  
+  display: inline-block;
+  border:  solid #ff00ff;
+  padding:5px;
+}
+
+.magic-range{
+  background-color:#FFEEFF;
+  padding:20px;
+  margin-top:20px;
+}
+/* □magicdeal終わり*******************/
 /*zinのCSS終わり                                              */
