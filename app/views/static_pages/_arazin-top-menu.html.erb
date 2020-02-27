@@ -39,12 +39,11 @@
           <% end %>
           
           <!--お気に入り-->
-          <a href="#" class="arazin-favorite">
-            <div class="icon-favorite">
-              <i class="far fa-star"></i>
-              <p>お気に入り</p>
-            </div>
-          </a>
+          <%= link_to(clips_path,class: 'arazin-favorite') do %>
+            <span class ="icon-favorite">
+             <i class="far fa-star"></i> <p>お気に入り</p>
+            </span>
+          <% end %>
           
           <!--購入履歴-->
           <a href="#" class="arazin-purchase-history">

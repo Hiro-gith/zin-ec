@@ -28,7 +28,10 @@ class StaticPagesController < ApplicationController
     # @items = @user.items.page (params[:page])
   end
   
-  
+  def clips
+    @clips = current_user.clips.page (params[:page])
+    # @items = @user.items.page (params[:page])
+  end
   
   
   

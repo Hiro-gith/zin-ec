@@ -1,0 +1,54 @@
+<% provide(:title, 'Clips') %>
+<%= render 'static_pages/arazin-top-menu'%>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <%= render 'static_pages/arazin-side-menu'%>
+    </section>
+  </aside>
+  
+  <div class="col-md-9">
+    <div class="user-put-up">
+      <!--アイテムがあれば-->
+      <% if @clips.any?%>
+        <!--アイテム数-->
+        <p class="put-up-count">お気に入りの商品 (<%= @clips.count %>)</p>
+        <ol class="items">
+          <span class="item-pagination"><%= paginate @clips %></span>
+
+          <% @clips.each do |clips| %>
+            <div class="item_index ">
+              <li id="clips-<%= clips.id %>">
+                <div class="row">
+                  <div class="col-md-2">
+                    <%= image_tag clips.item.picture.url,class:"item_index_image"%>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="item_index_content">
+                      <div class="item_name"><%= link_to clips.item.name, clips.item %></div>
+                      <div class="item_content"><%=clips.item.content %></div>
+                      <div class="item_user"><%= link_to clips.item.user.name, clips.item.user %></div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="item_price"><%=clips.item.price %>円</div>
+                    <div class="item_price"><%=clips.item.id %></div>
+                    <%= form_with(url: clip_path(clips), method: :delete, class: "item-delete-form",local: true,data: { confirm: "削除してもよろしいですか？" }) do |f| %>
+                      <%= f.hidden_field :item_id, { value: clips.item.id} %>
+                      <%= f.submit "お気に入りを削除", class: "btn-item-delete" %>
+                    <% end %>
+                  </div>
+            
+              
+                </div>
+              </li>
+            </div>
+          
+          <% end %>
+          
+        </ol>
+      <% end %>
+    </div>
+  </div>
+</div>
