@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/help',to:'static_pages#help'
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
   
+  get '/histories',to:'static_pages#histories'
+  
   # users
   get '/signup',to: 'users#new'
   post '/signup',  to: 'users#create'

@@ -32,12 +32,11 @@
           </a>
           
           <!--閲覧履歴-->
-          <a href="#" class="arazin-browsing-history">
-            <div class="icon-browsing-history">
-              <i class="fas fa-history"></i>
-              <p>閲覧履歴</p>
-            </div>
-          </a>
+          <%= link_to(histories_path,class: 'arazin-browsing-history') do %>
+            <span class ="icon-browsing-history">
+             <i class="fas fa-history"></i> <p>閲覧履歴</p>
+            </span>
+          <% end %>
           
           <!--お気に入り-->
           <a href="#" class="arazin-favorite">

@@ -1,0 +1,49 @@
+<% provide(:title, 'Browsing_histories') %>
+<%= render 'static_pages/arazin-top-menu'%>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <%= render 'static_pages/arazin-side-menu'%>
+    </section>
+  </aside>
+  
+  <div class="col-md-9">
+    <div class="user-put-up">
+      <!--アイテムがあれば-->
+      <% if @histories.any?%>
+        <!--アイテム数-->
+        <p class="put-up-count">閲覧した商品 (<%= @histories.count %>)</p>
+        <ol class="items">
+          <span class="item-pagination"><%= paginate @histories %></span>
+
+          <% @histories.each do |histories| %>
+            <div class="item_index ">
+              <li id="histories-<%= histories.id %>">
+                <div class="row">
+                  <div class="col-md-2">
+                    <%= image_tag histories.item.picture.url,class:"item_index_image"%>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="item_index_content">
+                      <div class="item_name"><%= link_to histories.item.name, histories.item %></div>
+                      <div class="item_content"><%=histories.item.content %></div>
+                      <div class="item_user"><%= link_to histories.item.user.name, histories.item.user %></div>
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="item_price"><%=histories.item.price %>円</div>
+                  </div>
+            
+              
+                </div>
+              </li>
+            </div>
+          
+          <% end %>
+          
+        </ol>
+      <% end %>
+    </div>
+  </div>
+</div>

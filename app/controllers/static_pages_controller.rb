@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  # 事前にログイン済みユーザーかどうか確認
+  before_action :logged_in_user,only: [:histories]
   
   # ルート
   def arazin
@@ -21,7 +23,10 @@ class StaticPagesController < ApplicationController
   def ec
   end
   
-  
+  def histories
+    @histories = current_user.histories.page (params[:page])
+    # @items = @user.items.page (params[:page])
+  end
   
   
   
