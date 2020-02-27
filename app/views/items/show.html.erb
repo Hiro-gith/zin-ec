@@ -12,6 +12,7 @@
         
         <p class="show_price">¥<%=@item.price%></p>
         <p class="show_content"><%=@item.content%></p>
+        
       </div>
     </div>
     
@@ -22,11 +23,13 @@
         <div id="view_haitatu"></div>
         <p>のお届け予定です</p>
         <p class="show_haitatu_info">通常6～10日以内に発送します</p>
-        
+        <%= link_to "お気に入りに登録する", add_item_path(@item),class: "clip_add", method: :post %>
         <%= form_with(url:add_item_path, method: :post, local: true) do |f| %>
           <%= f.hidden_field :item_id, { value: @item.id} %>
-          <%= f.label :quantity,'数量' %>
-          <%= f.select :quantity ,[1,2,3]%>
+          <div class="item-quantity">
+            <%= f.label :quantity,'数量' %>
+            <%= f.select :quantity ,[1,2,3]%>
+          </div>
           <%= f.submit "カートに入れる", class: "btn btn-primary" %>
         <% end %>
       </div>

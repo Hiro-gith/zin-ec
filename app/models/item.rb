@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   belongs_to :user
   
   has_many :histories, dependent: :destroy
+  has_many :clips
+  has_many :users, through: :clips
   # 降順に並べ替える（最新のものを一番上）
   default_scope -> { order(created_at: :desc) }
   

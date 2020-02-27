@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
   
   get '/histories',to:'static_pages#histories'
+  get '/clips',to:'static_pages#clips'
   
   # users
   get '/signup',to: 'users#new'
@@ -21,8 +22,14 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   resources :users
-  resources :items
   
+  resources :items do
+    member do
+      post "add", to: "clips#create"
+    end
+  end
+  
+  resources :clips, only: [:destroy]
   
   # カート
   resources :carts, only: [:show]

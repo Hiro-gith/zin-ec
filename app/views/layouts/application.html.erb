@@ -27,12 +27,13 @@
 
   <body>
     <div class="container">
-      <%= yield %>
       <!--フラッシュメッセージ-->
       <!--message_typeによってmessageを変える-->
       <% flash.each do |message_type, message| %>
          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>　
       <% end %>
+      <%= yield %>
+      
       <!--デバック情報-->
       <!--<%= debug(params) if Rails.env.development? %>-->
     </div>
