@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   # userモデルに属する
   belongs_to :user
+  
+  has_many :histories, dependent: :destroy
   # 降順に並べ替える（最新のものを一番上）
   default_scope -> { order(created_at: :desc) }
   
