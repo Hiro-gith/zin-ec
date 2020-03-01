@@ -52,6 +52,8 @@ Rails.application.routes.draw do
   
   get '/pay_view',to:'carts#pay_view'
   post '/pay_view', to:'carts#pay'
+  
+  get '/pay_confirmation',to:'carts#pay_confirmation'
 
   # 他のポートフォリオ
   get '/cafe',to:'static_pages#cafe'

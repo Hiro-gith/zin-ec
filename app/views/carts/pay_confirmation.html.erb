@@ -1,0 +1,27 @@
+<% provide(:title, "Cart_confirmation") %>
+
+<div class="row cart-top">
+  <div class="col-lg-1 col-sm-2">
+    <div class="arazin-title">
+      <h1><%= link_to "Zin", root_path %></h1>
+    </div>
+  </div>
+  
+  <!--カラムのセンター寄せ-->
+  <div class="col-lg-6 col-sm-9 ml-auto mr-auto ">
+    <div class="cart-process">
+      <p class="cart-cart">買い物かご</p>
+      <p class="cart-bar">ー</p>
+      <p class="cart-login">ログイン</p>
+      <p class="cart-bar">ー</p>
+      <p class="cart-pay">お支払い方法</p>
+      <p class="cart-bar">ー</p>
+      <p class="cart-confirm-current">お支払い完了</p>
+    </div>
+  </div>
+</div>
+
+<p>お支払いが完了しました</p>
+<p><%= link_to "トップページに戻る", root_path %><p>
+<p><%=@bought.item_id%></p>
+<p><%=@bought.quantity%></p>

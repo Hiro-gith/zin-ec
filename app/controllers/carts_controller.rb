@@ -78,6 +78,26 @@ class CartsController < ApplicationController
       :card => params['payjp-token'],
       :currency => 'jpy'
     )
+    
+    @citem = current_cart.citems.find_by(item_id: session[:item_id])
+    @item = Item.find_by(id: @citem.item_id)
+    
+    @item.sales += params[:quantity].to_i
+    @item.save
+    
+    @user_id = current_user.id
+    @item_id = @citem.item_id
+    @bought = Bought.new(item_id: @item_id, user_id: @user_id,quantity: params[:quantity].to_i )
+    @bought.save
+    
+    @citem.destroy
+    
+    redirect_to pay_confirmation_path
+  end
+  
+  def pay_confirmation
+    @item = Item.find_by(id: session[:item_id])
+    @bought = Bought.find_by(item_id: session[:item_id])
   end
   
   private

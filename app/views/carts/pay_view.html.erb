@@ -16,7 +16,7 @@
       <p class="cart-bar">ー</p>
       <p class="cart-pay-current">お支払い方法</p>
       <p class="cart-bar">ー</p>
-      <p class="cart-confirm">注文確認</p>
+      <p class="cart-confirm">お支払い完了</p>
     </div>
   </div>
 </div>
@@ -38,11 +38,11 @@
           <p>個数：<%=@citem.quantity%></p>
           <p>金額 (合計)：<%=(@citem.item.price)*(@citem.quantity)%>円</p>
           <p>獲得ポイント<%=((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>ポイント</p>
-          
+          <p>id：<%=@citem.item_id%></p>
           <%= form_with local: true, url: pay_view_path do |form| %>
           
             <%= form.hidden_field :amount, { value: (@citem.item.price)*(@citem.quantity)} %>
-            
+            <%= form.hidden_field :quantity, { value: @citem.quantity} %>
             <script
               type="text/javascript"
               src="https://checkout.pay.jp"
@@ -52,7 +52,12 @@
             
           <% end %>
         </div>
+        
       </div>
+      
     </div>
+    <span>カード番号：4242424242424242</span>
+    <p>有効期限：未来の日付</p>
+    <p>cvc番号・名前：自由</p>
   </div>
 </div>

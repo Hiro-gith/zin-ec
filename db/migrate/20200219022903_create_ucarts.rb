@@ -6,5 +6,6 @@ class CreateUcarts < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :ucarts, [:user_id, :cart_id]
   end
 end
