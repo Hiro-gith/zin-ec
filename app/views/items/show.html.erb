@@ -13,22 +13,28 @@
         <p class="show_price">¥<%=@item.price%></p>
         <p class="show_content"><%=@item.content%></p>
         
+        <% unless @item.spoint == 0 %>
+          <h4 class="show-magic-heading">マジックディール対象商品</h4>
+          <p class="show-magic-pointback"><%=@item.spoint%>%ポイントバック<p>
+          <p class="show-magic-pointget"><%=((@item.spoint)*0.01*(@item.price)).round%>ポイント獲得！</p>
+        <% end %>
       </div>
     </div>
     
     <div class="col-md-3">
       <div class="show_right"> 
         <p class="show_price">¥<%=@item.price%></p>
-        <p class="show_haitatubi">通常配送を利用した場合、最短で</p>
+        <p class="show_haitatubi">通常配送の場合、最短で</p>
         <div id="view_haitatu"></div>
-        <p>のお届け予定です</p>
-        <p class="show_haitatu_info">通常6～10日以内に発送します</p>
-        <%= link_to "お気に入りに登録する", add_item_path(@item),class: "clip_add", method: :post %>
+        <p class="show_haitatu_info1">のお届け予定です</p>
+        <p class="show_haitatu_info2">通常6～10日以内に発送</p>
+        <%= link_to "お気に入りに登録する", add_clip_item_path(@item),class: "clip_add", method: :post %>
+        
         <%= form_with(url:add_item_path, method: :post, local: true) do |f| %>
           <%= f.hidden_field :item_id, { value: @item.id} %>
           <div class="item-quantity">
             <%= f.label :quantity,'数量' %>
-            <%= f.select :quantity ,[1,2,3]%>
+            <%= f.select :quantity ,[1,2,3,4,5,6,7,8,9,10],{},class: "cart-quantity"%>
           </div>
           <%= f.submit "カートに入れる", class: "btn btn-primary" %>
         <% end %>

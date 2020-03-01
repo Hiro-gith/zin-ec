@@ -110,6 +110,13 @@ Twitter: @rich_clark
 
 @charset "utf-8";
 
+// floatの解除
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 /*homeのCSS始まり*/
 body{
   font-family:"Hiragino Kaku Gothic ProN","メイリオ",sans-serif;
@@ -599,12 +606,7 @@ input.serch-form {
   text-align:right;
 }
 
-// floatの解除
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
+
 .genre-contens{
   margin-bottom:10px;
 }
@@ -682,35 +684,34 @@ input.serch-form {
 
 
 /*users/showの sidebar */
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
+.user_info .gravatar{
+  margin-top:30px;
+  width:30%;
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
+.follow-title{
+  font-style:italic;
+  margin:30px 0px 0px 40px;
+  font-weight:bold;
+  display: inline-block;
+  padding:5px;
+  border-left: 4px solid #007700;
+  margin-bottom:20px;
+}
+
+.user_info a:hover{
+  text-decoration: none;
+  color: blue;
+}
+
+.user_avatars .gravatar{
+  padding:2px;
+}
+.following_stats{
+  float:left;
+  padding-right:20px;
+  border-right:1px solid #bbb;
+  margin-right:20px;
 }
 
 .gravatar_edit {
@@ -724,6 +725,10 @@ aside {
 .put-up-count{
   font-size:20px;
   margin-bottom:0px;
+}
+
+.item_price{
+  margin-bottom:10px;
 }
 /* forms */
 
@@ -879,6 +884,24 @@ span.picture {
   margin:10px;
 }
 
+
+.show-magic-heading{
+  color:#F00;
+  border: 1px solid #F00;
+  display: inline-block;
+  padding:5px;
+}
+
+.show-magic-pointback{
+  margin:0px;
+}
+
+.show-magic-pointget{
+  text-align:right;
+  color:#F00;
+  font-size:25px;
+  margin:0px;
+}
 .show_name{
   margin:0px;
 }
@@ -898,14 +921,29 @@ span.picture {
   padding:10px;
 }
 
+.show_haitatubi{
+  margin-bottom:0px;
+}
+
+.show_haitatu_info1{
+  margin-top:0px;
+  margin-bottom:0px;
+}
+
+.show_haitatu_info2{
+  margin-top:0px;
+}
+
 .clip_add{
-  text-decoration: none;
   border: solid #FF99CC;
   background-color:#FF99CC;
   color:#FFFFFF;
-  
 }
 
+.clip_add:hover{
+  text-decoration: none;
+  color:#FFFFFF;
+}
 .item-quantity{
   margin-top:20px;
 }
@@ -957,6 +995,23 @@ span.picture {
   border-bottom:solid #39F;
 }
 
+.cart-magic-heading{
+  color:#F00;
+  font-size:12px;
+  border:solid #F00;
+}
+
+.cart-magic-pointback1,.cart-magic-pointback2{
+  margin:0;
+  padding:0;
+}
+.cart-magic-pointget{
+  color:#F00;
+  font-size:15px;
+  text-align:right;
+  
+}
+
 .cart-content{
   height:305px;
   border-bottom:solid #39F;
@@ -984,7 +1039,8 @@ span.picture {
 }
 
 .btn-quantity{
-  width:50%;
+  width:60%;
+  // display:inline;
   background-color:#3399FF;
   color:#FFF;
 }
@@ -996,6 +1052,11 @@ span.picture {
 .cart-middle-souryou{
   float:left;
   margin-right:0px;
+}
+
+.item-quantity-label{
+  float:left;
+  margin-right:10px;
 }
 .btn-pay{
   background-color:#06F;

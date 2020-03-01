@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user,only: [:histories]
+  before_action :logged_in_user,only: [:histories,:clips]
   
   # ルート
   def arazin

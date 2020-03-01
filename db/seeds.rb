@@ -63,3 +63,11 @@ end
                password:              password,
                password_confirmation: password)
 end
+
+# リレーションシップ
+users = User.all
+following = users[2..50]
+followers = users[3..40]
+# general_userにフォロー・フォロワーを作る
+following.each { |followed| general_user.follow(followed) }
+followers.each { |follower| follower.follow(general_user) }

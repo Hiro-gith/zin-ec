@@ -6,6 +6,11 @@ class ClipsController < ApplicationController
     @clip = Clip.new(item_id: @item_id, user_id: @user_id)
     @item = Item.find(params[:id])
     
+    if current_user.clips.exists?(item_id: "#{params[:id]}")
+      old_clip = current_user.clips.find_by(item_id: "#{params[:id]}")
+      old_clip.destroy
+    end
+    
     if @clip.save
       redirect_to item_path(@item)
       flash[:success] = "商品がお気に入り登録されました"

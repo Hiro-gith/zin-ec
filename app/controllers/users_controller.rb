@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
   
   # 事前に正しいユーザーかどうか確認
   before_action :correct_user,   only: [:edit, :update]
@@ -68,6 +68,20 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
+  end
+  
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.page(params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page])
+    render 'show_follow'
   end
   
   # 外部から操作できない
