@@ -11,9 +11,9 @@
       
       <!--管理者権限がある場合かつ、現在のユーザーではない（管理者自身は削除リンクをださない）-->
       <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "確認：削除してもよろしいですか？" } %>
-  <% end %>
+        <%= link_to "delete", user, method: :delete,
+                                      data: { confirm: "確認：削除してもよろしいですか？" } %>
+      <% end %>
     </li>
   <% end %>
   <div class="pagination"><%= paginate @users %></div>

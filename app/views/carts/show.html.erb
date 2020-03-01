@@ -31,6 +31,12 @@
       <div class="col-lg-2 col-sm-4">
         <div class="cart-left">
           <p><%= link_to citem.item.user.name, citem.item.user %></p>
+          <% unless citem.item.spoint == 0 %>
+            <p class="cart-magic-heading">マジックディール対象商品</p>
+            <p class="cart-magic-pointback1"><%=citem.item.spoint%>%ポイントバック<p>
+            <p class="cart-magic-pointback2">お1つにつき</p>
+            <p class="cart-magic-pointget"><%=((citem.item.spoint)*0.01*(citem.item.price)).round%>ポイント獲得！</p>
+        <% end %>
         </div>
       </div>
       
@@ -44,16 +50,17 @@
             
             <div class="col-md-6">
               <p><%= link_to citem.item.name, citem.item %></p>
-              <div class="cart-middle-charge">
+              <div class="cart-middle-charge clearfix">
                 <p class="cart-middle-price"><%=citem.item.price%>円</p>
-                <p class="cart-middle-souryou clearfix">送料別</p>
+                <p class="cart-middle-souryou ">送料別</p>
               </div>
               <div class="cart-middle-quantity">
                 <%= form_with(url:update_item_path, method: :post, class: "form-quantity",local: true) do |f| %>
                 
                   <%= f.hidden_field :item_id, { value: citem.item_id} %>
     
-                  <%= f.label :quantity,'数量' %>
+            
+                  <p class ="item-quantity-label">数量</p>
                   
                   <!--selectのクラス指定は{}をはさむ必要がある-->
                   <%= f.select :quantity ,[1,2,3,4,5,6,7,8,9,10],{},class: "cart-quantity"%>
@@ -85,12 +92,12 @@
             <%= f.submit "ご購入手続き", class: "btn-pay" %>
           <% end %>
           
-          <p class="cart-sum">小計</p>
-          <p id="cart-right-price"><%=(citem.item.price)*(citem.quantity)%>円</p>
+          <p class="cart-sum">小計 (数量：<%=citem.quantity%>)</p>
+          <p class="cart-right-price"><%=(citem.item.price)*(citem.quantity)%>円</p>
         
           <div class="cart-point">
             <p class="cart-point-plan">獲得予定ポイント</p>
-            <p class="cart-pointget"><%=(citem.item.price)*(citem.quantity)/100%>ポイント</p>
+            <p class="cart-pointget"><%=((citem.item.price)*(citem.quantity)/100)+((citem.item.spoint)*0.01*(citem.item.price)*(citem.quantity)).round%>ポイント</p>
             <p class="cart-point-en">(円相当)</p>
             <p class="cart-point-comment1">次ページで会員登録（無料）をした場合、このポイントを獲得できます</p>
             <p class="cart-point-comment2"><i class="fas fa-exclamation-circle"></i>一部の倍率・ポイントが反映されていない場合があります</p>

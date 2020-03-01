@@ -33,7 +33,6 @@
                   </div>
                   <div class="col-md-3">
                     <div class="item_price"><%=clips.item.price %>円</div>
-                    <div class="item_price"><%=clips.item.id %></div>
                     <%= form_with(url: clip_path(clips), method: :delete, class: "item-delete-form",local: true,data: { confirm: "削除してもよろしいですか？" }) do |f| %>
                       <%= f.hidden_field :item_id, { value: clips.item.id} %>
                       <%= f.submit "お気に入りを削除", class: "btn-item-delete" %>

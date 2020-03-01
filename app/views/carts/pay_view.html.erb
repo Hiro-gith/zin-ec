@@ -37,7 +37,7 @@
           <p>金額 (単品):<%=@citem.item.price%>円</p>
           <p>個数：<%=@citem.quantity%></p>
           <p>金額 (合計)：<%=(@citem.item.price)*(@citem.quantity)%>円</p>
-          <p>獲得ポイント：<%=(@citem.item.price)*(@citem.quantity)/100%>ポイント</p>
+          <p>獲得ポイント<%=((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>ポイント</p>
           
           <%= form_with local: true, url: pay_view_path do |form| %>
           

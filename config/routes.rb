@@ -21,11 +21,17 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  resources :relationships,       only: [:create, :destroy]
   
   resources :items do
     member do
-      post "add", to: "clips#create"
+      post "add_clip", to: "clips#create"
     end
   end
   
