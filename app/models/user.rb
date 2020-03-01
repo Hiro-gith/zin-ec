@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :ucarts, dependent: :destroy
   has_many :histories, dependent: :destroy
   has_many :clips, dependent: :destroy
+  has_many :boughts, dependent: :destroy
   
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",

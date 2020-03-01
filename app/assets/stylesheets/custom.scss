@@ -973,23 +973,12 @@ span.picture {
   border: solid #ADD8E6;
 }
 
-.cart-cart-current{
+.cart-cart-current,.cart-login-current,.cart-pay-current,.cart-confirm-current{
   border: solid #ADD8E6;
   background-color:#ADD8E6;
   color:#FFF;
 }
 
-.cart-login-current{
-  border: solid #ADD8E6;
-  background-color:#ADD8E6;
-  color:#FFF;
-}
-
-.cart-pay-current{
-  border: solid #ADD8E6;
-  background-color:#ADD8E6;
-  color:#FFF;
-}
 .cart-comment{
   margin-bottom: 10px;
   border-bottom:solid #39F;

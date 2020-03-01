@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200227100025) do
+ActiveRecord::Schema.define(version: 20200301073819) do
+
+  create_table "boughts", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "user_id"
+    t.integer "quantity", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_boughts_on_item_id"
+    t.index ["user_id", "item_id"], name: "index_boughts_on_user_id_and_item_id"
+    t.index ["user_id"], name: "index_boughts_on_user_id"
+  end
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,6 +35,7 @@ ActiveRecord::Schema.define(version: 20200227100025) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_citems_on_cart_id"
+    t.index ["item_id", "cart_id"], name: "index_citems_on_item_id_and_cart_id"
     t.index ["item_id"], name: "index_citems_on_item_id"
   end
 
@@ -32,6 +44,7 @@ ActiveRecord::Schema.define(version: 20200227100025) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id", "user_id"], name: "index_clips_on_item_id_and_user_id"
     t.index ["item_id"], name: "index_clips_on_item_id"
     t.index ["user_id"], name: "index_clips_on_user_id"
   end
@@ -41,6 +54,7 @@ ActiveRecord::Schema.define(version: 20200227100025) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id", "user_id"], name: "index_histories_on_item_id_and_user_id"
     t.index ["item_id"], name: "index_histories_on_item_id"
     t.index ["user_id"], name: "index_histories_on_user_id"
   end
@@ -51,7 +65,8 @@ ActiveRecord::Schema.define(version: 20200227100025) do
     t.text "content"
     t.integer "price", default: 0
     t.integer "score", default: 0
-    t.integer "posts"
+    t.integer "posts", default: 0
+    t.integer "sales", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,6 +92,7 @@ ActiveRecord::Schema.define(version: 20200227100025) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_ucarts_on_cart_id"
+    t.index ["user_id", "cart_id"], name: "index_ucarts_on_user_id_and_cart_id"
     t.index ["user_id"], name: "index_ucarts_on_user_id"
   end
 

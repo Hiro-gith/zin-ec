@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :histories, dependent: :destroy
   has_many :clips
   has_many :users, through: :clips
+  has_many :boughts, dependent: :destroy
   # 降順に並べ替える（最新のものを一番上）
   default_scope -> { order(created_at: :desc) }
   
