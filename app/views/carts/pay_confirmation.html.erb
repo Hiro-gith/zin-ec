@@ -21,7 +21,28 @@
   </div>
 </div>
 
-<p>お支払いが完了しました</p>
-<p><%= link_to "トップページに戻る", root_path %><p>
-<p><%=@bought.item_id%></p>
-<p><%=@bought.quantity%></p>
+<div class="row justify-content-center">
+  <div class="col-md-6 col-md-offset-3">
+    <p>お支払いが完了しました</p>
+    <div class="login-form">
+
+      <p class="pay-view">ご購入された商品</p>
+      <div class="row">
+        
+        <div class="col-md-6">
+          <%= image_tag @bought.item.picture.url,class:"pay-image"%>
+        </div>
+        
+        <div class="col-md-5 ">
+          <p>商品名：<%=@bought.item.name%></p>
+          <p>金額 (単品):<%=@bought.item.price%>円</p>
+          <p>個数：<%=@bought.quantity%></p>
+          <p>金額 (合計)：<%=(@bought.item.price)*(@bought.quantity)%>円</p>
+          <p>獲得ポイント：<%=((@bought.item.price)*(@bought.quantity)/100)+((@bought.item.spoint)*0.01*(@bought.item.price)*(@bought.quantity)).round%>pt</p>
+        </div>
+      </div>
+    </div>
+    <p class="pay-return"><%= link_to "トップページに戻る", root_path %><p>
+  </div>
+</div>
+

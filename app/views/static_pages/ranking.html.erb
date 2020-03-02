@@ -1,5 +1,74 @@
+<!--ランキング-->
 <% provide(:title, "Ranking") %>
-
-  <head>
-   <%= render 'arazin-head' %>
-  </head>
+<%= render 'static_pages/arazin-navbar' %>
+<%= render 'static_pages/arazin-top-menu'%>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="side_info">
+      <%= render 'static_pages/arazin-side-menu'%>
+    </section>
+  </aside>
+  
+  <div class="col-md-9">
+    <h3 class="magic-title">ランキング</h3>
+    <div class = "magic-range">
+      <p class="ranking-comment">家電</p>
+      <div class="row">
+        <% i=1 %>
+        <% @items_rank_kaden.each do |item| %>
+        <% if i<=8 %>
+          <%i +=1%>
+            <div class="col-md-3">
+              <%= link_to item ,class:"slick1-image1" do %>
+                <%= image_tag (item.picture.url),class:"magic-image"%>
+                <p class="slick-name"><%=item.name%></p>
+                <p class="slick-price"><%=item.price%>円</p>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class = "magic-range">
+      <p class="ranking-comment">乗り物</p>
+      <div class="row">
+        <% i=1 %>
+        <% @items_rank_norimono.each do |item| %>
+        <% if i<=8 %>
+          <%i +=1%>
+            <div class="col-md-3">
+              <%= link_to item ,class:"slick1-image1" do %>
+                <%= image_tag (item.picture.url),class:"magic-image"%>
+                <p class="slick-name"><%=item.name%></p>
+                <p class="slick-price"><%=item.price%>円</p>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+      
+    <div class = "magic-range">
+      <p class="ranking-comment">食品</p>
+      <div class="row">
+        <% i=1 %>
+        <% @items_rank_food.each do |item| %>
+        <% if i<=8 %>
+          <%i +=1%>
+            <div class="col-md-3">
+              <%= link_to item ,class:"slick1-image1" do %>
+                <%= image_tag (item.picture.url),class:"magic-image"%>
+                <p class="slick-name"><%=item.name%></p>
+                <p class="slick-price"><%=item.price%>円</p>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+      
+      
+  </div>
+</div>
+<%= render 'layouts/footer' %>

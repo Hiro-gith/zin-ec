@@ -9,6 +9,9 @@ class Item < ApplicationRecord
   # 降順に並べ替える（最新のものを一番上）
   default_scope -> { order(created_at: :desc) }
   
+  # kaminariの表示数
+  paginates_per 20
+  
   # 画像の追加
   mount_uploader :picture, PictureUploader
   

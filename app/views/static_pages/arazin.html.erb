@@ -12,7 +12,7 @@
     <!--カルーセル-->
     <%= render 'static_pages/arazin-carousel'%>
     
-    <div class="static_pages/razin-main">
+    <div class="static_pages/arazin-main">
       
         <div class="row">
           <div class="col-lg-2 col-md-3 d-none d-sm-block">
@@ -78,7 +78,36 @@
                 <% end %>
               </div>
               
+              
+              <% i=1 %>
+              <p class="slick-label">乗り物ランキング</p>
+              <div class="slick1">
+                <% @items_rank_norimono.first(10).each do |item| %>
+                  <%= link_to item ,class:"slick1-image1" do %>
+                    <span class="slick-rank"><%=i%>位</span>
+                    <%i +=1%>
+                    <%= image_tag (item.picture.url),class:"slick-image"%>
+                    <p class="slick-name"><%=item.name%></p>
+                    <p class="slick-price"><%=item.price%>円</p>
+                  <% end %>
+                <% end %>
+              </div>
+              
+              <% i=1 %>
+              <p class="slick-label">食品ランキング</p>
+              <div class="slick1">
+                <% @items_rank_food.first(10).each do |item| %>
+                  <%= link_to item ,class:"slick1-image1" do %>
+                    <span class="slick-rank"><%=i%>位</span>
+                    <%i +=1%>
+                    <%= image_tag (item.picture.url),class:"slick-image"%>
+                    <p class="slick-name"><%=item.name%></p>
+                    <p class="slick-price"><%=item.price%>円</p>
+                  <% end %>
+                <% end %>
+              </div>
             </main>
           </div>
         </div>
     </div>
+    <%= render 'layouts/footer' %>

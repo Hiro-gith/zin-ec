@@ -19,43 +19,65 @@ admin_user = User.find_by(name:"admin User")
   name = Faker::Device.model_name
   content = Faker::Lorem.sentence(word_count:7)
   price=Faker::Number.between(from: 5000, to: 20000)
-  quantity=Faker::Number.between(from: 0, to: 100)
-  admin_user.items.create!(name: name,category:"家電",content: content,price: price,sales: quantity)
+  admin_user.items.create!(name: name,category:"家電",content: content,price: price)
 end
 
             
 general_user = User.find_by(name:"general User")
 
-30.times do
-  name = Faker::Food.fruits
+5.times do
+  name = Faker::Device.model_name
   content = Faker::Lorem.sentence(word_count:7)
-  price=Faker::Number.between(from: 50, to: 300)
-  general_user.items.create!(name: name,category:"食品",content: content,price: price)
+  price=Faker::Number.between(from: 5000, to: 20000)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  general_user.items.create!(name: name,category:"家電",content: content,price: price,sales: quantity)
 end
 
-
-30.times do
+5.times do
   name = Faker::Vehicle.manufacture
   content = Faker::Lorem.sentence(word_count:7)
   price=Faker::Number.between(from: 100000, to: 300000)
-  general_user.items.create!(name: name,category:"乗り物",content: content,price: price)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  general_user.items.create!(name: name,category:"乗り物",content: content,price: price,sales: quantity)
 end
 
-15.times do
+5.times do
   name = Faker::Food.fruits
   content = Faker::Lorem.sentence(word_count:7)
   price=Faker::Number.between(from: 50, to: 300)
-  general_user.items.create!(name: name,category:"食品",content: content,price: price,spoint: 40)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  general_user.items.create!(name: name,category:"食品",content: content,price: price,sales: quantity)
 end
 
-15.times do
+1.upto(5) do |n|
+  name = Faker::Device.model_name
+  content = Faker::Lorem.sentence(word_count:7)
+  price=Faker::Number.between(from: 5000, to: 20000)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  spoint= 30
+  picture = open("#{Rails.root}/db/fixtures/kaden-img#{n}.jpg")
+  general_user.items.create!(name: name,category: "家電",content: content,price: price,sales: quantity,spoint: spoint,picture: picture)
+end
+
+1.upto(5) do |n|
   name = Faker::Vehicle.manufacture
   content = Faker::Lorem.sentence(word_count:7)
   price=Faker::Number.between(from: 100000, to: 300000)
-  general_user.items.create!(name: name,category:"乗り物",content: content,price: price,spoint: 30)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  spoint= 30
+  picture = open("#{Rails.root}/db/fixtures/norimono-img#{n}.jpg")
+  general_user.items.create!(name: name,category: "乗り物",content: content,price: price,sales: quantity,spoint: spoint,picture: picture)
 end
 
-
+1.upto(5) do |n|
+  name = Faker::Food.fruits
+  content = Faker::Lorem.sentence(word_count:7)
+  price=Faker::Number.between(from: 50, to: 300)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  spoint= 40
+  picture = open("#{Rails.root}/db/fixtures/food-img#{n}.jpg")
+  general_user.items.create!(name: name,category: "食品",content: content,price: price,sales: quantity,spoint: spoint,picture: picture)
+end
 
 
 99.times do |n|
