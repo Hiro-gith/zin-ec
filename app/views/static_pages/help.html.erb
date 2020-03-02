@@ -1,5 +1,52 @@
 <% provide(:title, "Help") %>
 
-  <head>
-   <%= render 'arazin-head' %>
-  </head>
+  <body id="home">
+    <!--header begin-->
+    <%= render 'static_pages/arazin-navbar' %>
+    <%= render 'static_pages/arazin-top-menu'%>
+    
+    <!--header end-->
+    <!--main begin-->
+    <main class="clearfix">
+      <div id="main_image">
+        <%= image_tag 'cafe.jpg', :size => '940x350', :alt => 'CSS cafe' %>
+      </div>
+      <!--main_content begin-->
+      <div id="main_content">
+        <section id="info">
+          <h2>お知らせ</h2>
+          <dl>
+            <dt>2020年2月10日</dt>
+            <dd>リニューアルオープンしました</dd>
+            <dt>2020年2月15日</dt>
+            <dd>[ご注意ください]トイレットペーパーは十分にあります</dd>
+            <dt>2020年2月28日</dt>
+            <dd>マスク・消毒液などの高額転売は固くお断りしています</dd>
+          </dl>
+        </section>
+        <section id="campain">
+          <h2>よくある質問</h2>
+          <ul>
+            <li>会員登録の仕方</li>
+            <li>ログインできない場合</li>
+            <li>会員登録情報の変更・削除の仕方</li>
+          </ul>
+        <section>
+      </div>
+      <!--main_content end-->
+      <!--sidebar begin-->
+      <aside id="sidebar">
+        <ul>
+          <li>
+            <%= image_tag 'cat1',class:"help_image",alt: "help_image"%>
+          </li>
+          <li>
+            <%= image_tag 'cat2',class:"help_image",alt: "help_image"%>
+          </li>
+        </ul>
+      </aside>
+      <!--sidebar end-->
+    </main>
+    <!--main end-->
+  </body>
+<%= render 'layouts/footer' %>

@@ -37,7 +37,7 @@
           <p>金額 (単品):<%=@citem.item.price%>円</p>
           <p>個数：<%=@citem.quantity%></p>
           <p>金額 (合計)：<%=(@citem.item.price)*(@citem.quantity)%>円</p>
-          <p>獲得ポイント<%=((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>ポイント</p>
+          <p>獲得ポイント：<%=((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>pt</p>
           <p>id：<%=@citem.item_id%></p>
           <%= form_with local: true, url: pay_view_path do |form| %>
           
@@ -57,8 +57,8 @@
       </div>
       
     </div>
-    <span>カード番号：4242424242424242</span>
-    <p>有効期限：未来の日付</p>
-    <p>cvc番号・名前：自由</p>
+    <p class="card-memo">カード番号：4242424242424242</span>
+    <p class="card-memo">有効期限：未来の日付</p>
+    <p class="card-memo">cvc番号・名前：自由</p>
   </div>
 </div>

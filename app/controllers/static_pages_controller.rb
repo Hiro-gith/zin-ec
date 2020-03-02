@@ -19,6 +19,9 @@ class StaticPagesController < ApplicationController
   end
   
   def ranking
+    @items_rank_kaden = Item.where(category: "家電").order(sales: "DESC")
+    @items_rank_norimono = Item.where(category: "乗り物").order(sales: "DESC")
+    @items_rank_food = Item.where(category: "食品").order(sales: "DESC")
   end
   
   def card
