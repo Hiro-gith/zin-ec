@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   get '/histories',to:'static_pages#histories'
   get '/clips',to:'static_pages#clips'
+  get '/boughts',to:'static_pages#boughts'
+  
   
   # users
   get '/signup',to: 'users#new'

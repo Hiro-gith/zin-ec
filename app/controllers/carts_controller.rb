@@ -90,6 +90,10 @@ class CartsController < ApplicationController
     @bought = Bought.new(item_id: @item_id, user_id: @user_id,quantity: params[:quantity].to_i )
     @bought.save
     
+    @user = current_user
+    @user.points+= params[:points].to_i
+    @user.save
+    
     @citem.destroy
     
     redirect_to pay_confirmation_path

@@ -1,10 +1,17 @@
 class StaticPagesController < ApplicationController
   # 事前にログイン済みユーザーかどうか確認
-  before_action :logged_in_user,only: [:histories,:clips]
+  before_action :logged_in_user,only: [:histories,:clips,:boughts]
   
   # ルート
   def arazin
     @items = Item.all
+    @items_rank_kaden = Item.where(category: "家電").order(sales: "DESC")
+    @items_rank_norimono = Item.where(category: "乗り物").order(sales: "DESC")
+    @items_rank_food = Item.where(category: "食品").order(sales: "DESC")
+    
+    if logged_in?
+      @user = current_user
+    end
   end
   
   def magicdeal
@@ -33,7 +40,9 @@ class StaticPagesController < ApplicationController
     # @items = @user.items.page (params[:page])
   end
   
-  
+  def boughts
+    @boughts = current_user.boughts.page (params[:page])
+  end
   
   
   

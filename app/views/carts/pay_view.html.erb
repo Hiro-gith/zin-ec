@@ -43,6 +43,7 @@
           
             <%= form.hidden_field :amount, { value: (@citem.item.price)*(@citem.quantity)} %>
             <%= form.hidden_field :quantity, { value: @citem.quantity} %>
+            <%= form.hidden_field :points, { value: ((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round} %>
             <script
               type="text/javascript"
               src="https://checkout.pay.jp"
