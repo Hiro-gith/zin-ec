@@ -7,6 +7,6 @@ class CreateCitems < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_index :citems, [:item_id, :cart_id]
+    add_index :citems, [:item_id, :cart_id], unique: true
   end
 end

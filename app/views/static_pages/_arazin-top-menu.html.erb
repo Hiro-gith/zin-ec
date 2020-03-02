@@ -46,12 +46,11 @@
           <% end %>
           
           <!--購入履歴-->
-          <a href="#" class="arazin-purchase-history">
-            <div class="icon-purchase-history">
-              <i class="far fa-file-alt"></i>
-              <p>購入履歴</p>
-            </div>
-          </a>
+          <%= link_to(boughts_path,class: 'arazin-purchase-history') do %>
+            <span class ="icon-purchase-history">
+             <i class="far fa-file-alt"></i> <p>購入履歴</p>
+            </span>
+          <% end %>
           
           </div>
       </div>

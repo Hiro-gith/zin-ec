@@ -19,7 +19,8 @@ admin_user = User.find_by(name:"admin User")
   name = Faker::Device.model_name
   content = Faker::Lorem.sentence(word_count:7)
   price=Faker::Number.between(from: 5000, to: 20000)
-  admin_user.items.create!(name: name,category:"家電",content: content,price: price)
+  quantity=Faker::Number.between(from: 0, to: 100)
+  admin_user.items.create!(name: name,category:"家電",content: content,price: price,sales: quantity)
 end
 
             
@@ -53,6 +54,9 @@ end
   price=Faker::Number.between(from: 100000, to: 300000)
   general_user.items.create!(name: name,category:"乗り物",content: content,price: price,spoint: 30)
 end
+
+
+
 
 99.times do |n|
   name  = Faker::Name.name

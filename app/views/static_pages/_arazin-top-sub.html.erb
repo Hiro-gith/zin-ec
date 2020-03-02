@@ -4,9 +4,13 @@
     <div class="col-lg-7 col-sm-12">
       <% if logged_in? %>
         <p class="greeding-name"><%=current_user.name%>さん　いらっしゃいませ</p>
+        <p class="greeding-points1"><i class="fab fa-product-hunt"></i></p>
+        <p class="greeding-points2"><%=current_user.points%></p>
+        <p class="greeding-points3">ポイント</p>
       <% else %>
         <p class="greeding1">ようこそジンへ</p>
         <p class="greeding2">会員登録でジンマジックポイントが貯まる</p>
+
       <% end %>
     </div>
     

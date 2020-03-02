@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200301073819) do
+ActiveRecord::Schema.define(version: 20200301232523) do
 
   create_table "boughts", force: :cascade do |t|
     t.integer "item_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20200301073819) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_citems_on_cart_id"
-    t.index ["item_id", "cart_id"], name: "index_citems_on_item_id_and_cart_id"
+    t.index ["item_id", "cart_id"], name: "index_citems_on_item_id_and_cart_id", unique: true
     t.index ["item_id"], name: "index_citems_on_item_id"
   end
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20200301073819) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id", "user_id"], name: "index_clips_on_item_id_and_user_id"
+    t.index ["item_id", "user_id"], name: "index_clips_on_item_id_and_user_id", unique: true
     t.index ["item_id"], name: "index_clips_on_item_id"
     t.index ["user_id"], name: "index_clips_on_user_id"
   end
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20200301073819) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.integer "points", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
