@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200301232523) do
+ActiveRecord::Schema.define(version: 20200302091657) do
 
   create_table "boughts", force: :cascade do |t|
     t.integer "item_id"
@@ -84,16 +84,6 @@ ActiveRecord::Schema.define(version: 20200301232523) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-  end
-
-  create_table "ucarts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_ucarts_on_cart_id"
-    t.index ["user_id", "cart_id"], name: "index_ucarts_on_user_id_and_cart_id"
-    t.index ["user_id"], name: "index_ucarts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -35,7 +35,7 @@
                 <% end %>
               </div>
               
-              <p class="slick-label">ジンマジックDEAL</p>
+              <%= link_to "マジックDEAL",magicdeal_path ,class:"slick-label" %>
               <div class="slick1">
                 
                 <% i=1 %>
@@ -52,7 +52,7 @@
                 <% end %>
               </div>
               
-              <p class="slick-label">新着商品</p>
+              <%= link_to "新着商品",items_path ,class:"slick-label" %>
               <div class="slick1">
                 <% @items.first(10).each do |item| %>
                   <%= link_to item ,class:"slick1-image1" do %>
@@ -65,7 +65,7 @@
               
               
               <% i=1 %>
-              <p class="slick-label">家電ランキング</p>
+              <%= link_to '家電ランキング',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'家電'}},class:"slick-label"%>
               <div class="slick1">
                 <% @items_rank_kaden.first(10).each do |item| %>
                   <%= link_to item ,class:"slick1-image1" do %>
@@ -80,7 +80,7 @@
               
               
               <% i=1 %>
-              <p class="slick-label">乗り物ランキング</p>
+              <%= link_to '乗り物',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'乗り物'}},class:"slick-label"%>
               <div class="slick1">
                 <% @items_rank_norimono.first(10).each do |item| %>
                   <%= link_to item ,class:"slick1-image1" do %>
@@ -94,7 +94,7 @@
               </div>
               
               <% i=1 %>
-              <p class="slick-label">食品ランキング</p>
+              <%= link_to '食品',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'食品'}},class:"slick-label"%>
               <div class="slick1">
                 <% @items_rank_food.first(10).each do |item| %>
                   <%= link_to item ,class:"slick1-image1" do %>

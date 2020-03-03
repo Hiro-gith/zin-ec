@@ -289,6 +289,10 @@ footer ul li a:active{
 .footer-comment{
   margin-bottom:10px;
 }
+
+.footer-right{
+  margin-left:35px;
+}
 /*homeのCSS終わり*/
 
 /*galleryのCSS始まり*/
@@ -812,9 +816,18 @@ input {
   
 }
 
+
+.card-memo1{
+  margin:0px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
 .card-memo{
   margin:0px;
 }
+
+
 // ログイン画面のチェックボックス
 .checkbox {
   margin-top: -10px;
@@ -1074,8 +1087,8 @@ span.picture {
   margin-right:10px;
 }
 .btn-pay{
-  background-color:#06F;
-  color:#FFF;
+  background-color:#AA0000;
+  color:#FFFFFF;
 }
 
 .cart-right-price{
@@ -1127,6 +1140,11 @@ span.picture {
 
 .pay-return{
   margin-top:20px;
+}
+
+.card-test{
+  border:  solid #000;
+  margin-top:30px;
 }
 /* □pay_view終わり*******************/
 /* ■magicdeal開始***********************/
