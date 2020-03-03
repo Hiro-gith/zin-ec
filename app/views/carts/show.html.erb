@@ -64,7 +64,7 @@
                   
                   <!--selectのクラス指定は{}をはさむ必要がある-->
                   <%= f.select :quantity ,[1,2,3,4,5,6,7,8,9,10],{},class: "cart-quantity"%>
-                  <%= f.submit "個数を変更する", class: "btn-quantity" %>
+                  <%= f.submit "個数を変更", class: "btn-quantity" %>
                 
                 <% end %>
               </div>
@@ -74,7 +74,7 @@
               <%= form_with(url:delete_item_path, method: :delete, class: "form-delete",local: true) do |f| %>
                 
                   <%= f.hidden_field :item_id, { value: citem.item_id} %>
-                  <%= f.submit "カートから削除する", class: "btn-delete" %>
+                  <%= f.submit "カートから削除", class: "btn-delete" %>
                 
               <% end %>
             </div>

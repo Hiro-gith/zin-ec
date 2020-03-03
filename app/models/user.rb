@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   # items,cartsと紐付ける、ユーザーと一緒に破棄される
   has_many :items, dependent: :destroy, through: :clips
-  has_many :ucarts, dependent: :destroy
   has_many :histories, dependent: :destroy
   has_many :clips, dependent: :destroy
   has_many :boughts, dependent: :destroy

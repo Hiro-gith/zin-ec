@@ -47,9 +47,9 @@ class CartsController < ApplicationController
       # ログインする
       log_in @user
       
-      if current_user.ucarts.blank?
-        current_user.ucarts.create(cart_id: session[:cart_id])
-      end
+      # if current_user.ucarts.blank?
+      #   current_user.ucarts.create(cart_id: session[:cart_id])
+      # end
       
       # チェックボックスにチェックが入っていればremember(@user)、入っていなければforget(@user)
       # remember(user)は記憶トークンから記憶ダイジェストにしデータベースへ保存
@@ -61,7 +61,7 @@ class CartsController < ApplicationController
       
     else
       # flash.nowとすると、別のリクエストが来たときに消える
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが無効です。'
       # ログインフォームを再表示
       render 'cart_login'
     end
@@ -69,6 +69,10 @@ class CartsController < ApplicationController
   
   def pay_view
     @citem = current_cart.citems.find_by(item_id: session[:item_id])
+    if @citem.nil?
+      flash[:danger] = 'エラーが発生しました。再度やり直しをお願いします'
+      redirect_to current_cart
+    end
   end
   
   def pay
