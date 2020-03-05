@@ -21,7 +21,7 @@
               <li id="clips-<%= clips.id %>">
                 <div class="row">
                   <div class="col-md-2">
-                    <%= image_tag clips.item.picture.url,class:"item_index_image"%>
+                    <%= link_to image_tag(clips.item.picture.url,class:"item_index_image"), clips.item %>
                   </div>
                   <div class="col-md-7">
                     <div class="item_index_content">
