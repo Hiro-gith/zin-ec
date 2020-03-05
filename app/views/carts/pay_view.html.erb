@@ -38,29 +38,34 @@
           <p>個数：<%=@citem.quantity%></p>
           <p>金額 (合計)：<%=(@citem.item.price)*(@citem.quantity)%>円</p>
           <p>獲得ポイント：<%=((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>pt</p>
-          <%= form_with local: true, url: pay_view_path do |form| %>
-          
-            <%= form.hidden_field :amount, { value: (@citem.item.price)*(@citem.quantity)} %>
-            <%= form.hidden_field :quantity, { value: @citem.quantity} %>
-            <%= form.hidden_field :points, { value: ((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round} %>
-            <script
-              type="text/javascript"
-              src="https://checkout.pay.jp"
-              class="payjp-button"
-              data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
-            </script>
-            
-          <% end %>
         </div>
         
+        <%=form_tag(local: true, url: pay_view_path, id: "charge-form",method: "POST") do %>
+          <p class="sigh-up-label">カード番号</p>
+          <input type="text" class="number" id: "payment_card_no",name="number" maxlength="16" placeholder="カード番号">
+          <p class="card-memo">テスト　 ：4242424242424242</p>
+          
+          <p class="sigh-up-label">CVC</p>
+          <input type="text" class="cvc" id: "payment_card_security_code" name="cvc" maxlength="3" placeholder="CVC">
+
+          <p class="card-memo">テスト　：111</p>
+          
+          <p class="sigh-up-label">有効期限</p>
+          <input type="text" class="exp_month" id: "payment_card_expire_mm" name="exp_month" maxlength="2" placeholder="月">
+          <p class="card-memo">テスト　：03</p>
+          
+          <input type="text" class="exp_year" id: "payment_card_expire_yy" name="exp_year" maxlength="4" placeholder="年">
+          <p class="card-memo">テスト　：25</p>
+          
+          <input type="hidden" class="payjp-token" name="payjpToken" value="">
+          <%= hidden_field_tag :amount, (@citem.item.price)*(@citem.quantity) %>
+          <%= hidden_field_tag :quantity,@citem.quantity %>
+          <%= hidden_field_tag :points, ((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>
+          
+          <button type="submit">送信</button>
+        <% end %>
       </div>
       
-    </div>
-    <div class="card-test">
-      <p class="card-memo1">クレジットカードテスト用</p>
-      <p class="card-memo">カード番号　 ：4242424242424242</p>
-      <p class="card-memo">有効期限　　 ：未来の日付</p>
-      <p class="card-memo">cvc番号・名前：任意</p>
     </div>
   </div>
 </div>

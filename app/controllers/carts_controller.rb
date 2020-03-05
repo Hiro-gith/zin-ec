@@ -77,11 +77,13 @@ class CartsController < ApplicationController
   
   def pay
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp::Charge.create(
-      :amount => params[:amount],
-      :card => params['payjp-token'],
-      :currency => 'jpy'
-    )
+    # customer = Payjp::Customer.create(description: 'test')
+    customer = Payjp::Customer.create(card: params[:payjp_token])
+    # Payjp::Charge.create(
+    #   amount: params[:amount],
+    #   card: params[:payjp_token],
+    #   currency: 'jpy'
+    # )
     
     @citem = current_cart.citems.find_by(item_id: session[:item_id])
     @item = Item.find_by(id: @citem.item_id)
@@ -107,6 +109,8 @@ class CartsController < ApplicationController
     @item = Item.find_by(id: session[:item_id])
     @bought = Bought.find_by(item_id: session[:item_id])
   end
+  
+  
   
   private
 
