@@ -1,0 +1,32 @@
+<% provide(:title, "Card registration") %>
+
+<div class="col-md-6 ml-auto mr-auto">
+  <div class="sigh-up-form">
+    <p class="kaiinn-sigh-up">クレジットカード情報入力</p>
+    <%=form_tag(local: true, url: card_create_path, id: "charge-form",method: "POST", name: "inputForm") do %>
+      <p class="sigh-up-label">カード番号</p>
+      <input type="text" class="card-number--input" id: "payment_card_no" name="number" maxlength="16" placeholder="カード番号">
+      
+      <p class="card-memo">テスト　 ：4242424242424242</p>
+      
+      <p class="sigh-up-label">CVC</p>
+      <input type="text" class="payment__security-code" id: "payment_card_cvc" name="cvc" maxlength="4" placeholder="CVC">
+
+      <p class="card-memo">テスト　：1111</p>
+      
+      <p class="sigh-up-label">有効期限</p>
+      <input type="text" class="exp__month" id: "payment_expiration_date_1i" name="valid_month" maxlength="2" placeholder="月">
+      
+      <p class="card-memo">テスト　：03</p>
+      
+      <input type="text" class="exp__year" id: "payment_expiration_date_2i" name="valid_year" maxlength="4" placeholder="年">
+      
+      <p class="card-memo">テスト　：2022</p>
+      <%= hidden_field_tag :amount, (@citem.item.price)*(@citem.quantity)%>
+      <%= hidden_field_tag :quantity, @citem.quantity %>
+      <%= hidden_field_tag :points, ((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>
+     
+      <button type="submit" id: "submit-button">送信</button>
+    <% end %>
+  </div>
+</div>
