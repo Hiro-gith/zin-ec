@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   
   get '/magicdeal',to:'static_pages#magicdeal'
   get '/ranking',to:'static_pages#ranking'
-  get '/card',to:'static_pages#card'
   get '/help',to:'static_pages#help'
   get '/ec',to:'static_pages#ec'  # 出店(暫定)
   
@@ -55,6 +54,10 @@ Rails.application.routes.draw do
   get '/pay_view',to:'carts#pay_view'
   post '/pay_view', to:'carts#pay'
   
+  # resources :cards
+  get '/card_create',to: 'cards#new'
+  post '/card_create',to: 'cards#create'
+
   get '/pay_confirmation',to:'carts#pay_confirmation'
 
   # 他のポートフォリオ
