@@ -14,12 +14,6 @@ class CartsController < ApplicationController
     @citem.quantity += params[:quantity].to_i
     @citem.save
     redirect_to current_cart
-    
-    # Ajaxの送信に対応する
-    # respond_to do |format|
-    # format.html { redirect_to current_cart }
-    # format.js
-# end
   end
   
   # カート詳細画面から、「更新」を押した時のアクション

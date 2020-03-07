@@ -9,8 +9,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", root_path
     assert_select "a[href=?]", magicdeal_path
     assert_select "a[href=?]", ranking_path
-    assert_select "a[href=?]", card_path
     assert_select "a[href=?]", help_path
-    assert_select "a[href=?]", ec_path
   end
 end

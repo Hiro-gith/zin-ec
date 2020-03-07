@@ -27,25 +27,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title","Ranking | #{@base_title}"
   end
   
-  # card
-  test "should get card" do
-    get card_path
-    assert_response :success
-    assert_select "title","Card | #{@base_title}"
-  end
-  
   # Help
   test "should get help" do
     get help_path
     assert_response :success
     assert_select "title","Help | #{@base_title}"
-  end
-  
-  # ec
-  test "should get ec" do
-    get ec_path
-    assert_response :success
-    assert_select "title","EC | #{@base_title}"
   end
 
 end

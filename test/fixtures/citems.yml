@@ -4,8 +4,16 @@ one:
   quantity: 1
   item: one
   cart: one
+  created_at: <%= 10.minutes.ago %>
 
-two:
+most_recent:
   quantity: 1
   item: two
   cart: two
+  created_at: <%= Time.zone.now %>
+  
+three:
+  quantity: 3
+  item: three
+  cart: three
+  created_at: <%= 2.hours.ago %>

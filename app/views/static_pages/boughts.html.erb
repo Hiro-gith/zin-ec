@@ -34,6 +34,7 @@
                   <div class="col-md-3">
                     <div class="item_price"><%=boughts.item.price %>円</div>
                     <div class="item_price">数量：<%=boughts.quantity %></div>
+                    <div class="item_price">購入日：<%= boughts.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[boughts.created_at.wday]})") %></div>
                   </div>
                 </div>
               </li>
