@@ -1,11 +1,13 @@
-#　ポートフォリオの名前
+## ポートフォリオの名前
 
 Zin
  
 ## 簡単な説明
 
 ECサイトです。会員登録をすると、商品の出品、購入、フォロワーの追加、商品のお気に入り登録などができます。
+
 会員登録をしなくても、商品検索をしたり、各カテゴリ別のランキングをみたりできます。
+
 管理者権限でログインをすると、ユーザーや商品を削除したり、ポイントバックの値を変更できます。
 
  
@@ -32,8 +34,11 @@ https://hiro-portfolio-zin.herokuapp.com
 ## 主な制作環境
  
 -AWS Cloud9
+
 -rails　5.1.6
+
 -ruby 2.6.3
+
 -bootstrap　4.0
  
 ## デプロイ
@@ -42,13 +47,16 @@ Heroku
 
 ## 主な参考資料
 
-Ruby ON Rails チュートリアル 5.1(第4版)
-Udemy:ウェブ開発入門完全攻略コース
-Progate:Ruby on rails5・Git
-ドットインストール:はじめてのHTML・CSS
+-Ruby ON Rails チュートリアル 5.1(第4版)
+
+-Udemy:ウェブ開発入門完全攻略コース
+
+-Progate:Ruby on rails5・Git
+
+-ドットインストール:はじめてのHTML・CSS
 
 ## 作者
  
 斎藤　裕樹
+
 Email : irohasu2015free@gmail.com
- 
