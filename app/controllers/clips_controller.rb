@@ -1,5 +1,6 @@
 class ClipsController < ApplicationController
   before_action :logged_in_user
+  
   def create
     @user_id = current_user.id
     @item_id = Item.find(params[:id]).id

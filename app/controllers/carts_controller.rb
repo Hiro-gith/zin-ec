@@ -47,10 +47,6 @@ class CartsController < ApplicationController
       # ログインする
       log_in @user
       
-      # if current_user.ucarts.blank?
-      #   current_user.ucarts.create(cart_id: session[:cart_id])
-      # end
-      
       # チェックボックスにチェックが入っていればremember(@user)、入っていなければforget(@user)
       # remember(user)は記憶トークンから記憶ダイジェストにしデータベースへ保存
       # さらに永続的クッキーにユーザーidと記憶トークンを保存
@@ -76,7 +72,6 @@ class CartsController < ApplicationController
   end
   
   def pay_confirmation
-    @item = Item.find_by(id: session[:item_id])
     @bought = Bought.find_by(item_id: session[:item_id])
   end
   
@@ -86,4 +81,5 @@ class CartsController < ApplicationController
   def setup_cart_item!
     @citem = current_cart.citems.find_by(item_id: params[:item_id])
   end
+  
 end

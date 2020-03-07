@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       log_in @user
       
       # フラッシュメッセージ
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "新規会員登録が成功しました"
       
       # ルートへリダイレクト(後で、成功画面を作成して、リダイレクト先を変える)
       redirect_to root_path

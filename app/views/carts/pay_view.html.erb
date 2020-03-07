@@ -38,12 +38,11 @@
           <p>個数：<%=@citem.quantity%></p>
           <p>金額 (合計)：<%=(@citem.item.price)*(@citem.quantity)%>円</p>
           <p>獲得ポイント：<%=((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round%>pt</p>
-          <%= link_to "クレジットカード画面へ進む", card_create_path %>
           <%= form_with(url:card_create_path, method: :get, class: "cart-payment",local: true) do |f| %>
             <%= f.hidden_field :amount, { value: (@citem.item.price)*(@citem.quantity)} %>
             <%= f.hidden_field :quantity, { value: @citem.quantity} %>
             <%= f.hidden_field :points, { value: ((@citem.item.price)*(@citem.quantity)/100)+((@citem.item.spoint)*0.01*(@citem.item.price)*(@citem.quantity)).round} %>
-            <%= f.submit "クレジットカード画面へ進む", class: "btn-pay" %>
+            <%= f.submit "クレジットカード画面", class: "btn-pay" %>
           <% end %>
         </div>
       </div>
