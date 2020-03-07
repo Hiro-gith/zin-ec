@@ -3,7 +3,14 @@
 one:
   item: one
   user: one
+  created_at: <%= 10.minutes.ago %>
 
-two:
+most_recent:
   item: two
   user: two
+  created_at: <%= Time.zone.now %>
+  
+two:
+  item: three
+  user: three
+  created_at: <%= 2.hours.ago %>

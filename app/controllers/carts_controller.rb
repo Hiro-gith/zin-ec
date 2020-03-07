@@ -14,12 +14,6 @@ class CartsController < ApplicationController
     @citem.quantity += params[:quantity].to_i
     @citem.save
     redirect_to current_cart
-    
-    # Ajaxの送信に対応する
-    # respond_to do |format|
-    # format.html { redirect_to current_cart }
-    # format.js
-# end
   end
   
   # カート詳細画面から、「更新」を押した時のアクション
@@ -47,10 +41,6 @@ class CartsController < ApplicationController
       # ログインする
       log_in @user
       
-      # if current_user.ucarts.blank?
-      #   current_user.ucarts.create(cart_id: session[:cart_id])
-      # end
-      
       # チェックボックスにチェックが入っていればremember(@user)、入っていなければforget(@user)
       # remember(user)は記憶トークンから記憶ダイジェストにしデータベースへ保存
       # さらに永続的クッキーにユーザーidと記憶トークンを保存
@@ -76,7 +66,6 @@ class CartsController < ApplicationController
   end
   
   def pay_confirmation
-    @item = Item.find_by(id: session[:item_id])
     @bought = Bought.find_by(item_id: session[:item_id])
   end
   
@@ -86,4 +75,5 @@ class CartsController < ApplicationController
   def setup_cart_item!
     @citem = current_cart.citems.find_by(item_id: params[:item_id])
   end
+  
 end

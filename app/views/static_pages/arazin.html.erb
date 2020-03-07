@@ -80,7 +80,7 @@
               
               
               <% i=1 %>
-              <%= link_to '乗り物',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'乗り物'}},class:"slick-label"%>
+              <%= link_to '乗り物ランキング',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'乗り物'}},class:"slick-label"%>
               <div class="slick1">
                 <% @items_rank_norimono.first(10).each do |item| %>
                   <%= link_to item ,class:"slick1-image1" do %>
@@ -94,7 +94,7 @@
               </div>
               
               <% i=1 %>
-              <%= link_to '食品',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'食品'}},class:"slick-label"%>
+              <%= link_to '食品ランキング',{:controller=>"items",:action=>"index",:q=>{:category_eq=>'食品'}},class:"slick-label"%>
               <div class="slick1">
                 <% @items_rank_food.first(10).each do |item| %>
                   <%= link_to item ,class:"slick1-image1" do %>
