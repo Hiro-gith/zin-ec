@@ -60,3 +60,7 @@ Heroku
 斎藤　裕樹
 
 Email : irohasu2015free@gmail.com
+
+## ライセンス
+
+許可しておりません
