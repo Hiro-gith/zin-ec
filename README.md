@@ -35,11 +35,11 @@ https://hiro-portfolio-zin.herokuapp.com
  
 -AWS Cloud9
 
--rails　5.1.6
+-Ruby on Rails 5.1.6
 
--ruby 2.6.3
+-Ruby 2.6.3
 
--bootstrap　4.0
+-Bootstrap 4.0
  
 ## デプロイ
  
