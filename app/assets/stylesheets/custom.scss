@@ -234,7 +234,6 @@ footer ul li a:active{
 
 // スーパーDeal
 .nav-item1 a{
-  
   border-bottom: 5px solid #00f;
 }
 
@@ -1093,4 +1092,60 @@ span.picture {
   color:#FFCC33	;
 }
 /* □magicdeal終わり*******************/
+/* ■LP1開始***********************/
+.lp1-comment{
+  color:#BBBBBB;
+  text-align:right;
+  margin-bottom:100px;
+  
+}
+
+.lp1-stone{
+  font-style:italic;
+  // font-weight:bold;
+  background-color:#DDDDDD;
+  display: inline-block;
+  padding:0 20px 0 20px;
+  border-radius:15px;
+}
+
+.lp1-title1{
+  margin-left:10px;
+  margin-bottom:0px;
+}
+
+.lp1-title2{
+   margin-left:50px;
+}
+
+.lp1-comment2{
+  font-weight:bold;
+  margin-left:100px;
+  margin-top:70px;
+}
+
+.lp1-image1{
+  transform: rotate( -5deg );
+  width:40%;
+  margin-right:5px;
+}
+
+.lp1-image2{
+  transform: rotate( 5deg );
+  width:40%;
+  margin-top:5px;
+}
+
+.lp1-serch-form{
+  width:70%;
+  margin-top:10px;
+}
+
+.var-item{
+  text-align:center;
+  border: 1px solid #614226;
+  padding:5px 15px 5px 15px;
+  
+}
+/* □LP1終わり*******************/
 /*zinのCSS終わり                                              */

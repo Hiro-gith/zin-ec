@@ -55,8 +55,8 @@ class StaticPagesController < ApplicationController
   
   def gallery
   end
-  
-  def javascript
+
+  def lp1
   end
   
   

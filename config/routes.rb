@@ -62,6 +62,6 @@ Rails.application.routes.draw do
 
   # 他のポートフォリオ
   get '/cafe',to:'static_pages#cafe'
-  get '/javascript',to: 'static_pages#javascript'
   get '/gallery',to: 'static_pages#gallery'
+  get '/lp1',to: 'static_pages#lp1'
 end
