@@ -234,7 +234,6 @@ footer ul li a:active{
 
 // スーパーDeal
 .nav-item1 a{
-  
   border-bottom: 5px solid #00f;
 }
 
@@ -1093,4 +1092,119 @@ span.picture {
   color:#FFCC33	;
 }
 /* □magicdeal終わり*******************/
+/* ■LP-test開始***********************/
+.lp-comment{
+  color:#BBBBBB;
+  text-align:right;
+  margin-bottom:100px;
+  
+}
+
+.lp-top{
+  border-bottom:1px dashed #DCDCDC;
+  margin-bottom:5px;
+}
+.lp-stone{
+  font-style:italic;
+  // font-weight:bold;
+  background-color:#DDDDDD;
+  display: inline-block;
+  padding:0 20px 0 20px;
+  border-radius:15px;
+}
+
+.lp-title1{
+  margin-left:10px;
+  margin-bottom:0px;
+}
+
+.lp-title2{
+   margin-left:50px;
+}
+
+.lp-comment2{
+  font-weight:bold;
+  margin-left:100px;
+  margin-top:70px;
+}
+
+.lp-image1{
+  transform: rotate( -5deg );
+  width:40%;
+  margin-right:5px;
+}
+
+.lp-image2{
+  transform: rotate( 5deg );
+  width:40%;
+  margin-top:5px;
+}
+
+.lp-serch-form{
+  width:70%;
+  margin-top:10px;
+}
+
+.lp-var{
+  // border-bottom: 2px solid #D3D3D3;
+}
+
+.var-item{
+  border-right: 1px solid #FFF;
+  padding:5px 15px 5px 15px;
+  float:left;
+  width:185px;
+  text-align:center;
+  color:#FFF;
+  background-color:#C2EEFF;
+  font-weight:bold;
+  border-bottom: 3px solid #EEEEEE;
+  margin-bottom:50px;
+}
+
+.lp-side-image1{
+  width:80%;
+  margin-bottom:30px;
+}
+/* □LP-test終わり*******************/
+
+/* ■LP1開始***********************/
+
+.lp1-navbar{
+  margin-bottom:100px;
+}
+
+.lp1-navbar-ul{
+  list-style: none; 
+}
+
+.lp1-nabver-item1{
+  float:left;
+  margin-top:20px;
+}
+
+.lp1-nabver-item2{
+  float:right;
+  margin-left:1000px;
+  color:#000;
+  border:1px solid #000;
+  padding:5px 15px 5px 15px;
+  margin-top:15px;
+  font-size:13px;
+}
+
+
+.lp1-top{
+  background-color:#C0C0C0;
+}
+.lp1-nav-content2{
+  border: 1px solid #000;
+  text-align:center;
+  color:#000;
+}
+
+.lp1-image1{
+  width:100%;
+}
+/* □LP1終わり*******************/
 /*zinのCSS終わり                                              */
