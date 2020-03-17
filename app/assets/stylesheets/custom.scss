@@ -1263,7 +1263,7 @@ span.picture {
 .lp1-main2-inquiry{
   padding:50px;
 }
-.lp1-inquiry{
+.lp1-inquiry,.lp1-go-ec{
   margin:  0 auto; 
   border: 1px solid #000;
   width:300px;
@@ -1274,6 +1274,7 @@ span.picture {
 .lp1-main3{
   background-color:#DCDCDC;
   padding-top:50px;
+  padding-bottom:50px;
 }
 
 .lp1-main3-title{
@@ -1297,6 +1298,16 @@ span.picture {
 
 .lp1-main3-comment2{
   font-size:12px;
+}
+
+.lp1-go-ec{
+  color:#000;
+  text-decoration:none;
+  margin-top:50px;
+}
+
+.lp1-main3 a:hover { 
+  text-decoration: none; 
 }
 /* □LP1終わり*******************/
 /*zinのCSS終わり                                              */
