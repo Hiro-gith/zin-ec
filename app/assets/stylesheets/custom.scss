@@ -1171,7 +1171,8 @@ span.picture {
 /* ■LP1開始***********************/
 
 .lp1-navbar{
-  margin-bottom:100px;
+  padding-bottom:100px;
+  background-color:#DCDCDC;
 }
 
 .lp1-navbar-ul{
@@ -1193,10 +1194,6 @@ span.picture {
   font-size:13px;
 }
 
-
-.lp1-top{
-  background-color:#C0C0C0;
-}
 .lp1-nav-content2{
   border: 1px solid #000;
   text-align:center;
@@ -1205,6 +1202,101 @@ span.picture {
 
 .lp1-image1{
   width:100%;
+}
+
+.lp1-main1{
+  background-color:#DCDCDC;
+  margin-bottom:50px;
+}
+
+.lp1-main1 h1,.lp1-main1 p{
+  text-align:center;
+} 
+
+.lp1-main2{
+  margin-bottom:20px;
+}
+.lp1-main2-comment1{
+  text-align:center;
+  font-size:15px;
+  font-weight:bold;
+}
+
+.lp1-main2-comment2{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:30px;
+}
+
+.lp1-image2{
+  width:200px;
+  margin-left:200px;
+}
+
+.lp1-image3{
+  width:200px;
+  margin-left:130px;
+}
+
+.lp1-image4{
+  width:150px;
+  margin-left:150px;
+}
+
+.lp1-main2-support-comment1{
+  float:left;
+  margin-left:245px;
+  font-size:12px;
+}
+
+.lp1-main2-support-comment2{
+  float:left;
+  margin-left:205px;
+  font-size:12px;
+}
+.lp1-main2-support-comment3{
+  float:left;
+  margin-left:245px;
+  font-size:12px;
+}
+.lp1-main2-inquiry{
+  padding:50px;
+}
+.lp1-inquiry{
+  margin:  0 auto; 
+  border: 1px solid #000;
+  width:300px;
+  padding:12px 50px 10px 50px;
+  text-align:center;
+}
+
+.lp1-main3{
+  background-color:#DCDCDC;
+  padding-top:50px;
+}
+
+.lp1-main3-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.lp1-main3-image1,.lp1-main3-image2,.lp1-main3-image3{
+  width:90%;
+}
+
+.lp1-main3-date{
+  font-size:12px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.lp1-main3-comment1{
+  font-weight:bold;
+}
+
+.lp1-main3-comment2{
+  font-size:12px;
 }
 /* □LP1終わり*******************/
 /*zinのCSS終わり                                              */
