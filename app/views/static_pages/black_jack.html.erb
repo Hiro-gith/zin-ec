@@ -1,0 +1,38 @@
+<% provide(:title, "BlackJack") %>
+
+<div class="row justify-content-center">
+  <div class="col-md-10 ">
+    <h1 class="blackjack-title">Black Jack</h1>
+  </div>
+  
+  <div class="col-md-10">
+    <span>所持ポイント：</span>
+    <span id="oldPoint">10000</span>
+    <span class="bet-comment">賭けるポイントを入力してください</span>
+    <input type="text" id = "betBox" value="">
+    <input type="button" value="決定" class="betButton" onclick="betPoint()">
+    
+    <div id="info">
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div id="deal-player">
+          
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="deal-dealer">
+      
+        </div>
+      </div>
+      <input type="button" value="カードをひく" class="hitButton" onclick="hit()">
+    </div>
+    
+    
+    
+  
+  </div>
+  
+  
+</div>

@@ -64,4 +64,5 @@ Rails.application.routes.draw do
   get '/cafe',to:'static_pages#cafe'
   get '/gallery',to: 'static_pages#gallery'
   get '/lp1',to: 'static_pages#lp1'
+  get '/black_jack',to: 'static_pages#black_jack'
 end

@@ -1310,4 +1310,52 @@ span.picture {
   text-decoration: none; 
 }
 /* □LP1終わり*******************/
+/* ■blackjack開始***********************/
+.blackjack-title{
+  text-align:center;
+  border:solid 1px #000;
+  margin-bottom:50px;
+}
+
+.bet-comment{
+  margin-top:20px;
+  margin-bottom:0px;
+}
+
+#oldPoint,#newPoint{
+  margin-right:50px;
+}
+#betBox{
+  width:100px;
+}
+
+.betButton{
+  width:50px;
+}
+
+.info2{
+  border-bottom:solid 2px #000;
+  margin-bottom:5px;
+}
+
+.pc1,.pc2,.dc1{
+  font-size:20px;
+  margin-right:20px;
+  padding:20px;
+  border:solid 1px #000;
+}
+
+.hitButton{
+  width:120px;
+  margin-top:40px;
+  margin-left:20px;
+}
+#deal-player,#deal-dealer{
+  margin-top:10px;
+}
+.textp,.textd{
+  margin-bottom:20px;
+}
+
+/* □blackjack終わり*******************/
 /*zinのCSS終わり                                              */
