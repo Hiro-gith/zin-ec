@@ -4,12 +4,12 @@ function betPoint(){
   var bet = document.getElementById('betBox').value;
   // 数値へ変換
   bet = Number(bet);
-  console.log(bet);
+  // console.log(bet);
   
   //所持金を取得
   var oldPoint = document.getElementById('oldPoint');
   oldPoint = Number(oldPoint.innerText);
-  console.log(oldPoint);
+  // console.log(oldPoint);
   
   // infoのpタグを作成
   var info1 = document.createElement('p');
@@ -35,33 +35,18 @@ function betPoint(){
     var text1 = document.createTextNode(bet+'ポイント賭けました。ゲームを開始します!');
     var text2 = document.createTextNode('プレイヤーとディーラーに2枚ずつカードが配られました');
     
-    var text3 = document.createTextNode('プレイヤー');
-    var text4 = document.createTextNode('ディーラー');
-    
     info1.appendChild(text1);
     
     var info2 = document.createElement('p');
     info2.appendChild(text2);
     info2.setAttribute('class','info2');
     
-    var textp = document.createElement('p');
-    textp.appendChild(text3);
-    textp.setAttribute('class','textp');
-    
-    var textd = document.createElement('p');
-    textd.appendChild(text4);
-    textd.setAttribute('class','textd');
-    
     var listsElement = document.getElementById("info");
     listsElement.appendChild(info1);
     listsElement.appendChild(info2);
     
-    var listsElementP = document.getElementById("deal-player");
-    listsElementP.appendChild(textp);
-    
-    var listsElementD = document.getElementById("deal-dealer");
-    listsElementD.appendChild(textd);
-    deckCreate();
+    var shuffled = deckCreate();
+    deal(shuffled);
     
   }else{
     text1 = document.createTextNode('掛け金が足りていません');
@@ -93,10 +78,12 @@ function deckCreate(){
   // シャッフルしたデッキの変数名を変える
   var shuffled = number;
   
-  // for(var i = 0; i < d; i++){
-  // console.log(shuffled[i]);
-  // }
+  return shuffled;
   
+  
+}
+
+function deal(shuffled){
   //Aがあっても1として扱ったときの各合計値
   var player = 0;
   var dealer = 0;
@@ -108,15 +95,19 @@ function deckCreate(){
   
   var pB = false;    //プレイヤーがBlackJackかどうか
   var dB = false;    //ディーラーがBlackJackかどうか
-
-  //Splitしたとき
-  var pB1 = false;    //プレイヤー1がBlackJackかどうか
-  var pB2 = false;    //プレイヤー2がBlackJackかどうか
   
   var top; //デッキトップの配列番号
   
+  // プレイヤーがヒットした回数
+  var hp = document.createElement('span');
+  hp.setAttribute('id','hp');
+  var hpt =document.createTextNode("0");
+  hp.appendChild(hpt);
+  listsElement = document.getElementById("info");
+  listsElement.appendChild(hp);
+  
   //playerに配られた2枚のカードの値
-  for (i = 0; i < 2; i++){
+  for (var i = 0; i < 2; i++){
     player += shuffled[i];  //Aがあっても1として扱ったときの値
   
     //Aを1枚11にするときの値
@@ -176,6 +167,7 @@ function deckCreate(){
   {
     console.log("プレイヤー 　" + shuffled[0] + "　+　" + shuffled[1] + "　=　" + playerA);
     
+    // プレイヤーに配られた1枚目のカード
     var pc1 = document.createElement('span');
     pc1.setAttribute('class','pc1');
     var text1 =document.createTextNode(shuffled[0]);
@@ -183,12 +175,29 @@ function deckCreate(){
     var listsElement = document.getElementById("deal-player");
     listsElement.appendChild(pc1);
     
+    // プレイヤーに配られた2枚目のカード
     var pc2 = document.createElement('span');
     pc2.setAttribute('class','pc2');
     var text2 =document.createTextNode(shuffled[1]);
     pc2.appendChild(text2);
     listsElement = document.getElementById("deal-player");
     listsElement.appendChild(pc2);
+    
+    // プレイヤーに配られた2枚のカードの合計
+    var ps = document.createElement('p');
+    ps.setAttribute('id','ps');
+    var text3 =document.createTextNode("　合計　" +playerA);
+    ps.appendChild(text3);
+    listsElement = document.getElementById("deal-player");
+    listsElement.appendChild(ps);
+    
+    // プレイヤーに配られた2枚のカードの合計をviewに保存（Aを11としたとき）
+    var vpa = document.createElement('span');
+    vpa.setAttribute('id','vpa');
+    var vpat =document.createTextNode(playerA);
+    vpa.appendChild(vpat);
+    listsElement = document.getElementById("info");
+    listsElement.appendChild(vpa);
     
     pB = true;
   }
@@ -209,24 +218,60 @@ function deckCreate(){
     pc2.appendChild(text2);
     listsElement = document.getElementById("deal-player");
     listsElement.appendChild(pc2);
+    
+    ps = document.createElement('p');
+    ps.setAttribute('id','ps');
+    text3 =document.createTextNode("　合計　" +player);
+    ps.appendChild(text3);
+    listsElement = document.getElementById("deal-player");
+    listsElement.appendChild(ps);
+    
+    // プレイヤーに配られた2枚のカードの合計をviewに保存（Aを11としていないとき）
+    var vp = document.createElement('span');
+    vp.setAttribute('id','vp');
+    var vpt =document.createTextNode(player);
+    vp.appendChild(vpt);
+    listsElement = document.getElementById("info");
+    listsElement.appendChild(vp);
   }
   else
   {
     console.log("プレイヤー　" + shuffled[0] + "　+　" + shuffled[1] + "　=　" + player + "　or　" + playerA);
     
-    var pc1 = document.createElement('span');
+    pc1 = document.createElement('span');
     pc1.setAttribute('class','pc1');
-    var text1 =document.createTextNode(shuffled[0]);
+    text1 =document.createTextNode(shuffled[0]);
     pc1.appendChild(text1);
-    var listsElement = document.getElementById("deal-player");
+    listsElement = document.getElementById("deal-player");
     listsElement.appendChild(pc1);
     
-    var pc2 = document.createElement('span');
+    pc2 = document.createElement('span');
     pc2.setAttribute('class','pc2');
-    var text2 =document.createTextNode(shuffled[1]);
+    text2 =document.createTextNode(shuffled[1]);
     pc2.appendChild(text2);
-    var listsElement = document.getElementById("deal-player");
+    listsElement = document.getElementById("deal-player");
     listsElement.appendChild(pc2);
+    
+    ps = document.createElement('p');
+    ps.setAttribute('id','ps');
+    text3 =document.createTextNode("　合計　" + player + "　or　" + playerA);
+    ps.appendChild(text3);
+    listsElement = document.getElementById("deal-player");
+    listsElement.appendChild(ps);
+    
+    vpa = document.createElement('span');
+    vpa.setAttribute('id','vpa');
+    vpat =document.createTextNode(playerA);
+    vpa.appendChild(vpat);
+    listsElement = document.getElementById("info");
+    listsElement.appendChild(vpa);
+    
+    vp = document.createElement('span');
+    vp.setAttribute('id','vp');
+    vpt =document.createTextNode(player);
+    vp.appendChild(vpt);
+    listsElement = document.getElementById("info");
+    listsElement.appendChild(vp);
   }
 
   if (dealerA == 21)  //BlackJack（2枚のカードでBlackJackになったとき。一番強い手）
@@ -236,10 +281,25 @@ function deckCreate(){
     
     var dc1 = document.createElement('span');
     dc1.setAttribute('class','dc1');
-    var text3 = document.createTextNode(shuffled[2]);
+    text3 = document.createTextNode(shuffled[2]);
     dc1.appendChild(text3);
-    var listsElementd = document.getElementById("deal-player");
+    var listsElementd = document.getElementById("deal-dealer");
     listsElementd.appendChild(dc1);
+    
+    var dc2 = document.createElement('span');
+    dc2.setAttribute('class','dc2');
+    var text4 = document.createTextNode('?');
+    dc2.appendChild(text4);
+    var listsElementd1 = document.getElementById("deal-dealer");
+    listsElementd1.appendChild(dc2);
+    
+    // ディーラーに配られた2枚のカードの合計
+    var ds = document.createElement('p');
+    ds.setAttribute('id','ds');
+    var text5 =document.createTextNode("　合計　" +dealerA);
+    ds.appendChild(text5);
+    listsElement = document.getElementById("deal-dealer");
+    listsElement.appendChild(ds);
   }
   else
   {
@@ -250,23 +310,43 @@ function deckCreate(){
     dc1.appendChild(text3);
     listsElementd = document.getElementById("deal-dealer");
     listsElementd.appendChild(dc1);
+    
+    dc2 = document.createElement('span');
+    dc2.setAttribute('class','dc2');
+    text4 = document.createTextNode('?');
+    dc2.appendChild(text4);
+    listsElementd1 = document.getElementById("deal-dealer");
+    listsElementd1.appendChild(dc2);
   }
   var hp = 0;
-  return shuffled;
+  
 }
 
 // HiTしたとき
-function hit(shuffled,player,playerA, i, pB,hp){
+function hit(){
+  
+  var shuffled = deckCreate();
   var playerMax = 0;  //playerとplayerAの大きい方
   var hd = 0;         //DealerのHIT数の初期化（ShowHandメソッドのため） 
   
-  var shuffled = deckCreate();
+  //現在のヒット数を取得
+  var oldhp = document.getElementById('hp');
+  oldhp = Number(oldhp.innerText);
   
-  if (pB == false)   //BlackJackでないならHITできる
-  {
-    hp += 1;
-  }
-  console.log(hp)
+  //変動後の所持ポイントのタグを作成する
+  var newList = document.createElement('hp');
+  newList.setAttribute('id','hp');
+  
+  //ヒット数をプラス1する
+  var newhp = document.createTextNode(oldhp+1);
+  
+  var oldList = document.getElementById('hp');
+  
+  newList.appendChild(newhp);
+  
+  var parentNode = oldList.parentNode;
+  
+  parentNode.replaceChild(newList,oldList);
 }
 
 

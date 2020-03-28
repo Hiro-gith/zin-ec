@@ -1334,11 +1334,11 @@ span.picture {
 }
 
 .info2{
-  border-bottom:solid 2px #000;
+  // border-bottom:solid 2px #000;
   margin-bottom:5px;
 }
 
-.pc1,.pc2,.dc1{
+.pc1,.pc2,.dc1,.dc2{
   font-size:20px;
   margin-right:20px;
   padding:20px;
@@ -1350,12 +1350,27 @@ span.picture {
   margin-top:40px;
   margin-left:20px;
 }
+
+.player,.dealer{
+  margin-bottom:35px;
+}
+
+#ps{
+  margin-top:25px;
+}
 #deal-player,#deal-dealer{
   margin-top:10px;
+  border:solid 1px #000;
+  height:150px;
+  padding-top:10px;
+  padding-left:10px;
 }
 .textp,.textd{
   margin-bottom:20px;
 }
 
+#vp,#vpa,#hp{
+  // display:none;
+}
 /* □blackjack終わり*******************/
 /*zinのCSS終わり                                              */
