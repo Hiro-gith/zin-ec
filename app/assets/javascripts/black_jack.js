@@ -103,7 +103,7 @@ function deal(shuffled){
   hp.setAttribute('id','hp');
   var hpt =document.createTextNode("0");
   hp.appendChild(hpt);
-  listsElement = document.getElementById("info");
+  var listsElement = document.getElementById("info");
   listsElement.appendChild(hp);
   
   //playerに配られた2枚のカードの値
@@ -165,161 +165,132 @@ function deal(shuffled){
   //プレイヤーとディーラーの2枚のカードの表示
   if (playerA == 21)  //BlackJack（2枚のカードで21になったとき。一番強い手）
   {
-    console.log("プレイヤー 　" + shuffled[0] + "　+　" + shuffled[1] + "　=　" + playerA);
-    
-    // プレイヤーに配られた1枚目のカード
-    var pc1 = document.createElement('span');
-    pc1.setAttribute('class','pc1');
-    var text1 =document.createTextNode(shuffled[0]);
-    pc1.appendChild(text1);
-    var listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(pc1);
-    
-    // プレイヤーに配られた2枚目のカード
-    var pc2 = document.createElement('span');
-    pc2.setAttribute('class','pc2');
-    var text2 =document.createTextNode(shuffled[1]);
-    pc2.appendChild(text2);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(pc2);
-    
-    // プレイヤーに配られた2枚のカードの合計
-    var ps = document.createElement('p');
-    ps.setAttribute('id','ps');
-    var text3 =document.createTextNode("　合計　" +playerA);
-    ps.appendChild(text3);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(ps);
-    
-    // プレイヤーに配られた2枚のカードの合計をviewに保存（Aを11としたとき）
-    var vpa = document.createElement('span');
-    vpa.setAttribute('id','vpa');
-    var vpat =document.createTextNode(playerA);
-    vpa.appendChild(vpat);
-    listsElement = document.getElementById("info");
-    listsElement.appendChild(vpa);
-    
-    pB = true;
+    show_player_deal(shuffled,player,playerA);
+    // プレイヤーに配られた2枚のカードの合計を表示
+    var psvt = document.createElement('p');
+    psvt.setAttribute('id','psv');
+    var text3 =document.createTextNode("　合計　"+ playerA);
+    psvt.appendChild(text3);
+    listsElement = document.getElementById("deal-player-sum");
+    listsElement.appendChild(psvt);
   }
   else if (playerA == 0)
   {
-    console.log("プレイヤー　" + shuffled[0] + "　+　" + shuffled[1] + "　=　" + player);
-    
-    pc1 = document.createElement('span');
-    pc1.setAttribute('class','pc1');
-    text1 =document.createTextNode(shuffled[0]);
-    pc1.appendChild(text1);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(pc1);
-    
-    pc2 = document.createElement('span');
-    pc2.setAttribute('class','pc2');
-    text2 =document.createTextNode(shuffled[1]);
-    pc2.appendChild(text2);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(pc2);
-    
-    ps = document.createElement('p');
-    ps.setAttribute('id','ps');
-    text3 =document.createTextNode("　合計　" +player);
-    ps.appendChild(text3);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(ps);
-    
-    // プレイヤーに配られた2枚のカードの合計をviewに保存（Aを11としていないとき）
-    var vp = document.createElement('span');
-    vp.setAttribute('id','vp');
-    var vpt =document.createTextNode(player);
-    vp.appendChild(vpt);
-    listsElement = document.getElementById("info");
-    listsElement.appendChild(vp);
+    show_player_deal(shuffled,player,playerA);
+    // プレイヤーに配られた2枚のカードの合計を表示
+    psvt = document.createElement('p');
+    psvt.setAttribute('id','psv');
+    text3 =document.createTextNode("　合計　"+ player);
+    psvt.appendChild(text3);
+    listsElement = document.getElementById("deal-player-sum");
+    listsElement.appendChild(psvt);
   }
   else
   {
-    console.log("プレイヤー　" + shuffled[0] + "　+　" + shuffled[1] + "　=　" + player + "　or　" + playerA);
-    
-    pc1 = document.createElement('span');
-    pc1.setAttribute('class','pc1');
-    text1 =document.createTextNode(shuffled[0]);
-    pc1.appendChild(text1);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(pc1);
-    
-    pc2 = document.createElement('span');
-    pc2.setAttribute('class','pc2');
-    text2 =document.createTextNode(shuffled[1]);
-    pc2.appendChild(text2);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(pc2);
-    
-    ps = document.createElement('p');
-    ps.setAttribute('id','ps');
-    text3 =document.createTextNode("　合計　" + player + "　or　" + playerA);
-    ps.appendChild(text3);
-    listsElement = document.getElementById("deal-player");
-    listsElement.appendChild(ps);
-    
-    vpa = document.createElement('span');
-    vpa.setAttribute('id','vpa');
-    vpat =document.createTextNode(playerA);
-    vpa.appendChild(vpat);
-    listsElement = document.getElementById("info");
-    listsElement.appendChild(vpa);
-    
-    vp = document.createElement('span');
-    vp.setAttribute('id','vp');
-    vpt =document.createTextNode(player);
-    vp.appendChild(vpt);
-    listsElement = document.getElementById("info");
-    listsElement.appendChild(vp);
+    show_player_deal(shuffled,player,playerA);
+    // プレイヤーに配られた2枚のカードの合計を表示
+    psvt = document.createElement('p');
+    psvt.setAttribute('id','psv');
+    text3 =document.createTextNode("　合計　"+ player +"　or　" + playerA);
+    psvt.appendChild(text3);
+    listsElement = document.getElementById("deal-player-sum");
+    listsElement.appendChild(psvt);
   }
 
   if (dealerA == 21)  //BlackJack（2枚のカードでBlackJackになったとき。一番強い手）
   {
-    console.log("dealer　" + shuffled[2]);
-    dB = true;
-    
-    var dc1 = document.createElement('span');
-    dc1.setAttribute('class','dc1');
-    text3 = document.createTextNode(shuffled[2]);
-    dc1.appendChild(text3);
-    var listsElementd = document.getElementById("deal-dealer");
-    listsElementd.appendChild(dc1);
-    
-    var dc2 = document.createElement('span');
-    dc2.setAttribute('class','dc2');
-    var text4 = document.createTextNode('?');
-    dc2.appendChild(text4);
-    var listsElementd1 = document.getElementById("deal-dealer");
-    listsElementd1.appendChild(dc2);
-    
+    show_dealer_deal(shuffled,dealer,dealerA);
     // ディーラーに配られた2枚のカードの合計
-    var ds = document.createElement('p');
-    ds.setAttribute('id','ds');
-    var text5 =document.createTextNode("　合計　" +dealerA);
-    ds.appendChild(text5);
-    listsElement = document.getElementById("deal-dealer");
-    listsElement.appendChild(ds);
+    var dst = document.createElement('p');
+    dst.setAttribute('id','dst');
+    var text5 =document.createTextNode("　合計　"+ dealerA);
+    dst.appendChild(text5);
+    listsElement = document.getElementById("deal-dealer-sum");
+    listsElement.appendChild(dst);
   }
-  else
+  else if(dealerA == 0)
   {
-    console.log("dealer　" + shuffled[2]);
-    dc1 = document.createElement('span');
-    dc1.setAttribute('class','dc1');
-    text3 = document.createTextNode(shuffled[2]);
-    dc1.appendChild(text3);
-    listsElementd = document.getElementById("deal-dealer");
-    listsElementd.appendChild(dc1);
-    
-    dc2 = document.createElement('span');
-    dc2.setAttribute('class','dc2');
-    text4 = document.createTextNode('?');
-    dc2.appendChild(text4);
-    listsElementd1 = document.getElementById("deal-dealer");
-    listsElementd1.appendChild(dc2);
+    show_dealer_deal(shuffled,dealer,dealerA);
+    dst = document.createElement('p');
+    dst.setAttribute('id','dst');
+    text5 =document.createTextNode("　合計　"+ dealer);
+    dst.appendChild(text5);
+    listsElement = document.getElementById("deal-dealer-sum");
+    listsElement.appendChild(dst);
   }
-  var hp = 0;
+  else{
+    show_dealer_deal(shuffled,dealer,dealerA);
+    dst = document.createElement('p');
+    dst.setAttribute('id','dst');
+    text5 =document.createTextNode("　合計　"+ dealer +"　or　" + dealerA);
+    dst.appendChild(text5);
+    listsElement = document.getElementById("deal-dealer-sum");
+    listsElement.appendChild(dst);
+  }
+}
+
+function show_player_deal(shuffled,player,playerA){
+  // プレイヤーに配られた1枚目のカード
+  var pc1 = document.createElement('span');
+  pc1.setAttribute('class','pc1');
+  var text1 =document.createTextNode(shuffled[0]);
+  pc1.appendChild(text1);
+  var listsElement = document.getElementById("deal-player");
+  listsElement.appendChild(pc1);
   
+  // プレイヤーに配られた2枚目のカード
+  var pc2 = document.createElement('span');
+  pc2.setAttribute('class','pc2');
+  var text2 =document.createTextNode(shuffled[1]);
+  pc2.appendChild(text2);
+  listsElement = document.getElementById("deal-player");
+  listsElement.appendChild(pc2);
+  
+  // プレイヤーに配られた2枚のカードの合計をviewに保存（hidden）（Aを11としたとき）
+  var psa = document.createElement('span');
+  psa.setAttribute('id','psa');
+  var psat =document.createTextNode(playerA);
+  psa.appendChild(psat);
+  listsElement = document.getElementById("deal-player-sum");
+  listsElement.appendChild(psa);
+  
+  // プレイヤーに配られた2枚のカードの合計をviewに保存（hidden）（Aを11としていないとき）
+  var ps = document.createElement('span');
+  ps.setAttribute('id','ps');
+  var pst =document.createTextNode(player);
+  ps.appendChild(pst);
+  listsElement = document.getElementById("deal-player-sum");
+  listsElement.appendChild(ps);
+}
+
+function show_dealer_deal(shuffled,dealer,dealerA){
+  var dc1 = document.createElement('span');
+  dc1.setAttribute('class','dc1');
+  var text3 = document.createTextNode(shuffled[2]);
+  dc1.appendChild(text3);
+  var listsElementd = document.getElementById("deal-dealer");
+  listsElementd.appendChild(dc1);
+  
+  var dc2 = document.createElement('span');
+  dc2.setAttribute('class','dc2');
+  var text4 = document.createTextNode('?');
+  dc2.appendChild(text4);
+  var listsElementd1 = document.getElementById("deal-dealer");
+  listsElementd1.appendChild(dc2);
+  
+  var ds = document.createElement('span');
+  ds.setAttribute('id','ds');
+  var text6 =document.createTextNode(dealer);
+  ds.appendChild(text6);
+  var listsElement = document.getElementById("deal-dealer-sum");
+  listsElement.appendChild(ds);
+  
+  var dsa = document.createElement('span');
+  dsa.setAttribute('id','dsa');
+  var text7 =document.createTextNode(dealerA);
+  ds.appendChild(text7);
+  listsElement = document.getElementById("deal-dealer-sum");
+  listsElement.appendChild(dsa);
 }
 
 // HiTしたとき
@@ -327,7 +298,6 @@ function hit(){
   
   var shuffled = deckCreate();
   var playerMax = 0;  //playerとplayerAの大きい方
-  var hd = 0;         //DealerのHIT数の初期化（ShowHandメソッドのため） 
   
   //現在のヒット数を取得
   var oldhp = document.getElementById('hp');
@@ -339,14 +309,143 @@ function hit(){
   
   //ヒット数をプラス1する
   var newhp = document.createTextNode(oldhp+1);
-  
   var oldList = document.getElementById('hp');
-  
   newList.appendChild(newhp);
-  
   var parentNode = oldList.parentNode;
-  
   parentNode.replaceChild(newList,oldList);
+  
+  //playerAの値を読み込む
+  var player = document.getElementById('ps');
+  player = Number(player.innerText);
+  var playerA = document.getElementById('psa');
+  playerA = Number(playerA.innerText);
+  
+  //ヒット数を読み込む
+  //ヒット数+3する
+  newhp = document.getElementById('hp');
+  newhp = Number(newhp.innerText);
+  var i = newhp + 3;
+  
+  if (playerA != 0) //今までカードのうち、Aを1枚11として扱ったとき
+  {
+    player += shuffled[i]; //以降のAは1になる
+    playerA += shuffled[i]; //以降のAは1になる
+    i += 1;
+
+    //Aが11のときBUSTした場合
+    if (playerA > 21)
+    {
+      //Aを1にし playerAはなくなりplayerになる
+      playerA = 0;
+      
+      hit_card(shuffled,i,player,playerA);
+    }
+    //21のときは表示してループを抜ける
+    else if (playerA == 21)
+    {
+      hit_card(shuffled,i,player,playerA);
+    }
+    //Aが11のとき、BUSTも21でもない場合
+    else
+    {
+      hit_card(shuffled,i,player,playerA);
+    }
+  }
+  else  //今までのカードのうち、Aがあっても1として扱ったとき
+  {
+    if (shuffled[i] != 1) //HITしたカードがAではないとき
+    {
+      player += shuffled[i];
+      i += 1;
+
+      if (player == 21)
+      {
+        hit_card(shuffled,i,player,playerA);
+      }
+      else if (player < 21)
+      {
+        hit_card(shuffled,i,player,playerA);
+      }
+      else if (player > 21)
+      {
+        hit_card(shuffled,i,player,playerA);
+      }
+    }
+    else //HITしたカードがAのとき
+    {
+      //HITしたカードのAを1として扱うとき
+      player += shuffled[i];
+      i += 1;
+
+      //HITしたカードのAを11として扱うとき
+      playerA = player + 10;
+
+      if (playerA > 21)   //playerAがBUSTのとき、playerのみ表示する
+      {
+        playerA = 0;    //干渉しないようにするため
+        if (player == 21)
+        {
+           hit_card(shuffled,i,player,playerA);
+        }
+        else if (player < 21)
+        {
+           hit_card(shuffled,i,player,playerA);
+        }
+        else if (player > 21)
+        {
+           hit_card(shuffled,i,player,playerA);
+        }
+      }
+      else  //playerAがBUSTしていないとき
+      {
+        if (playerA == 21)
+        {
+           hit_card(shuffled,i,player,playerA);
+        }
+        else
+        {
+           hit_card(shuffled,i,player,playerA);
+        }
+      }
+    }
+  }
 }
 
-
+function hit_card(shuffled,i,player,playerA){
+  var pc3 = document.createElement('span');
+  pc3.setAttribute('class','pc2');
+  var text3 =document.createTextNode(shuffled[i]);
+  pc3.appendChild(text3);
+  var listsElement = document.getElementById("deal-player");
+  listsElement.appendChild(pc3);
+  
+  //現在のplayerを取得
+  var oldps = player;
+  // oldps = Number(oldps.innerText);
+  
+  //変動後のplayerのタグを作成する
+  var newList1 = document.createElement('ps');
+  newList1.setAttribute('id','ps');
+  
+  //ヒット数をプラス1する
+  var newps = document.createTextNode(oldps + shuffled[i]);
+  var oldList1 = document.getElementById('ps');
+  newList1.appendChild(newps);
+  var parentNode1 = oldList1.parentNode;
+  parentNode1.replaceChild(newList1,oldList1);
+  
+  //現在のplayerAを取得
+  var oldpsa = playerA;
+  // oldpsa = Number(oldpsa.innerText);
+  
+  //変動後のplayerのタグを作成する
+  var newList2 = document.createElement('psa');
+  newList2.setAttribute('id','psa');
+  
+  //ヒット数をプラス1する
+  var newpsa = document.createTextNode(oldpsa + shuffled[i]);
+  var oldList2 = document.getElementById('psa');
+  newList2.appendChild(newpsa);
+  var parentNode2 = oldList2.parentNode;
+  parentNode2.replaceChild(newList2,oldList2);
+}
