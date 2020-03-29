@@ -263,7 +263,7 @@ function show_player_deal(shuffled,player,playerA){
   listsElement.appendChild(ps);
 }
 
-function show_dealer_deal(shuffled,dealer,dealerA){
+function show_dealer_deal_hidden(shuffled,dealer,dealerA){
   var dc1 = document.createElement('span');
   dc1.setAttribute('class','dc1');
   var text3 = document.createTextNode(shuffled[2]);
@@ -274,6 +274,36 @@ function show_dealer_deal(shuffled,dealer,dealerA){
   var dc2 = document.createElement('span');
   dc2.setAttribute('class','dc2');
   var text4 = document.createTextNode('?');
+  dc2.appendChild(text4);
+  var listsElementd1 = document.getElementById("deal-dealer");
+  listsElementd1.appendChild(dc2);
+  
+  var ds = document.createElement('span');
+  ds.setAttribute('id','ds');
+  var text6 =document.createTextNode(dealer);
+  ds.appendChild(text6);
+  var listsElement = document.getElementById("deal-dealer-sum");
+  listsElement.appendChild(ds);
+  
+  var dsa = document.createElement('span');
+  dsa.setAttribute('id','dsa');
+  var text7 =document.createTextNode(dealerA);
+  ds.appendChild(text7);
+  listsElement = document.getElementById("deal-dealer-sum");
+  listsElement.appendChild(dsa);
+}
+
+function show_dealer(shuffled,dealer,dealerA){
+  var dc1 = document.createElement('span');
+  dc1.setAttribute('class','dc1');
+  var text3 = document.createTextNode(shuffled[2]);
+  dc1.appendChild(text3);
+  var listsElementd = document.getElementById("deal-dealer");
+  listsElementd.appendChild(dc1);
+  
+  var dc2 = document.createElement('span');
+  dc2.setAttribute('class','dc2');
+  var text4 = document.createTextNode('shuffled[3]');
   dc2.appendChild(text4);
   var listsElementd1 = document.getElementById("deal-dealer");
   listsElementd1.appendChild(dc2);
@@ -314,41 +344,44 @@ function hit(){
   var parentNode = oldList.parentNode;
   parentNode.replaceChild(newList,oldList);
   
-  //playerAの値を読み込む
-  var player = document.getElementById('ps');
-  player = Number(player.innerText);
-  var playerA = document.getElementById('psa');
-  playerA = Number(playerA.innerText);
-  
   //ヒット数を読み込む
   //ヒット数+3する
   newhp = document.getElementById('hp');
   newhp = Number(newhp.innerText);
   var i = newhp + 3;
   
+  //playerAの値を読み込む
+  var player = document.getElementById('ps');
+  player = Number(player.innerText);
+  var playerA = document.getElementById('psa');
+  playerA = Number(playerA.innerText);
+  
+  
+  
   if (playerA != 0) //今までカードのうち、Aを1枚11として扱ったとき
   {
     player += shuffled[i]; //以降のAは1になる
     playerA += shuffled[i]; //以降のAは1になる
-    i += 1;
 
     //Aが11のときBUSTした場合
     if (playerA > 21)
     {
       //Aを1にし playerAはなくなりplayerになる
       playerA = 0;
-      
-      hit_card(shuffled,i,player,playerA);
+      hit_card_player(shuffled,i,player,playerA);
+      hit_sum_player(player);
     }
     //21のときは表示してループを抜ける
     else if (playerA == 21)
     {
-      hit_card(shuffled,i,player,playerA);
+      hit_card_player(shuffled,i,player,playerA);
+      hit_sum_playerA(playerA);
     }
     //Aが11のとき、BUSTも21でもない場合
     else
     {
-      hit_card(shuffled,i,player,playerA);
+      hit_card_player(shuffled,i,player,playerA);
+      hit_sum_player_or_playerA(player,playerA);
     }
   }
   else  //今までのカードのうち、Aがあっても1として扱ったとき
@@ -356,26 +389,27 @@ function hit(){
     if (shuffled[i] != 1) //HITしたカードがAではないとき
     {
       player += shuffled[i];
-      i += 1;
 
       if (player == 21)
       {
-        hit_card(shuffled,i,player,playerA);
+        hit_card_player(shuffled,i,player,playerA);
+        hit_sum_player(player);
       }
       else if (player < 21)
       {
-        hit_card(shuffled,i,player,playerA);
+        hit_card_player(shuffled,i,player,playerA);
+        hit_sum_player(player);
       }
       else if (player > 21)
       {
-        hit_card(shuffled,i,player,playerA);
+        hit_card_player(shuffled,i,player,playerA);
+        hit_sum_player(player);
       }
     }
     else //HITしたカードがAのとき
     {
       //HITしたカードのAを1として扱うとき
       player += shuffled[i];
-      i += 1;
 
       //HITしたカードのAを11として扱うとき
       playerA = player + 10;
@@ -385,33 +419,39 @@ function hit(){
         playerA = 0;    //干渉しないようにするため
         if (player == 21)
         {
-           hit_card(shuffled,i,player,playerA);
+           hit_card_player(shuffled,i,player,playerA);
+           hit_sum_player(player);
         }
         else if (player < 21)
         {
-           hit_card(shuffled,i,player,playerA);
+           hit_card_player(shuffled,i,player,playerA);
+           hit_sum_player(player);
         }
         else if (player > 21)
         {
-           hit_card(shuffled,i,player,playerA);
+           hit_card_player(shuffled,i,player,playerA);
+           hit_sum_player(player);
         }
       }
       else  //playerAがBUSTしていないとき
       {
         if (playerA == 21)
         {
-           hit_card(shuffled,i,player,playerA);
+           hit_card_player(shuffled,i,player,playerA);
+           hit_sum_playerA(playerA);
         }
         else
         {
-           hit_card(shuffled,i,player,playerA);
+           hit_card_player(shuffled,i,player,playerA);
+           hit_sum_player_or_playerA(player,playerA);
         }
       }
     }
   }
 }
 
-function hit_card(shuffled,i,player,playerA){
+//playerがヒットしたときのカードを表示
+function hit_card_player(shuffled,i,player,playerA){
   var pc3 = document.createElement('span');
   pc3.setAttribute('class','pc2');
   var text3 =document.createTextNode(shuffled[i]);
@@ -419,33 +459,260 @@ function hit_card(shuffled,i,player,playerA){
   var listsElement = document.getElementById("deal-player");
   listsElement.appendChild(pc3);
   
-  //現在のplayerを取得
-  var oldps = player;
-  // oldps = Number(oldps.innerText);
-  
   //変動後のplayerのタグを作成する
   var newList1 = document.createElement('ps');
   newList1.setAttribute('id','ps');
   
-  //ヒット数をプラス1する
-  var newps = document.createTextNode(oldps + shuffled[i]);
+  //ヒット後のplayerを代入する
+  var newps = document.createTextNode(player);
   var oldList1 = document.getElementById('ps');
   newList1.appendChild(newps);
   var parentNode1 = oldList1.parentNode;
   parentNode1.replaceChild(newList1,oldList1);
   
-  //現在のplayerAを取得
-  var oldpsa = playerA;
-  // oldpsa = Number(oldpsa.innerText);
   
   //変動後のplayerのタグを作成する
   var newList2 = document.createElement('psa');
   newList2.setAttribute('id','psa');
   
-  //ヒット数をプラス1する
-  var newpsa = document.createTextNode(oldpsa + shuffled[i]);
+  //ヒット後のplayerAを代入する
+  var newpsa = document.createTextNode(playerA);
   var oldList2 = document.getElementById('psa');
   newList2.appendChild(newpsa);
+  var parentNode2 = oldList2.parentNode;
+  parentNode2.replaceChild(newList2,oldList2);
+}
+
+//playerがヒットしたあとの合計(Aを11と扱わないとき)を表示
+function hit_sum_player(player){
+  var newList = document.createElement('psv');
+  newList.setAttribute('id','psv');
+  
+  var newpsv = document.createTextNode("　合計　"+ player);
+  var oldList = document.getElementById('psv');
+  newList.appendChild(newpsv);
+  var parentNode = oldList.parentNode;
+  parentNode.replaceChild(newList,oldList);
+}
+
+//playerがヒットしたあとの合計(Aを11と扱うとき)を表示
+function hit_sum_playerA(playerA){
+  var newList = document.createElement('psv');
+  newList.setAttribute('id','psv');
+  
+  var newpsv = document.createTextNode("　合計　"+ playerA);
+  var oldList = document.getElementById('psv');
+  newList.appendChild(newpsv);
+  var parentNode = oldList.parentNode;
+  parentNode.replaceChild(newList,oldList);
+}
+
+//playerがヒットしたあとの合計(Aを11または1と両方扱うとき)を表示
+function hit_sum_player_or_playerA(player,playerA){
+  var newList = document.createElement('psv');
+  newList.setAttribute('id','psv');
+  
+  var newpsv = document.createTextNode("　合計　"+ player +"　or　" + playerA);
+  var oldList = document.getElementById('psv');
+  newList.appendChild(newpsv);
+  var parentNode = oldList.parentNode;
+  parentNode.replaceChild(newList,oldList);
+}
+
+//ディーラーのターンのとき
+function dealer_turn(dealer,dealerA,shuffled){
+  var dealerMax = 0;    //dealerとdealerAの大きい方
+  
+  if (dealer < 17 && dealerA < 17)
+  {
+    while (dealer < 17 && dealerA < 17)//ディーラーが17とき
+    {
+      //現在のヒット数を取得
+      var oldhp = document.getElementById('hp');
+      oldhp = Number(oldhp.innerText);
+      
+      //変動後の所持ポイントのタグを作成する
+      var newList = document.createElement('hp');
+      newList.setAttribute('id','hp');
+      
+      //ヒット数をプラス1する
+      var newhp = document.createTextNode(oldhp+1);
+      var oldList = document.getElementById('hp');
+      newList.appendChild(newhp);
+      var parentNode = oldList.parentNode;
+      parentNode.replaceChild(newList,oldList);
+      
+      //ヒット数を読み込む
+      //ヒット数+3する
+      newhp = document.getElementById('hp');
+      newhp = Number(newhp.innerText);
+      var i = newhp + 3;
+      
+      if (dealerA != 0) //今までカードのうち、Aを1枚11として扱ったとき
+      {
+        dealerA += shuffled[i]; //以降のAは1になる
+
+        //Aが11のときBUSTするなら、Aを1に戻す
+        if (dealerA > 21)
+        {
+          dealerA -= 10;
+          //Aを1に戻したら dealerAはなくなりdealerになる
+          dealer = dealerA;
+          dealerA = 0;
+          hit_card_dealer(shuffled,i,dealer,dealerA);
+        }
+        else if (dealerA == 21)
+        {
+          hit_card_dealer(shuffled,i,dealer,dealerA);
+          break;
+        }
+        else
+        {
+          hit_card_dealer(shuffled,i,dealer,dealerA);
+        }
+      }
+      else  //最初の2枚のカードを、Aがあっても1として扱ったとき
+      {
+        if (shuffled[i] != 1) //今までのカードがAではないとき
+        {
+          dealer += shuffled[i];
+
+          if (dealer == 21)
+          {
+            hit_card_dealer(shuffled,i,dealer,dealerA);
+            break;
+          }
+          else if (dealer < 21)
+          {
+            hit_card_dealer(shuffled,i,dealer,dealerA);
+          }
+          else if (dealer > 21)
+          {
+            hit_card_dealer(shuffled,i,dealer,dealerA);
+            break;
+          }
+        }
+        else //HITしたカードがAのとき
+        {
+          //HITしたカードのAを1として扱うとき
+          dealer += shuffled[i];
+
+          //HITしたカードのAを11として扱うとき
+          dealerA = dealer + 10;
+
+          if (dealerA > 21)   //playerAがBUSTのとき、playerのみ表示する
+          {
+            dealerA = 0;
+            if (dealer == 21)
+            {
+              hit_card_dealer(shuffled,i,dealer,dealerA);
+              break;
+            }
+            else if (dealer < 21)
+            {
+              hit_card_dealer(shuffled,i,dealer,dealerA);
+            }
+            else if (dealer > 21)
+            {
+              hit_card_dealer(shuffled,i,dealer,dealerA);
+              break;
+            }
+          }
+          else  //playerAがBUSTしていないとき
+          {
+            if (dealer == 21)  //playerAが21なら
+            {
+              hit_card_dealer(shuffled,i,dealer,dealerA);
+              break;
+            }
+            else
+            {
+              hit_card_dealer(shuffled,i,dealer,dealerA);
+            }
+          }
+        }
+      }
+    }
+  }
+  //ディーラーが17以上のときはHitせず、Dealのカードを公開する    
+  else
+  {
+    if (dealerA == 0)
+    {
+        
+    }
+    else
+    {
+        //dealerAの方が強い手のため
+    }
+  }
+  //dealerとdealerAのうち21に近い方をdealerMaxとする
+  //BlackJackかBUSTか、それら以外ならdealerMaxの表示
+  if (dealerA == 21)
+  {
+    if (dB == true)
+    {
+      dealerMax = dealerA;
+      show_dealer(shuffled,dealer,dealerA)
+      
+    }
+    else
+    {
+      dealerMax = dealerA;
+    }
+  }
+  else if (dealer == 21)
+  {
+    dealerMax = dealer;
+  }
+  else if (dealer > 21)   //dealerがBUSTした場合（dealerAはこのとき0）
+  {
+    dealerMax = dealer;
+      
+  }
+  else if (dealer < 21)
+  {
+    if (dealer > dealerA)
+    {
+      dealerMax = dealer;
+    }
+    else
+    {
+      dealerMax = dealerA;
+    }
+  }
+  return dealerMax;
+}
+
+//dealerがヒットしたときのカードを表示
+function hit_card_dealer(shuffled,i,dealer,dealerA){
+  var dc3 = document.createElement('span');
+  dc3.setAttribute('class','dc3');
+  var text3 =document.createTextNode(shuffled[i]);
+  dc3.appendChild(text3);
+  var listsElement = document.getElementById("deal-dealer");
+  listsElement.appendChild(dc3);
+  
+  //変動後のdealerのタグを作成する
+  var newList1 = document.createElement('ds');
+  newList1.setAttribute('id','ds');
+  
+  //ヒット後のplayerを代入する
+  var newds = document.createTextNode(dealer);
+  var oldList1 = document.getElementById('ds');
+  newList1.appendChild(newds);
+  var parentNode1 = oldList1.parentNode;
+  parentNode1.replaceChild(newList1,oldList1);
+  
+  
+  //変動後のplayerのタグを作成する
+  var newList2 = document.createElement('dsa');
+  newList2.setAttribute('id','dsa');
+  
+  //ヒット後のplayerAを代入する
+  var newdsa = document.createTextNode(dealerA);
+  var oldList2 = document.getElementById('dsa');
+  newList2.appendChild(newdsa);
   var parentNode2 = oldList2.parentNode;
   parentNode2.replaceChild(newList2,oldList2);
 }
